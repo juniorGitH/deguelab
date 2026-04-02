@@ -12,12 +12,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/juniorGitH/Emmanuel_Amela.git"
+    "url": "https://github.com/juniorGitH/deguelab.git"
   },
   "author": "Dreamer the Prince",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/juniorGitH/Emmanuel_Amela/issues"
+    "url": "https://github.com/juniorGitH/deguelab/issues"
   },
   "dependencies": {
     "@fortawesome/free-solid-svg-icons": "^7.1.0",
