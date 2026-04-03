@@ -18,6 +18,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
   color: #1c1917;
   background: #fafaf9;
+  overflow-x: hidden;
+}
+
+#app {
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
 @layer utilities {

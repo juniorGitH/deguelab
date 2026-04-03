@@ -20,7 +20,7 @@ const DegueLabHome = () => {
   return (
     <div className="min-h-screen bg-stone-50">
       <section
-        className="relative overflow-hidden text-white py-16 sm:py-20 lg:py-24 px-4"
+        className="relative overflow-hidden text-white py-16 sm:py-20 lg:py-24 px-3 sm:px-4"
         style={{
           backgroundImage: `linear-gradient(rgba(20,20,20,0.62), rgba(20,20,20,0.62)), url(${heroImage})`,
           backgroundSize: "cover",
@@ -32,7 +32,7 @@ const DegueLabHome = () => {
             DEGUE LAB
           </h1>
           <p className="text-base sm:text-xl md:text-2xl font-medium mb-6 sm:mb-8 max-w-3xl mx-auto">
-            L&apos;expérience premium du degué, sounochie et yaourt artisanal.
+            L&apos;expérience premium du degué et du yaourt artisanal.
           </p>
           <div className="flex flex-wrap justify-center gap-2 sm:gap-4 text-xs sm:text-sm md:text-base">
             <Link
@@ -51,7 +51,7 @@ const DegueLabHome = () => {
         </div>
       </section>
 
-      <section className="py-10 sm:py-12 px-4">
+      <section className="py-10 sm:py-12 px-3 sm:px-4">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 mb-10 sm:mb-12 max-w-5xl mx-auto">
             {[
@@ -62,7 +62,7 @@ const DegueLabHome = () => {
               <Link
                 to={`/products?category=${item.category}`}
                 key={item.label}
-                className="bg-white border border-stone-200 text-stone-900 p-4 sm:p-6 rounded-2xl shadow-sm hover:shadow-lg transform hover:scale-[1.02] transition-all duration-300 text-center block"
+                className="bg-white border border-stone-200 text-stone-900 p-4 sm:p-6 rounded-2xl shadow-sm hover:shadow-lg transform hover:scale-[1.02] transition-all duration-300 text-center block w-full"
               >
                 <div className="text-[10px] sm:text-xs tracking-[0.16em] sm:tracking-[0.2em] text-stone-500 mb-2">CATÉGORIE</div>
                 <div className="font-bold text-sm sm:text-base">{item.label}</div>
@@ -78,18 +78,18 @@ const DegueLabHome = () => {
             {products.map((product) => (
               <div
                 key={product.id}
-                className="bg-white rounded-3xl border border-stone-200 overflow-hidden transform hover:scale-[1.02] transition-all duration-300 hover:shadow-xl"
+                className="bg-white rounded-3xl border border-stone-200 overflow-hidden transform hover:scale-[1.02] transition-all duration-300 hover:shadow-xl min-w-0"
               >
                 <div className="h-48 sm:h-52">
                   <img src={product.image} alt={product.name} className="h-full w-full object-cover" loading="lazy" />
                 </div>
-                <div className="p-4 sm:p-6">
-                  <h3 className="text-lg sm:text-xl font-bold mb-2 text-stone-900" style={{ fontFamily: "Poppins, sans-serif" }}>
+                <div className="p-4 sm:p-6 min-w-0">
+                  <h3 className="text-lg sm:text-xl font-bold mb-2 text-stone-900 break-words" style={{ fontFamily: "Poppins, sans-serif" }}>
                     {product.name}
                   </h3>
-                  <p className="text-stone-600 text-sm mb-4 min-h-12 sm:h-12">{product.description}</p>
+                  <p className="text-stone-600 text-sm mb-4 min-h-12 sm:h-12 break-words">{product.description}</p>
                   <div className="flex items-center justify-between">
-                    <span className="text-xl sm:text-2xl font-black text-stone-900">{product.price}</span>
+                    <span className="text-xl sm:text-2xl font-black text-stone-900 break-words">{product.price}</span>
                   </div>
                   <button
                     onClick={() => handleBuy(product)}

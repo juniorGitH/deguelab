@@ -21,7 +21,7 @@ const DegueLabFooter = () => {
               DEGUE LAB
             </h3>
             <p className="text-stone-300 mb-4 text-sm sm:text-base max-w-sm mx-auto md:mx-0">
-              L&apos;excellence du degué, du sounochie et des recettes artisanales premium.
+              L&apos;excellence du degué, du yaourt et des recettes artisanales premium.
             </p>
             <a
               href="https://wa.me/22893733150"
@@ -78,7 +78,7 @@ const DegueLabFooter = () => {
                   +228 93 73 31 50
                 </a>
               </li>
-              <li>Lun - Sam: 8h - 20h</li>
+              <li>Tous les jours: 7h - 23h</li>
               <li>Lomé, Togo</li>
             </ul>
           </div>
