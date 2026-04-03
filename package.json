@@ -2,11 +2,11 @@
   "name": "degue-lab",
   "version": "1.0.0",
   "description": "Degue Lab - Boutique en ligne de Degue et Yaourt premium",
-  "homepage": "https://deguelab.com",
+  "homepage": "https://juniorgith.github.io/deguelab",
   "scripts": {
     "start": "parcel src/index.html",
     "build": "parcel build src/index.html",
-    "build-gh": "parcel build src/index.html --public-url \"/\" && powershell -Command \"Copy-Item -Path dist/index.html -Destination dist/404.html\" && powershell -Command \"Set-Content -Path dist/CNAME -Value 'e-a.codes'\"",
+    "build-gh": "parcel build src/index.html --public-url \"./\" && powershell -Command \"Copy-Item -Path dist/index.html -Destination dist/404.html\"",
     "predeploy": "npm run build-gh",
     "deploy": "gh-pages -d dist"
   },
@@ -40,6 +40,7 @@
     "prettier": "^2.7.1",
     "process": "^0.11.10",
     "serve": "^14.2.4",
+    "svgo": "^3.3.3",
     "tailwindcss": "^3.3.2"
   }
 }

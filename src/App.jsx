@@ -28,8 +28,10 @@ const Layout = ({ children }) => {
 };
 
 const App = () => {
+  const basename = window.location.pathname.startsWith("/deguelab") ? "/deguelab" : "/";
+
   return (
-    <Router future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+    <Router basename={basename} future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
       <Routes>
         {/* Page d'accueil */}
         <Route path="/" element={<Layout><DegueLabHome /></Layout>} />

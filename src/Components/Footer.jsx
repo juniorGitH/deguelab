@@ -267,8 +267,10 @@ const Footer = ({
           margin: 0,
         }}
       >
-        &copy; {new Date().getFullYear()} {name}. Tous droits réservés.
+        &copy; 2026 {name}. Tous droits réservés.
+           
       </p>
+      
     </footer>
   );
 };

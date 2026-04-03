@@ -3,6 +3,7 @@
  */
 
 import React from "react";
+import { Link } from "react-router-dom";
 import { openWhatsAppWithLocation } from "../utils/whatsappOrder";
 
 const DegueLabFooter = () => {
@@ -39,19 +40,19 @@ const DegueLabFooter = () => {
             </h3>
             <ul className="space-y-2 text-stone-300 text-sm sm:text-base">
               <li>
-                <a href="/" className="hover:text-white transition-colors duration-300">
+                <Link to="/" className="hover:text-white transition-colors duration-300">
                   Accueil
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/products" className="hover:text-white transition-colors duration-300">
+                <Link to="/products" className="hover:text-white transition-colors duration-300">
                   Nos Variétés
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/about" className="hover:text-white transition-colors duration-300">
+                <Link to="/about" className="hover:text-white transition-colors duration-300">
                   À Propos
-                </a>
+                </Link>
               </li>
               <li>
                 <a
@@ -84,7 +85,8 @@ const DegueLabFooter = () => {
         </div>
 
         <div className="border-t border-stone-800 mt-8 pt-6 sm:pt-8 text-center text-stone-400">
-          <p className="text-sm">© 2024 Degue Lab - Tous droits réservés</p>
+          <p className="text-sm">© 2026 Degue Lab - Tous droits réservés</p>
+          <p className="mt-1">Développé par Emmanuel AMELA</p>
         </div>
       </div>
     </footer>
