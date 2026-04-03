@@ -34827,32 +34827,8 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "openWhatsAppWithLocation", ()=>openWhatsAppWithLocation);
 const WHATSAPP_NUMBER = "22893733150";
-const getLocationMessage = ()=>new Promise((resolve)=>{
-        if (!navigator.geolocation) {
-            resolve("Localisation: non disponible sur cet appareil.");
-            return;
-        }
-        navigator.geolocation.getCurrentPosition((position)=>{
-            const { latitude , longitude  } = position.coords;
-            resolve(`Localisation: https://maps.google.com/?q=${latitude},${longitude}`);
-        }, (error)=>{
-            const reasonByCode = {
-                1: "permission refus\xe9e",
-                2: "position indisponible",
-                3: "d\xe9lai d\xe9pass\xe9"
-            };
-            const reason = reasonByCode[error.code] || "non partag\xe9e";
-            resolve(`Localisation: ${reason}.`);
-        }, {
-            enableHighAccuracy: true,
-            timeout: 8000,
-            maximumAge: 0
-        });
-    });
 const openWhatsAppWithLocation = async (baseMessage)=>{
-    const locationMessage = await getLocationMessage();
-    const message = `${baseMessage}\n\n${locationMessage}`;
-    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(baseMessage)}`;
     window.open(url, "_blank", "noopener,noreferrer");
 };
 
@@ -35081,15 +35057,25 @@ const DegueLabFooter = ()=>{
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                     className: "border-t border-stone-800 mt-8 pt-6 sm:pt-8 text-center text-stone-400",
-                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                        className: "text-sm",
-                        children: "\xa9 2024 Degue Lab - Tous droits r\xe9serv\xe9s"
-                    }, void 0, false, {
-                        fileName: "src/Components/DegueLabFooter.jsx",
-                        lineNumber: 88,
-                        columnNumber: 11
-                    }, undefined)
-                }, void 0, false, {
+                    children: [
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                            className: "text-sm",
+                            children: "\xa9 2026 Degue Lab - Tous droits r\xe9serv\xe9s"
+                        }, void 0, false, {
+                            fileName: "src/Components/DegueLabFooter.jsx",
+                            lineNumber: 88,
+                            columnNumber: 11
+                        }, undefined),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                            className: "mt-1",
+                            children: "D\xe9velopp\xe9 par Emmanuel AMELA"
+                        }, void 0, false, {
+                            fileName: "src/Components/DegueLabFooter.jsx",
+                            lineNumber: 89,
+                            columnNumber: 11
+                        }, undefined)
+                    ]
+                }, void 0, true, {
                     fileName: "src/Components/DegueLabFooter.jsx",
                     lineNumber: 87,
                     columnNumber: 9
