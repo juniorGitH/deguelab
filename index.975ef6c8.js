@@ -34876,7 +34876,7 @@ const DegueLabFooter = ()=>{
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                                     className: "text-stone-300 mb-4 text-sm sm:text-base max-w-sm mx-auto md:mx-0",
-                                    children: "L'excellence du degu\xe9, du sounochie et des recettes artisanales premium."
+                                    children: "L'excellence du degu\xe9, du yaourt et des recettes artisanales premium."
                                 }, void 0, false, {
                                     fileName: "src/Components/DegueLabFooter.jsx",
                                     lineNumber: 23,
@@ -35024,7 +35024,7 @@ const DegueLabFooter = ()=>{
                                             columnNumber: 15
                                         }, undefined),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
-                                            children: "Lun - Sam: 8h - 20h"
+                                            children: "Tous les jours: 7h - 23h"
                                         }, void 0, false, {
                                             fileName: "src/Components/DegueLabFooter.jsx",
                                             lineNumber: 81,
@@ -35128,7 +35128,7 @@ const DegueLabHome = ()=>{
         className: "min-h-screen bg-stone-50",
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("section", {
-                className: "relative overflow-hidden text-white py-16 sm:py-20 lg:py-24 px-4",
+                className: "relative overflow-hidden text-white py-16 sm:py-20 lg:py-24 px-3 sm:px-4",
                 style: {
                     backgroundImage: `linear-gradient(rgba(20,20,20,0.62), rgba(20,20,20,0.62)), url(${heroImage})`,
                     backgroundSize: "cover",
@@ -35150,7 +35150,7 @@ const DegueLabHome = ()=>{
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                             className: "text-base sm:text-xl md:text-2xl font-medium mb-6 sm:mb-8 max-w-3xl mx-auto",
-                            children: "L'exp\xe9rience premium du degu\xe9, sounochie et yaourt artisanal."
+                            children: "L'exp\xe9rience premium du degu\xe9 et du yaourt artisanal."
                         }, void 0, false, {
                             fileName: "src/Components/DegueLabHome.jsx",
                             lineNumber: 34,
@@ -35195,7 +35195,7 @@ const DegueLabHome = ()=>{
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("section", {
-                className: "py-10 sm:py-12 px-4",
+                className: "py-10 sm:py-12 px-3 sm:px-4",
                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                     className: "max-w-7xl mx-auto",
                     children: [
@@ -35216,7 +35216,7 @@ const DegueLabHome = ()=>{
                                 }
                             ].map((item)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
                                     to: `/products?category=${item.category}`,
-                                    className: "bg-white border border-stone-200 text-stone-900 p-4 sm:p-6 rounded-2xl shadow-sm hover:shadow-lg transform hover:scale-[1.02] transition-all duration-300 text-center block",
+                                    className: "bg-white border border-stone-200 text-stone-900 p-4 sm:p-6 rounded-2xl shadow-sm hover:shadow-lg transform hover:scale-[1.02] transition-all duration-300 text-center block w-full",
                                     children: [
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                                             className: "text-[10px] sm:text-xs tracking-[0.16em] sm:tracking-[0.2em] text-stone-500 mb-2",
@@ -35259,7 +35259,7 @@ const DegueLabHome = ()=>{
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                             className: "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6",
                             children: products.map((product)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                    className: "bg-white rounded-3xl border border-stone-200 overflow-hidden transform hover:scale-[1.02] transition-all duration-300 hover:shadow-xl",
+                                    className: "bg-white rounded-3xl border border-stone-200 overflow-hidden transform hover:scale-[1.02] transition-all duration-300 hover:shadow-xl min-w-0",
                                     children: [
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                                             className: "h-48 sm:h-52",
@@ -35279,10 +35279,10 @@ const DegueLabHome = ()=>{
                                             columnNumber: 17
                                         }, undefined),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                            className: "p-4 sm:p-6",
+                                            className: "p-4 sm:p-6 min-w-0",
                                             children: [
                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
-                                                    className: "text-lg sm:text-xl font-bold mb-2 text-stone-900",
+                                                    className: "text-lg sm:text-xl font-bold mb-2 text-stone-900 break-words",
                                                     style: {
                                                         fontFamily: "Poppins, sans-serif"
                                                     },
@@ -35293,7 +35293,7 @@ const DegueLabHome = ()=>{
                                                     columnNumber: 19
                                                 }, undefined),
                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                                                    className: "text-stone-600 text-sm mb-4 min-h-12 sm:h-12",
+                                                    className: "text-stone-600 text-sm mb-4 min-h-12 sm:h-12 break-words",
                                                     children: product.description
                                                 }, void 0, false, {
                                                     fileName: "src/Components/DegueLabHome.jsx",
@@ -35303,7 +35303,7 @@ const DegueLabHome = ()=>{
                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                                                     className: "flex items-center justify-between",
                                                     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-                                                        className: "text-xl sm:text-2xl font-black text-stone-900",
+                                                        className: "text-xl sm:text-2xl font-black text-stone-900 break-words",
                                                         children: product.price
                                                     }, void 0, false, {
                                                         fileName: "src/Components/DegueLabHome.jsx",
@@ -35717,7 +35717,7 @@ const DegueLabProducts = ()=>{
         await (0, _whatsappOrder.openWhatsAppWithLocation)(message);
     };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "min-h-screen bg-stone-50 py-10 sm:py-12 px-4",
+        className: "min-h-screen bg-stone-50 py-10 sm:py-12 px-3 sm:px-4",
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
             className: "max-w-7xl mx-auto",
             children: [
@@ -35737,7 +35737,7 @@ const DegueLabProducts = ()=>{
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                             className: "text-base sm:text-xl text-stone-600 max-w-3xl mx-auto",
-                            children: "Une s\xe9lection premium de degu\xe9, sounochie et yaourt artisanal, avec options fruits et prot\xe9ines."
+                            children: "Une s\xe9lection premium de degu\xe9 et de yaourt artisanal, avec options fruits et prot\xe9ines."
                         }, void 0, false, {
                             fileName: "src/Components/DegueLabProducts.jsx",
                             lineNumber: 37,
@@ -35755,7 +35755,7 @@ const DegueLabProducts = ()=>{
                         className: "flex flex-wrap justify-center gap-2 sm:gap-4",
                         children: categories.map((cat)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                                 onClick: ()=>setActiveCategory(cat.id),
-                                className: `px-4 sm:px-6 py-2.5 sm:py-3 rounded-full text-sm sm:text-base font-semibold transition-all duration-300 transform hover:scale-[1.02] ${activeCategory === cat.id ? "bg-stone-900 text-white shadow-md" : "bg-white text-stone-700 border border-stone-200 hover:bg-stone-100 shadow-sm"}`,
+                                className: `px-4 sm:px-6 py-2.5 sm:py-3 rounded-full text-sm sm:text-base font-semibold transition-all duration-300 transform hover:scale-[1.02] max-w-full ${activeCategory === cat.id ? "bg-stone-900 text-white shadow-md" : "bg-white text-stone-700 border border-stone-200 hover:bg-stone-100 shadow-sm"}`,
                                 children: cat.name
                             }, cat.id, false, {
                                 fileName: "src/Components/DegueLabProducts.jsx",
@@ -35775,7 +35775,7 @@ const DegueLabProducts = ()=>{
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                     className: "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6",
                     children: filteredProducts.map((product)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                            className: "bg-white rounded-3xl border border-stone-200 overflow-hidden transform hover:scale-[1.02] transition-all duration-300 hover:shadow-xl",
+                            className: "bg-white rounded-3xl border border-stone-200 overflow-hidden transform hover:scale-[1.02] transition-all duration-300 hover:shadow-xl min-w-0",
                             children: [
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                                     className: "h-44 sm:h-52",
@@ -35795,10 +35795,10 @@ const DegueLabProducts = ()=>{
                                     columnNumber: 15
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                    className: "p-4 sm:p-6",
+                                    className: "p-4 sm:p-6 min-w-0",
                                     children: [
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
-                                            className: "text-lg sm:text-xl font-bold mb-2 text-stone-900",
+                                            className: "text-lg sm:text-xl font-bold mb-2 text-stone-900 break-words",
                                             style: {
                                                 fontFamily: "Poppins, sans-serif"
                                             },
@@ -35809,7 +35809,7 @@ const DegueLabProducts = ()=>{
                                             columnNumber: 17
                                         }, undefined),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                                            className: "text-stone-600 text-sm mb-4 min-h-16 sm:h-16",
+                                            className: "text-stone-600 text-sm mb-4 min-h-16 sm:h-16 break-words",
                                             children: product.description
                                         }, void 0, false, {
                                             fileName: "src/Components/DegueLabProducts.jsx",
@@ -35819,7 +35819,7 @@ const DegueLabProducts = ()=>{
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                                             className: "flex items-center justify-between mb-4",
                                             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-                                                className: "text-xl sm:text-2xl font-black text-stone-900",
+                                                className: "text-xl sm:text-2xl font-black text-stone-900 break-words",
                                                 children: product.price
                                             }, void 0, false, {
                                                 fileName: "src/Components/DegueLabProducts.jsx",
