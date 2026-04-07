@@ -35117,6 +35117,8 @@ var _jsxDevRuntime = require("react/jsx-dev-runtime");
  */ var _reactRouterDom = require("react-router-dom");
 var _whatsappOrder = require("../utils/whatsappOrder");
 var _degueProducts = require("../utils/degueProducts");
+var _degueLabLocation = require("./DegueLabLocation");
+var _degueLabLocationDefault = parcelHelpers.interopDefault(_degueLabLocation);
 const DegueLabHome = ()=>{
     const heroImage = "https://images.unsplash.com/photo-1483918793747-5adbf82956c4?auto=format&fit=crop&w=1800&q=80";
     const products = (0, _degueProducts.degueProducts);
@@ -35145,7 +35147,7 @@ const DegueLabHome = ()=>{
                             children: "DEGUE LAB"
                         }, void 0, false, {
                             fileName: "src/Components/DegueLabHome.jsx",
-                            lineNumber: 31,
+                            lineNumber: 32,
                             columnNumber: 11
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -35153,7 +35155,7 @@ const DegueLabHome = ()=>{
                             children: "L'exp\xe9rience premium du degu\xe9 et du yaourt artisanal."
                         }, void 0, false, {
                             fileName: "src/Components/DegueLabHome.jsx",
-                            lineNumber: 34,
+                            lineNumber: 35,
                             columnNumber: 11
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -35165,7 +35167,7 @@ const DegueLabHome = ()=>{
                                     children: "M\xe9langes de fruits"
                                 }, void 0, false, {
                                     fileName: "src/Components/DegueLabHome.jsx",
-                                    lineNumber: 38,
+                                    lineNumber: 39,
                                     columnNumber: 13
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
@@ -35174,24 +35176,24 @@ const DegueLabHome = ()=>{
                                     children: "Gamme prot\xe9in\xe9e"
                                 }, void 0, false, {
                                     fileName: "src/Components/DegueLabHome.jsx",
-                                    lineNumber: 44,
+                                    lineNumber: 45,
                                     columnNumber: 13
                                 }, undefined)
                             ]
                         }, void 0, true, {
                             fileName: "src/Components/DegueLabHome.jsx",
-                            lineNumber: 37,
+                            lineNumber: 38,
                             columnNumber: 11
                         }, undefined)
                     ]
                 }, void 0, true, {
                     fileName: "src/Components/DegueLabHome.jsx",
-                    lineNumber: 30,
+                    lineNumber: 31,
                     columnNumber: 9
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/Components/DegueLabHome.jsx",
-                lineNumber: 22,
+                lineNumber: 23,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("section", {
@@ -35223,7 +35225,7 @@ const DegueLabHome = ()=>{
                                             children: "CAT\xc9GORIE"
                                         }, void 0, false, {
                                             fileName: "src/Components/DegueLabHome.jsx",
-                                            lineNumber: 67,
+                                            lineNumber: 68,
                                             columnNumber: 17
                                         }, undefined),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -35231,18 +35233,18 @@ const DegueLabHome = ()=>{
                                             children: item.label
                                         }, void 0, false, {
                                             fileName: "src/Components/DegueLabHome.jsx",
-                                            lineNumber: 68,
+                                            lineNumber: 69,
                                             columnNumber: 17
                                         }, undefined)
                                     ]
                                 }, item.label, true, {
                                     fileName: "src/Components/DegueLabHome.jsx",
-                                    lineNumber: 62,
+                                    lineNumber: 63,
                                     columnNumber: 15
                                 }, undefined))
                         }, void 0, false, {
                             fileName: "src/Components/DegueLabHome.jsx",
-                            lineNumber: 56,
+                            lineNumber: 57,
                             columnNumber: 11
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
@@ -35253,7 +35255,7 @@ const DegueLabHome = ()=>{
                             children: "NOS VARI\xc9T\xc9S"
                         }, void 0, false, {
                             fileName: "src/Components/DegueLabHome.jsx",
-                            lineNumber: 73,
+                            lineNumber: 74,
                             columnNumber: 11
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -35270,12 +35272,12 @@ const DegueLabHome = ()=>{
                                                 loading: "lazy"
                                             }, void 0, false, {
                                                 fileName: "src/Components/DegueLabHome.jsx",
-                                                lineNumber: 84,
+                                                lineNumber: 85,
                                                 columnNumber: 19
                                             }, undefined)
                                         }, void 0, false, {
                                             fileName: "src/Components/DegueLabHome.jsx",
-                                            lineNumber: 83,
+                                            lineNumber: 84,
                                             columnNumber: 17
                                         }, undefined),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -35289,7 +35291,7 @@ const DegueLabHome = ()=>{
                                                     children: product.name
                                                 }, void 0, false, {
                                                     fileName: "src/Components/DegueLabHome.jsx",
-                                                    lineNumber: 87,
+                                                    lineNumber: 88,
                                                     columnNumber: 19
                                                 }, undefined),
                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -35297,7 +35299,7 @@ const DegueLabHome = ()=>{
                                                     children: product.description
                                                 }, void 0, false, {
                                                     fileName: "src/Components/DegueLabHome.jsx",
-                                                    lineNumber: 90,
+                                                    lineNumber: 91,
                                                     columnNumber: 19
                                                 }, undefined),
                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -35307,12 +35309,12 @@ const DegueLabHome = ()=>{
                                                         children: product.price
                                                     }, void 0, false, {
                                                         fileName: "src/Components/DegueLabHome.jsx",
-                                                        lineNumber: 92,
+                                                        lineNumber: 93,
                                                         columnNumber: 21
                                                     }, undefined)
                                                 }, void 0, false, {
                                                     fileName: "src/Components/DegueLabHome.jsx",
-                                                    lineNumber: 91,
+                                                    lineNumber: 92,
                                                     columnNumber: 19
                                                 }, undefined),
                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -35321,35 +35323,35 @@ const DegueLabHome = ()=>{
                                                     children: "Acheter via WhatsApp"
                                                 }, void 0, false, {
                                                     fileName: "src/Components/DegueLabHome.jsx",
-                                                    lineNumber: 94,
+                                                    lineNumber: 95,
                                                     columnNumber: 19
                                                 }, undefined)
                                             ]
                                         }, void 0, true, {
                                             fileName: "src/Components/DegueLabHome.jsx",
-                                            lineNumber: 86,
+                                            lineNumber: 87,
                                             columnNumber: 17
                                         }, undefined)
                                     ]
                                 }, product.id, true, {
                                     fileName: "src/Components/DegueLabHome.jsx",
-                                    lineNumber: 79,
+                                    lineNumber: 80,
                                     columnNumber: 15
                                 }, undefined))
                         }, void 0, false, {
                             fileName: "src/Components/DegueLabHome.jsx",
-                            lineNumber: 77,
+                            lineNumber: 78,
                             columnNumber: 11
                         }, undefined)
                     ]
                 }, void 0, true, {
                     fileName: "src/Components/DegueLabHome.jsx",
-                    lineNumber: 55,
+                    lineNumber: 56,
                     columnNumber: 9
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/Components/DegueLabHome.jsx",
-                lineNumber: 54,
+                lineNumber: 55,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("section", {
@@ -35365,7 +35367,7 @@ const DegueLabHome = ()=>{
                             children: "POURQUOI DEGUE LAB ?"
                         }, void 0, false, {
                             fileName: "src/Components/DegueLabHome.jsx",
-                            lineNumber: 109,
+                            lineNumber: 110,
                             columnNumber: 11
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -35379,7 +35381,7 @@ const DegueLabHome = ()=>{
                                             children: "QUALIT\xc9"
                                         }, void 0, false, {
                                             fileName: "src/Components/DegueLabHome.jsx",
-                                            lineNumber: 114,
+                                            lineNumber: 115,
                                             columnNumber: 15
                                         }, undefined),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
@@ -35387,7 +35389,7 @@ const DegueLabHome = ()=>{
                                             children: "100% Artisanal"
                                         }, void 0, false, {
                                             fileName: "src/Components/DegueLabHome.jsx",
-                                            lineNumber: 115,
+                                            lineNumber: 116,
                                             columnNumber: 15
                                         }, undefined),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -35395,13 +35397,13 @@ const DegueLabHome = ()=>{
                                             children: "Ingr\xe9dients premium, pr\xe9paration soign\xe9e et finition \xe9l\xe9gante."
                                         }, void 0, false, {
                                             fileName: "src/Components/DegueLabHome.jsx",
-                                            lineNumber: 116,
+                                            lineNumber: 117,
                                             columnNumber: 15
                                         }, undefined)
                                     ]
                                 }, void 0, true, {
                                     fileName: "src/Components/DegueLabHome.jsx",
-                                    lineNumber: 113,
+                                    lineNumber: 114,
                                     columnNumber: 13
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -35412,7 +35414,7 @@ const DegueLabHome = ()=>{
                                             children: "SERVICE"
                                         }, void 0, false, {
                                             fileName: "src/Components/DegueLabHome.jsx",
-                                            lineNumber: 119,
+                                            lineNumber: 120,
                                             columnNumber: 15
                                         }, undefined),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
@@ -35420,7 +35422,7 @@ const DegueLabHome = ()=>{
                                             children: "Livraison Express"
                                         }, void 0, false, {
                                             fileName: "src/Components/DegueLabHome.jsx",
-                                            lineNumber: 120,
+                                            lineNumber: 121,
                                             columnNumber: 15
                                         }, undefined),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -35428,13 +35430,13 @@ const DegueLabHome = ()=>{
                                             children: "Commandez sur WhatsApp, recevez rapidement chez vous."
                                         }, void 0, false, {
                                             fileName: "src/Components/DegueLabHome.jsx",
-                                            lineNumber: 121,
+                                            lineNumber: 122,
                                             columnNumber: 15
                                         }, undefined)
                                     ]
                                 }, void 0, true, {
                                     fileName: "src/Components/DegueLabHome.jsx",
-                                    lineNumber: 118,
+                                    lineNumber: 119,
                                     columnNumber: 13
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -35445,7 +35447,7 @@ const DegueLabHome = ()=>{
                                             children: "CONFIANCE"
                                         }, void 0, false, {
                                             fileName: "src/Components/DegueLabHome.jsx",
-                                            lineNumber: 124,
+                                            lineNumber: 125,
                                             columnNumber: 15
                                         }, undefined),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
@@ -35453,7 +35455,7 @@ const DegueLabHome = ()=>{
                                             children: "Satisfaction Totale"
                                         }, void 0, false, {
                                             fileName: "src/Components/DegueLabHome.jsx",
-                                            lineNumber: 125,
+                                            lineNumber: 126,
                                             columnNumber: 15
                                         }, undefined),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -35461,36 +35463,41 @@ const DegueLabHome = ()=>{
                                             children: "Une exp\xe9rience premium pens\xe9e pour fid\xe9liser chaque client."
                                         }, void 0, false, {
                                             fileName: "src/Components/DegueLabHome.jsx",
-                                            lineNumber: 126,
+                                            lineNumber: 127,
                                             columnNumber: 15
                                         }, undefined)
                                     ]
                                 }, void 0, true, {
                                     fileName: "src/Components/DegueLabHome.jsx",
-                                    lineNumber: 123,
+                                    lineNumber: 124,
                                     columnNumber: 13
                                 }, undefined)
                             ]
                         }, void 0, true, {
                             fileName: "src/Components/DegueLabHome.jsx",
-                            lineNumber: 112,
+                            lineNumber: 113,
                             columnNumber: 11
                         }, undefined)
                     ]
                 }, void 0, true, {
                     fileName: "src/Components/DegueLabHome.jsx",
-                    lineNumber: 108,
+                    lineNumber: 109,
                     columnNumber: 9
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/Components/DegueLabHome.jsx",
-                lineNumber: 107,
+                lineNumber: 108,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _degueLabLocationDefault.default), {}, void 0, false, {
+                fileName: "src/Components/DegueLabHome.jsx",
+                lineNumber: 134,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/Components/DegueLabHome.jsx",
-        lineNumber: 21,
+        lineNumber: 22,
         columnNumber: 5
     }, undefined);
 };
@@ -35504,7 +35511,7 @@ $RefreshReg$(_c, "DegueLabHome");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react-router-dom":"9xmpe","../utils/whatsappOrder":"1hJiS","../utils/degueProducts":"kNiLu","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"kNiLu":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react-router-dom":"9xmpe","../utils/whatsappOrder":"1hJiS","../utils/degueProducts":"kNiLu","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./DegueLabLocation":"bF3pj"}],"kNiLu":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "degueProducts", ()=>degueProducts);
@@ -35680,7 +35687,299 @@ module.exports = require("./helpers/bundle-url").getBundleURL("bLxZJ") + "yaourP
 },{"./helpers/bundle-url":"lgJ39"}],"3IyfS":[function(require,module,exports) {
 module.exports = require("./helpers/bundle-url").getBundleURL("bLxZJ") + "yaourt.77104c0d.jpg" + "?" + Date.now();
 
-},{"./helpers/bundle-url":"lgJ39"}],"iJQrD":[function(require,module,exports) {
+},{"./helpers/bundle-url":"lgJ39"}],"bF3pj":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$e056 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$e056.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+/**
+ * Degue Lab - Section Localisation
+ */ var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+const DegueLabLocation = ()=>{
+    const address = "H\xe9dzranawo\xe9, en face de l'\xe9glise catholique, pr\xe8s du march\xe9 de H\xe9dzranawo\xe9";
+    const city = "Lom\xe9, Togo";
+    // Coordonnées approximatives de Hédzranawoé, Lomé
+    const latitude = 6.1725;
+    const longitude = 1.2314;
+    const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${latitude},${longitude}`;
+    const embedUrl = `https://www.google.com/maps?q=${latitude},${longitude}&z=16&output=embed`;
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("section", {
+        className: "py-12 sm:py-16 px-4 bg-white",
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+            className: "max-w-7xl mx-auto",
+            children: [
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
+                    className: "text-2xl sm:text-4xl font-black text-center mb-8 sm:mb-12 text-stone-900",
+                    style: {
+                        fontFamily: "Poppins, sans-serif"
+                    },
+                    children: "NOUS TROUVER"
+                }, void 0, false, {
+                    fileName: "src/Components/DegueLabLocation.jsx",
+                    lineNumber: 21,
+                    columnNumber: 9
+                }, undefined),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                    className: "grid grid-cols-1 lg:grid-cols-2 gap-8 items-center",
+                    children: [
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "text-center lg:text-left",
+                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                className: "bg-stone-50 rounded-3xl p-6 sm:p-8 border border-stone-200",
+                                children: [
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                        className: "flex items-center justify-center lg:justify-start mb-4",
+                                        children: [
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("svg", {
+                                                className: "w-8 h-8 text-emerald-600 mr-3",
+                                                fill: "none",
+                                                stroke: "currentColor",
+                                                viewBox: "0 0 24 24",
+                                                children: [
+                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("path", {
+                                                        strokeLinecap: "round",
+                                                        strokeLinejoin: "round",
+                                                        strokeWidth: 2,
+                                                        d: "M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                                                    }, void 0, false, {
+                                                        fileName: "src/Components/DegueLabLocation.jsx",
+                                                        lineNumber: 39,
+                                                        columnNumber: 19
+                                                    }, undefined),
+                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("path", {
+                                                        strokeLinecap: "round",
+                                                        strokeLinejoin: "round",
+                                                        strokeWidth: 2,
+                                                        d: "M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                                                    }, void 0, false, {
+                                                        fileName: "src/Components/DegueLabLocation.jsx",
+                                                        lineNumber: 45,
+                                                        columnNumber: 19
+                                                    }, undefined)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "src/Components/DegueLabLocation.jsx",
+                                                lineNumber: 33,
+                                                columnNumber: 17
+                                            }, undefined),
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
+                                                className: "text-xl sm:text-2xl font-bold text-stone-900",
+                                                style: {
+                                                    fontFamily: "Poppins, sans-serif"
+                                                },
+                                                children: "Notre Adresse"
+                                            }, void 0, false, {
+                                                fileName: "src/Components/DegueLabLocation.jsx",
+                                                lineNumber: 52,
+                                                columnNumber: 17
+                                            }, undefined)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "src/Components/DegueLabLocation.jsx",
+                                        lineNumber: 32,
+                                        columnNumber: 15
+                                    }, undefined),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                        className: "text-stone-700 text-base sm:text-lg mb-2",
+                                        children: address
+                                    }, void 0, false, {
+                                        fileName: "src/Components/DegueLabLocation.jsx",
+                                        lineNumber: 57,
+                                        columnNumber: 15
+                                    }, undefined),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                        className: "text-stone-500 text-sm sm:text-base mb-6",
+                                        children: city
+                                    }, void 0, false, {
+                                        fileName: "src/Components/DegueLabLocation.jsx",
+                                        lineNumber: 60,
+                                        columnNumber: 15
+                                    }, undefined),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                        className: "space-y-4",
+                                        children: [
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                className: "flex items-center justify-center lg:justify-start text-stone-600",
+                                                children: [
+                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("svg", {
+                                                        className: "w-5 h-5 mr-3 text-emerald-600",
+                                                        fill: "none",
+                                                        stroke: "currentColor",
+                                                        viewBox: "0 0 24 24",
+                                                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("path", {
+                                                            strokeLinecap: "round",
+                                                            strokeLinejoin: "round",
+                                                            strokeWidth: 2,
+                                                            d: "M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                                                        }, void 0, false, {
+                                                            fileName: "src/Components/DegueLabLocation.jsx",
+                                                            lineNumber: 67,
+                                                            columnNumber: 21
+                                                        }, undefined)
+                                                    }, void 0, false, {
+                                                        fileName: "src/Components/DegueLabLocation.jsx",
+                                                        lineNumber: 66,
+                                                        columnNumber: 19
+                                                    }, undefined),
+                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                                                        children: "Ouvert tous les jours : 9h - 23h"
+                                                    }, void 0, false, {
+                                                        fileName: "src/Components/DegueLabLocation.jsx",
+                                                        lineNumber: 69,
+                                                        columnNumber: 19
+                                                    }, undefined)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "src/Components/DegueLabLocation.jsx",
+                                                lineNumber: 65,
+                                                columnNumber: 17
+                                            }, undefined),
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                className: "flex items-center justify-center lg:justify-start text-stone-600",
+                                                children: [
+                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("svg", {
+                                                        className: "w-5 h-5 mr-3 text-emerald-600",
+                                                        fill: "none",
+                                                        stroke: "currentColor",
+                                                        viewBox: "0 0 24 24",
+                                                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("path", {
+                                                            strokeLinecap: "round",
+                                                            strokeLinejoin: "round",
+                                                            strokeWidth: 2,
+                                                            d: "M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                                                        }, void 0, false, {
+                                                            fileName: "src/Components/DegueLabLocation.jsx",
+                                                            lineNumber: 74,
+                                                            columnNumber: 21
+                                                        }, undefined)
+                                                    }, void 0, false, {
+                                                        fileName: "src/Components/DegueLabLocation.jsx",
+                                                        lineNumber: 73,
+                                                        columnNumber: 19
+                                                    }, undefined),
+                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
+                                                        href: "tel:+22893733150",
+                                                        className: "hover:text-emerald-600 transition-colors",
+                                                        children: "+228 93 73 31 50"
+                                                    }, void 0, false, {
+                                                        fileName: "src/Components/DegueLabLocation.jsx",
+                                                        lineNumber: 76,
+                                                        columnNumber: 19
+                                                    }, undefined)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "src/Components/DegueLabLocation.jsx",
+                                                lineNumber: 72,
+                                                columnNumber: 17
+                                            }, undefined)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "src/Components/DegueLabLocation.jsx",
+                                        lineNumber: 64,
+                                        columnNumber: 15
+                                    }, undefined),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
+                                        href: googleMapsUrl,
+                                        target: "_blank",
+                                        rel: "noopener noreferrer",
+                                        className: "inline-flex items-center justify-center w-full sm:w-auto mt-6 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-3 px-6 rounded-full transition-all duration-300 text-sm sm:text-base",
+                                        children: [
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("svg", {
+                                                className: "w-5 h-5 mr-2",
+                                                fill: "none",
+                                                stroke: "currentColor",
+                                                viewBox: "0 0 24 24",
+                                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("path", {
+                                                    strokeLinecap: "round",
+                                                    strokeLinejoin: "round",
+                                                    strokeWidth: 2,
+                                                    d: "M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"
+                                                }, void 0, false, {
+                                                    fileName: "src/Components/DegueLabLocation.jsx",
+                                                    lineNumber: 89,
+                                                    columnNumber: 19
+                                                }, undefined)
+                                            }, void 0, false, {
+                                                fileName: "src/Components/DegueLabLocation.jsx",
+                                                lineNumber: 88,
+                                                columnNumber: 17
+                                            }, undefined),
+                                            "Ouvrir dans Google Maps"
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "src/Components/DegueLabLocation.jsx",
+                                        lineNumber: 82,
+                                        columnNumber: 15
+                                    }, undefined)
+                                ]
+                            }, void 0, true, {
+                                fileName: "src/Components/DegueLabLocation.jsx",
+                                lineNumber: 31,
+                                columnNumber: 13
+                            }, undefined)
+                        }, void 0, false, {
+                            fileName: "src/Components/DegueLabLocation.jsx",
+                            lineNumber: 30,
+                            columnNumber: 11
+                        }, undefined),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "h-64 sm:h-80 lg:h-96 rounded-3xl overflow-hidden shadow-lg border border-stone-200",
+                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("iframe", {
+                                title: "Localisation DegueLab - H\xe9dzranawo\xe9, Lom\xe9",
+                                src: embedUrl,
+                                width: "100%",
+                                height: "100%",
+                                style: {
+                                    border: 0
+                                },
+                                allowFullScreen: "",
+                                loading: "lazy",
+                                referrerPolicy: "no-referrer-when-downgrade"
+                            }, void 0, false, {
+                                fileName: "src/Components/DegueLabLocation.jsx",
+                                lineNumber: 98,
+                                columnNumber: 13
+                            }, undefined)
+                        }, void 0, false, {
+                            fileName: "src/Components/DegueLabLocation.jsx",
+                            lineNumber: 97,
+                            columnNumber: 11
+                        }, undefined)
+                    ]
+                }, void 0, true, {
+                    fileName: "src/Components/DegueLabLocation.jsx",
+                    lineNumber: 28,
+                    columnNumber: 9
+                }, undefined)
+            ]
+        }, void 0, true, {
+            fileName: "src/Components/DegueLabLocation.jsx",
+            lineNumber: 20,
+            columnNumber: 7
+        }, undefined)
+    }, void 0, false, {
+        fileName: "src/Components/DegueLabLocation.jsx",
+        lineNumber: 19,
+        columnNumber: 5
+    }, undefined);
+};
+_c = DegueLabLocation;
+exports.default = DegueLabLocation;
+var _c;
+$RefreshReg$(_c, "DegueLabLocation");
+
+  $parcel$ReactRefreshHelpers$e056.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"iJQrD":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$ec75 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
