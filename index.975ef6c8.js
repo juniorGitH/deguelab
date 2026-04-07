@@ -35511,7 +35511,7 @@ $RefreshReg$(_c, "DegueLabHome");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react-router-dom":"9xmpe","../utils/whatsappOrder":"1hJiS","../utils/degueProducts":"kNiLu","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./DegueLabLocation":"bF3pj"}],"kNiLu":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react-router-dom":"9xmpe","../utils/whatsappOrder":"1hJiS","../utils/degueProducts":"kNiLu","./DegueLabLocation":"bF3pj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"kNiLu":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "degueProducts", ()=>degueProducts);
@@ -35704,9 +35704,9 @@ var _reactDefault = parcelHelpers.interopDefault(_react);
 const DegueLabLocation = ()=>{
     const address = "H\xe9dzranawo\xe9, en face de l'\xe9glise catholique, pr\xe8s du march\xe9 de H\xe9dzranawo\xe9";
     const city = "Lom\xe9, Togo";
-    // Coordonnées approximatives de Hédzranawoé, Lomé
-    const latitude = 6.1725;
-    const longitude = 1.2314;
+    // Coordonnées exactes de DegueLab (6°10'41.8"N 1°14'23.7"E)
+    const latitude = 6.178275;
+    const longitude = 1.239924;
     const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${latitude},${longitude}`;
     const embedUrl = `https://www.google.com/maps?q=${latitude},${longitude}&z=16&output=embed`;
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("section", {
