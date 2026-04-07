@@ -5,6 +5,7 @@
 import { Link } from "react-router-dom";
 import { openWhatsAppWithLocation } from "../utils/whatsappOrder";
 import { degueProducts } from "../utils/degueProducts";
+import DegueLabLocation from "./DegueLabLocation";
 
 const DegueLabHome = () => {
   const heroImage =
@@ -128,6 +129,9 @@ const DegueLabHome = () => {
           </div>
         </div>
       </section>
+
+      {/* Section Localisation */}
+      <DegueLabLocation />
     </div>
   );
 };

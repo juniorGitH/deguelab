@@ -6,7 +6,7 @@
   "scripts": {
     "start": "parcel src/index.html",
     "build": "parcel build src/index.html",
-    "build-gh": "parcel build src/index.html --public-url \"./\" && powershell -Command \"Copy-Item -Path dist/index.html -Destination dist/404.html; Copy-Item -Path src/robots.txt -Destination dist/robots.txt; Copy-Item -Path src/sitemap.xml -Destination dist/sitemap.xml; Copy-Item -Path CNAME -Destination dist/CNAME\"",
+    "build-gh": "parcel build src/index.html --public-url \"./\" && powershell -Command \"Copy-Item -Path dist/index.html -Destination dist/404.html; Copy-Item -Path src/robots.txt -Destination dist/robots.txt; Copy-Item -Path src/sitemap.xml -Destination dist/sitemap.xml; Copy-Item -Path CNAME -Destination dist/CNAME; Copy-Item -Path src/images/logo.png -Destination dist/logo.png\"",
     "predeploy": "npm run build-gh",
     "deploy": "gh-pages -d dist"
   },
