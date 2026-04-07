@@ -78,7 +78,7 @@ const DegueLabFooter = () => {
                   +228 93 73 31 50
                 </a>
               </li>
-              <li>Tous les jours: 7h - 23h</li>
+              <li>Tous les jours: 9h - 23h</li>
               <li>Lomé, Togo</li>
             </ul>
           </div>

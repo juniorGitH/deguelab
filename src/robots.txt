@@ -1,0 +1,11 @@
+# DegueLab Robots.txt
+# https://deguelab.com
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://deguelab.com/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 10
