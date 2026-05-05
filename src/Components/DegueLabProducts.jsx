@@ -55,7 +55,6 @@ const DegueLabProducts = () => {
     } else {
       addToCart(product, 1);
       setAddedProductId(product.id);
-      openCart();
     }
   };
 
@@ -63,7 +62,6 @@ const DegueLabProducts = () => {
     if (modalMode === "cart") {
       addToCart(selectedProductForModal, 1, selectedOption);
       setAddedProductId(selectedProductForModal.id);
-      openCart();
     } else {
       const message = `Bonjour! Je souhaite acheter:\n\n${selectedProductForModal.name} (${selectedOption})\nPrix: ${selectedProductForModal.price}\n\n${selectedProductForModal.description}`;
       await openWhatsAppWithLocation(message);
@@ -107,8 +105,8 @@ const DegueLabProducts = () => {
               key={product.id}
               className="bg-white rounded-3xl border border-stone-200 overflow-hidden transform hover:scale-[1.02] transition-all duration-300 hover:shadow-xl min-w-0"
             >
-              <div className="h-44 sm:h-52">
-                <img src={product.image} alt={product.name} className="h-full w-full object-cover" loading="lazy" />
+              <div className="h-44 sm:h-52 bg-stone-100">
+                <img src={product.image} alt={product.name} className="h-full w-full object-contain sm:object-cover" loading="lazy" />
               </div>
               <div className="p-4 sm:p-6 min-w-0">
                 <h3 className="text-lg sm:text-xl font-bold mb-2 text-stone-900 break-words" style={{ fontFamily: "Poppins, sans-serif" }}>

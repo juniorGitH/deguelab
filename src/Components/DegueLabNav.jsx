@@ -58,15 +58,35 @@ const DegueLabNav = () => {
             </a>
           </div>
 
-          <button onClick={() => setIsOpen(!isOpen)} className="md:hidden text-stone-700 focus:outline-none p-1" aria-label="Ouvrir le menu">
-            <svg className="w-7 h-7 sm:w-8 sm:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              {isOpen ? (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              ) : (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+          <div className="md:hidden flex items-center gap-1">
+            <button
+              onClick={toggleCart}
+              className="relative text-stone-700 hover:text-stone-900 transition-colors duration-300 p-2 rounded-lg hover:bg-stone-100"
+              aria-label="Ouvrir le panier"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+              </svg>
+              {cartCount > 0 && (
+                <span className="absolute -top-1 -right-1 bg-emerald-600 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
+                  {cartCount}
+                </span>
               )}
-            </svg>
-          </button>
+            </button>
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="text-stone-700 focus:outline-none p-1"
+              aria-label={isOpen ? "Fermer le menu" : "Ouvrir le menu"}
+            >
+              <svg className="w-7 h-7 sm:w-8 sm:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                {isOpen ? (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                ) : (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                )}
+              </svg>
+            </button>
+          </div>
         </div>
       </div>
 
@@ -94,15 +114,6 @@ const DegueLabNav = () => {
             >
               À Propos
             </Link>
-            <button
-              onClick={() => {
-                toggleCart();
-                setIsOpen(false);
-              }}
-              className="block w-full text-left py-3 px-3 text-stone-700 hover:bg-stone-100 hover:text-stone-900 rounded-lg font-semibold transition-colors duration-300"
-            >
-              Panier {cartCount > 0 && `(${cartCount})`}
-            </button>
             <a
               href="https://wa.me/22893733150?text=Bonjour%20Degue%20Lab!"
               onClick={handleOrderClick}
