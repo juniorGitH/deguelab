@@ -2,15 +2,72 @@
  * Degue Lab - Navigation Menu
  */
 
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useRef, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { openWhatsAppWithLocation } from "../utils/whatsappOrder";
 import { useCart } from "../CartContext";
 
 const DegueLabNav = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
   const { cartCount, toggleCart } = useCart();
+  const navRef = useRef(null);
   
+  useEffect(() => {
+    setIsOpen(false);
+  }, [location.pathname]);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 768) {
+        setIsOpen(false);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!isOpen) {
+      document.body.style.overflow = "";
+      return;
+    }
+
+    document.body.style.overflow = "hidden";
+
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape") {
+        setIsOpen(false);
+      }
+    };
+
+    const handleOutsideClick = (event) => {
+      if (navRef.current && !navRef.current.contains(event.target)) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    document.addEventListener("mousedown", handleOutsideClick);
+    document.addEventListener("touchstart", handleOutsideClick);
+
+    return () => {
+      document.body.style.overflow = "";
+      document.removeEventListener("keydown", handleKeyDown);
+      document.removeEventListener("mousedown", handleOutsideClick);
+      document.removeEventListener("touchstart", handleOutsideClick);
+    };
+  }, [isOpen]);
+
+  const handleCartClick = () => {
+    setIsOpen(false);
+    toggleCart();
+  };
+
   const handleOrderClick = async (event) => {
     event.preventDefault();
     await openWhatsAppWithLocation("Bonjour Degue Lab! Je veux commander.");
@@ -18,10 +75,10 @@ const DegueLabNav = () => {
   };
 
   return (
-    <nav className="bg-white border-b border-stone-200 sticky top-0 z-50">
+    <nav ref={navRef} className="fixed top-0 inset-x-0 bg-white border-b border-stone-200 z-50">
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16 sm:h-20">
-          <Link to="/" className="flex items-center space-x-3">
+          <Link to="/" className="flex items-center space-x-3" onClick={() => setIsOpen(false)}>
             <span className="text-xl sm:text-2xl md:text-3xl font-black text-stone-900 tracking-tight" style={{ fontFamily: "Poppins, sans-serif" }}>
               DEGUE LAB
             </span>
@@ -37,7 +94,7 @@ const DegueLabNav = () => {
             <Link to="/about" className="text-stone-700 hover:text-stone-900 font-semibold transition-colors duration-300">
               À Propos
             </Link>
-            <button onClick={toggleCart} className="relative text-stone-700 hover:text-stone-900 font-semibold transition-colors duration-300 p-2 rounded-lg hover:bg-stone-100">
+            <button type="button" onClick={handleCartClick} className="relative text-stone-700 hover:text-stone-900 font-semibold transition-colors duration-300 p-2 rounded-lg hover:bg-stone-100">
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
               </svg>
@@ -60,7 +117,8 @@ const DegueLabNav = () => {
 
           <div className="md:hidden flex items-center gap-1">
             <button
-              onClick={toggleCart}
+              type="button"
+              onClick={handleCartClick}
               className="relative text-stone-700 hover:text-stone-900 transition-colors duration-300 p-2 rounded-lg hover:bg-stone-100"
               aria-label="Ouvrir le panier"
             >
@@ -74,9 +132,12 @@ const DegueLabNav = () => {
               )}
             </button>
             <button
-              onClick={() => setIsOpen(!isOpen)}
+              type="button"
+              onClick={() => setIsOpen((prevOpen) => !prevOpen)}
               className="text-stone-700 focus:outline-none p-1"
               aria-label={isOpen ? "Fermer le menu" : "Ouvrir le menu"}
+              aria-expanded={isOpen}
+              aria-controls="mobile-nav-menu"
             >
               <svg className="w-7 h-7 sm:w-8 sm:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 {isOpen ? (
@@ -91,7 +152,7 @@ const DegueLabNav = () => {
       </div>
 
       {isOpen && (
-        <div className="md:hidden bg-white border-t border-stone-200">
+        <div id="mobile-nav-menu" className="md:hidden bg-white border-t border-stone-200">
           <div className="px-3 pt-2 pb-4 space-y-2">
             <Link
               to="/"

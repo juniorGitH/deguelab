@@ -23,7 +23,7 @@ const Layout = ({ children }) => {
   return (
     <div className="min-h-screen flex flex-col">
       <DegueLabNav />
-      <main className="flex-grow">{children}</main>
+      <main className="flex-grow pt-16 sm:pt-20">{children}</main>
       <DegueLabFooter />
       <CartDrawer />
     </div>
