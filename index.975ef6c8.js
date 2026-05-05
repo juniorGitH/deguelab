@@ -35453,6 +35453,15 @@ const DegueLabHome = ()=>{
                                     fileName: "src/Components/DegueLabHome.jsx",
                                     lineNumber: 88,
                                     columnNumber: 13
+                                }, undefined),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
+                                    to: "/products?category=the-au-lait",
+                                    className: "bg-white/10 border border-white/30 backdrop-blur-md px-4 sm:px-6 py-2 sm:py-3 rounded-full font-semibold hover:bg-white/20 transition-colors duration-300",
+                                    children: "Th\xe9 au lait"
+                                }, void 0, false, {
+                                    fileName: "src/Components/DegueLabHome.jsx",
+                                    lineNumber: 94,
+                                    columnNumber: 13
                                 }, undefined)
                             ]
                         }, void 0, true, {
@@ -35477,7 +35486,7 @@ const DegueLabHome = ()=>{
                     className: "max-w-7xl mx-auto",
                     children: [
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                            className: "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 mb-10 sm:mb-12 max-w-5xl mx-auto",
+                            className: "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-10 sm:mb-12 max-w-5xl mx-auto",
                             children: [
                                 {
                                     label: "Basiques",
@@ -35490,6 +35499,10 @@ const DegueLabHome = ()=>{
                                 {
                                     label: "Yaourts",
                                     category: "yaourt"
+                                },
+                                {
+                                    label: "Th\xe9 au lait",
+                                    category: "the-au-lait"
                                 }
                             ].map((item)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
                                     to: `/products?category=${item.category}`,
@@ -35500,7 +35513,7 @@ const DegueLabHome = ()=>{
                                             children: "CAT\xc9GORIE"
                                         }, void 0, false, {
                                             fileName: "src/Components/DegueLabHome.jsx",
-                                            lineNumber: 111,
+                                            lineNumber: 118,
                                             columnNumber: 17
                                         }, undefined),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -35508,18 +35521,18 @@ const DegueLabHome = ()=>{
                                             children: item.label
                                         }, void 0, false, {
                                             fileName: "src/Components/DegueLabHome.jsx",
-                                            lineNumber: 112,
+                                            lineNumber: 119,
                                             columnNumber: 17
                                         }, undefined)
                                     ]
                                 }, item.label, true, {
                                     fileName: "src/Components/DegueLabHome.jsx",
-                                    lineNumber: 106,
+                                    lineNumber: 113,
                                     columnNumber: 15
                                 }, undefined))
                         }, void 0, false, {
                             fileName: "src/Components/DegueLabHome.jsx",
-                            lineNumber: 100,
+                            lineNumber: 106,
                             columnNumber: 11
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
@@ -35530,7 +35543,7 @@ const DegueLabHome = ()=>{
                             children: "NOS VARI\xc9T\xc9S"
                         }, void 0, false, {
                             fileName: "src/Components/DegueLabHome.jsx",
-                            lineNumber: 117,
+                            lineNumber: 124,
                             columnNumber: 11
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -35547,12 +35560,12 @@ const DegueLabHome = ()=>{
                                                 loading: "lazy"
                                             }, void 0, false, {
                                                 fileName: "src/Components/DegueLabHome.jsx",
-                                                lineNumber: 128,
+                                                lineNumber: 135,
                                                 columnNumber: 19
                                             }, undefined)
                                         }, void 0, false, {
                                             fileName: "src/Components/DegueLabHome.jsx",
-                                            lineNumber: 127,
+                                            lineNumber: 134,
                                             columnNumber: 17
                                         }, undefined),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -35566,7 +35579,7 @@ const DegueLabHome = ()=>{
                                                     children: product.name
                                                 }, void 0, false, {
                                                     fileName: "src/Components/DegueLabHome.jsx",
-                                                    lineNumber: 131,
+                                                    lineNumber: 138,
                                                     columnNumber: 19
                                                 }, undefined),
                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -35574,7 +35587,7 @@ const DegueLabHome = ()=>{
                                                     children: product.description
                                                 }, void 0, false, {
                                                     fileName: "src/Components/DegueLabHome.jsx",
-                                                    lineNumber: 134,
+                                                    lineNumber: 141,
                                                     columnNumber: 19
                                                 }, undefined),
                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -35584,12 +35597,12 @@ const DegueLabHome = ()=>{
                                                         children: product.price
                                                     }, void 0, false, {
                                                         fileName: "src/Components/DegueLabHome.jsx",
-                                                        lineNumber: 136,
+                                                        lineNumber: 143,
                                                         columnNumber: 21
                                                     }, undefined)
                                                 }, void 0, false, {
                                                     fileName: "src/Components/DegueLabHome.jsx",
-                                                    lineNumber: 135,
+                                                    lineNumber: 142,
                                                     columnNumber: 19
                                                 }, undefined),
                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -35601,7 +35614,7 @@ const DegueLabHome = ()=>{
                                                             children: addedProductId === product.id ? "✓ Ajout\xe9" : "Panier"
                                                         }, void 0, false, {
                                                             fileName: "src/Components/DegueLabHome.jsx",
-                                                            lineNumber: 139,
+                                                            lineNumber: 146,
                                                             columnNumber: 21
                                                         }, undefined),
                                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -35610,41 +35623,41 @@ const DegueLabHome = ()=>{
                                                             children: "Acheter"
                                                         }, void 0, false, {
                                                             fileName: "src/Components/DegueLabHome.jsx",
-                                                            lineNumber: 149,
+                                                            lineNumber: 156,
                                                             columnNumber: 21
                                                         }, undefined)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "src/Components/DegueLabHome.jsx",
-                                                    lineNumber: 138,
+                                                    lineNumber: 145,
                                                     columnNumber: 19
                                                 }, undefined)
                                             ]
                                         }, void 0, true, {
                                             fileName: "src/Components/DegueLabHome.jsx",
-                                            lineNumber: 130,
+                                            lineNumber: 137,
                                             columnNumber: 17
                                         }, undefined)
                                     ]
                                 }, product.id, true, {
                                     fileName: "src/Components/DegueLabHome.jsx",
-                                    lineNumber: 123,
+                                    lineNumber: 130,
                                     columnNumber: 15
                                 }, undefined))
                         }, void 0, false, {
                             fileName: "src/Components/DegueLabHome.jsx",
-                            lineNumber: 121,
+                            lineNumber: 128,
                             columnNumber: 11
                         }, undefined)
                     ]
                 }, void 0, true, {
                     fileName: "src/Components/DegueLabHome.jsx",
-                    lineNumber: 99,
+                    lineNumber: 105,
                     columnNumber: 9
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/Components/DegueLabHome.jsx",
-                lineNumber: 98,
+                lineNumber: 104,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("section", {
@@ -35660,7 +35673,7 @@ const DegueLabHome = ()=>{
                             children: "POURQUOI DEGUE LAB ?"
                         }, void 0, false, {
                             fileName: "src/Components/DegueLabHome.jsx",
-                            lineNumber: 165,
+                            lineNumber: 172,
                             columnNumber: 11
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -35674,7 +35687,7 @@ const DegueLabHome = ()=>{
                                             children: "QUALIT\xc9"
                                         }, void 0, false, {
                                             fileName: "src/Components/DegueLabHome.jsx",
-                                            lineNumber: 170,
+                                            lineNumber: 177,
                                             columnNumber: 15
                                         }, undefined),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
@@ -35682,7 +35695,7 @@ const DegueLabHome = ()=>{
                                             children: "100% Artisanal"
                                         }, void 0, false, {
                                             fileName: "src/Components/DegueLabHome.jsx",
-                                            lineNumber: 171,
+                                            lineNumber: 178,
                                             columnNumber: 15
                                         }, undefined),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -35690,13 +35703,13 @@ const DegueLabHome = ()=>{
                                             children: "Ingr\xe9dients premium, pr\xe9paration soign\xe9e et finition \xe9l\xe9gante."
                                         }, void 0, false, {
                                             fileName: "src/Components/DegueLabHome.jsx",
-                                            lineNumber: 172,
+                                            lineNumber: 179,
                                             columnNumber: 15
                                         }, undefined)
                                     ]
                                 }, void 0, true, {
                                     fileName: "src/Components/DegueLabHome.jsx",
-                                    lineNumber: 169,
+                                    lineNumber: 176,
                                     columnNumber: 13
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -35707,7 +35720,7 @@ const DegueLabHome = ()=>{
                                             children: "SERVICE"
                                         }, void 0, false, {
                                             fileName: "src/Components/DegueLabHome.jsx",
-                                            lineNumber: 175,
+                                            lineNumber: 182,
                                             columnNumber: 15
                                         }, undefined),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
@@ -35715,7 +35728,7 @@ const DegueLabHome = ()=>{
                                             children: "Livraison Express"
                                         }, void 0, false, {
                                             fileName: "src/Components/DegueLabHome.jsx",
-                                            lineNumber: 176,
+                                            lineNumber: 183,
                                             columnNumber: 15
                                         }, undefined),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -35723,13 +35736,13 @@ const DegueLabHome = ()=>{
                                             children: "Commandez sur WhatsApp, recevez rapidement chez vous."
                                         }, void 0, false, {
                                             fileName: "src/Components/DegueLabHome.jsx",
-                                            lineNumber: 177,
+                                            lineNumber: 184,
                                             columnNumber: 15
                                         }, undefined)
                                     ]
                                 }, void 0, true, {
                                     fileName: "src/Components/DegueLabHome.jsx",
-                                    lineNumber: 174,
+                                    lineNumber: 181,
                                     columnNumber: 13
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -35740,7 +35753,7 @@ const DegueLabHome = ()=>{
                                             children: "CONFIANCE"
                                         }, void 0, false, {
                                             fileName: "src/Components/DegueLabHome.jsx",
-                                            lineNumber: 180,
+                                            lineNumber: 187,
                                             columnNumber: 15
                                         }, undefined),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
@@ -35748,7 +35761,7 @@ const DegueLabHome = ()=>{
                                             children: "Satisfaction Totale"
                                         }, void 0, false, {
                                             fileName: "src/Components/DegueLabHome.jsx",
-                                            lineNumber: 181,
+                                            lineNumber: 188,
                                             columnNumber: 15
                                         }, undefined),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -35756,35 +35769,35 @@ const DegueLabHome = ()=>{
                                             children: "Une exp\xe9rience premium pens\xe9e pour fid\xe9liser chaque client."
                                         }, void 0, false, {
                                             fileName: "src/Components/DegueLabHome.jsx",
-                                            lineNumber: 182,
+                                            lineNumber: 189,
                                             columnNumber: 15
                                         }, undefined)
                                     ]
                                 }, void 0, true, {
                                     fileName: "src/Components/DegueLabHome.jsx",
-                                    lineNumber: 179,
+                                    lineNumber: 186,
                                     columnNumber: 13
                                 }, undefined)
                             ]
                         }, void 0, true, {
                             fileName: "src/Components/DegueLabHome.jsx",
-                            lineNumber: 168,
+                            lineNumber: 175,
                             columnNumber: 11
                         }, undefined)
                     ]
                 }, void 0, true, {
                     fileName: "src/Components/DegueLabHome.jsx",
-                    lineNumber: 164,
+                    lineNumber: 171,
                     columnNumber: 9
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/Components/DegueLabHome.jsx",
-                lineNumber: 163,
+                lineNumber: 170,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _degueLabLocationDefault.default), {}, void 0, false, {
                 fileName: "src/Components/DegueLabHome.jsx",
-                lineNumber: 189,
+                lineNumber: 196,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _productOptionsModalDefault.default), {
@@ -35795,7 +35808,7 @@ const DegueLabHome = ()=>{
                 onAddToCart: handleConfirmOption
             }, void 0, false, {
                 fileName: "src/Components/DegueLabHome.jsx",
-                lineNumber: 191,
+                lineNumber: 198,
                 columnNumber: 7
             }, undefined)
         ]
@@ -35841,6 +35854,18 @@ var _yaourProteineJpg = require("../images/yaourProteine.jpg");
 var _yaourProteineJpgDefault = parcelHelpers.interopDefault(_yaourProteineJpg);
 var _yaourtJpg = require("../images/yaourt.jpg");
 var _yaourtJpgDefault = parcelHelpers.interopDefault(_yaourtJpg);
+var _whatsAppImage20260505At111836Jpeg = require("../images/WhatsApp Image 2026-05-05 at 11.18.36.jpeg");
+var _whatsAppImage20260505At111836JpegDefault = parcelHelpers.interopDefault(_whatsAppImage20260505At111836Jpeg);
+var _whatsAppImage20260505At1134081Jpeg = require("../images/WhatsApp Image 2026-05-05 at 11.34.08 (1).jpeg");
+var _whatsAppImage20260505At1134081JpegDefault = parcelHelpers.interopDefault(_whatsAppImage20260505At1134081Jpeg);
+var _whatsAppImage20260505At1134291Jpeg = require("../images/WhatsApp Image 2026-05-05 at 11.34.29 (1).jpeg");
+var _whatsAppImage20260505At1134291JpegDefault = parcelHelpers.interopDefault(_whatsAppImage20260505At1134291Jpeg);
+var _whatsAppImage20260505At113455Jpeg = require("../images/WhatsApp Image 2026-05-05 at 11.34.55.jpeg");
+var _whatsAppImage20260505At113455JpegDefault = parcelHelpers.interopDefault(_whatsAppImage20260505At113455Jpeg);
+var _whatsAppImage20260505At113545Jpeg = require("../images/WhatsApp Image 2026-05-05 at 11.35.45.jpeg");
+var _whatsAppImage20260505At113545JpegDefault = parcelHelpers.interopDefault(_whatsAppImage20260505At113545Jpeg);
+var _whatsAppImage20260505At113644Jpeg = require("../images/WhatsApp Image 2026-05-05 at 11.36.44.jpeg");
+var _whatsAppImage20260505At113644JpegDefault = parcelHelpers.interopDefault(_whatsAppImage20260505At113644Jpeg);
 const degueProducts = [
     {
         id: 1,
@@ -35943,6 +35968,54 @@ const degueProducts = [
         price: "1500 FCFA",
         image: (0, _yaourProteineJpgDefault.default),
         category: "protein"
+    },
+    {
+        id: 10,
+        name: "Th\xe9 au lait simple",
+        description: "Th\xe9 au lait onctueux et classique.",
+        price: "1500 FCFA",
+        image: (0, _whatsAppImage20260505At111836JpegDefault.default),
+        category: "the-au-lait"
+    },
+    {
+        id: 11,
+        name: "Th\xe9 au lait prot\xe9in\xe9 banane",
+        description: "Th\xe9 au lait prot\xe9in\xe9 au go\xfbt banane.",
+        price: "1500 FCFA",
+        image: (0, _whatsAppImage20260505At1134081JpegDefault.default),
+        category: "the-au-lait"
+    },
+    {
+        id: 12,
+        name: "Th\xe9 au lait prot\xe9in\xe9 fraise",
+        description: "Th\xe9 au lait prot\xe9in\xe9 au go\xfbt fraise.",
+        price: "1500 FCFA",
+        image: (0, _whatsAppImage20260505At1134291JpegDefault.default),
+        category: "the-au-lait"
+    },
+    {
+        id: 13,
+        name: "Th\xe9 au lait prot\xe9in\xe9 chocolat",
+        description: "Th\xe9 au lait prot\xe9in\xe9 au go\xfbt chocolat.",
+        price: "1500 FCFA",
+        image: (0, _whatsAppImage20260505At113455JpegDefault.default),
+        category: "the-au-lait"
+    },
+    {
+        id: 14,
+        name: "Th\xe9 au lait caf\xe9",
+        description: "Th\xe9 au lait au go\xfbt caf\xe9.",
+        price: "1500 FCFA",
+        image: (0, _whatsAppImage20260505At113545JpegDefault.default),
+        category: "the-au-lait"
+    },
+    {
+        id: 15,
+        name: "Th\xe9 au lait banane",
+        description: "Th\xe9 au lait au go\xfbt banane.",
+        price: "1500 FCFA",
+        image: (0, _whatsAppImage20260505At113644JpegDefault.default),
+        category: "the-au-lait"
     }
 ];
 const degueCategories = [
@@ -35965,10 +36038,14 @@ const degueCategories = [
     {
         id: "yaourt",
         name: "Yaourts"
+    },
+    {
+        id: "the-au-lait",
+        name: "Th\xe9 au lait"
     }
 ];
 
-},{"../images/CouscousBasique.jpeg":"bMPto","../images/PetitMilBasique.jpeg":"ubs84","../images/DegueFruiterGranola.jpeg":"dDZCk","../images/ShekerProteiner.jpeg":"dQ74M","../images/Deguefruit.jpeg":"hjCRV","../images/yaourtChocolate.jpeg":"9RzD7","../images/yaourProteine.jpg":"2PWGt","../images/yaourt.jpg":"3IyfS","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"bMPto":[function(require,module,exports) {
+},{"../images/CouscousBasique.jpeg":"bMPto","../images/PetitMilBasique.jpeg":"ubs84","../images/DegueFruiterGranola.jpeg":"dDZCk","../images/ShekerProteiner.jpeg":"dQ74M","../images/Deguefruit.jpeg":"hjCRV","../images/yaourtChocolate.jpeg":"9RzD7","../images/yaourProteine.jpg":"2PWGt","../images/yaourt.jpg":"3IyfS","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../images/WhatsApp Image 2026-05-05 at 11.18.36.jpeg":"i35hh","../images/WhatsApp Image 2026-05-05 at 11.34.08 (1).jpeg":"jOcvR","../images/WhatsApp Image 2026-05-05 at 11.34.29 (1).jpeg":"jvOfM","../images/WhatsApp Image 2026-05-05 at 11.34.55.jpeg":"dmz19","../images/WhatsApp Image 2026-05-05 at 11.35.45.jpeg":"h75vY","../images/WhatsApp Image 2026-05-05 at 11.36.44.jpeg":"dXA1b"}],"bMPto":[function(require,module,exports) {
 module.exports = require("./helpers/bundle-url").getBundleURL("bLxZJ") + "CouscousBasique.67cb5f06.jpeg" + "?" + Date.now();
 
 },{"./helpers/bundle-url":"lgJ39"}],"lgJ39":[function(require,module,exports) {
@@ -36025,6 +36102,24 @@ module.exports = require("./helpers/bundle-url").getBundleURL("bLxZJ") + "yaourP
 
 },{"./helpers/bundle-url":"lgJ39"}],"3IyfS":[function(require,module,exports) {
 module.exports = require("./helpers/bundle-url").getBundleURL("bLxZJ") + "yaourt.77104c0d.jpg" + "?" + Date.now();
+
+},{"./helpers/bundle-url":"lgJ39"}],"i35hh":[function(require,module,exports) {
+module.exports = require("./helpers/bundle-url").getBundleURL("bLxZJ") + "WhatsApp Image 2026-05-05 at 11.18.36.00a1fe98.jpeg" + "?" + Date.now();
+
+},{"./helpers/bundle-url":"lgJ39"}],"jOcvR":[function(require,module,exports) {
+module.exports = require("./helpers/bundle-url").getBundleURL("bLxZJ") + "WhatsApp Image 2026-05-05 at 11.34.08 (1).6a46c4e3.jpeg" + "?" + Date.now();
+
+},{"./helpers/bundle-url":"lgJ39"}],"jvOfM":[function(require,module,exports) {
+module.exports = require("./helpers/bundle-url").getBundleURL("bLxZJ") + "WhatsApp Image 2026-05-05 at 11.34.29 (1).7c6593b8.jpeg" + "?" + Date.now();
+
+},{"./helpers/bundle-url":"lgJ39"}],"dmz19":[function(require,module,exports) {
+module.exports = require("./helpers/bundle-url").getBundleURL("bLxZJ") + "WhatsApp Image 2026-05-05 at 11.34.55.dffd40cf.jpeg" + "?" + Date.now();
+
+},{"./helpers/bundle-url":"lgJ39"}],"h75vY":[function(require,module,exports) {
+module.exports = require("./helpers/bundle-url").getBundleURL("bLxZJ") + "WhatsApp Image 2026-05-05 at 11.35.45.a4c6bb04.jpeg" + "?" + Date.now();
+
+},{"./helpers/bundle-url":"lgJ39"}],"dXA1b":[function(require,module,exports) {
+module.exports = require("./helpers/bundle-url").getBundleURL("bLxZJ") + "WhatsApp Image 2026-05-05 at 11.36.44.7d21fe53.jpeg" + "?" + Date.now();
 
 },{"./helpers/bundle-url":"lgJ39"}],"dP4wh":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$259e = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");

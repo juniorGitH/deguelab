@@ -263,8 +263,16 @@ img, video {
   inset: 0;
 }
 
+.-right-1 {
+  right: -.25rem;
+}
+
 .-right-2 {
   right: -.5rem;
+}
+
+.-top-1 {
+  top: -.25rem;
 }
 
 .-top-2 {
@@ -281,14 +289,6 @@ img, video {
 
 .top-0 {
   top: 0;
-}
-
-.-right-1 {
-  right: -.25rem;
-}
-
-.-top-1 {
-  top: -.25rem;
 }
 
 .z-40 {
@@ -558,6 +558,10 @@ img, video {
   justify-content: space-between;
 }
 
+.gap-1 {
+  gap: .25rem;
+}
+
 .gap-2 {
   gap: .5rem;
 }
@@ -576,10 +580,6 @@ img, video {
 
 .gap-8 {
   gap: 2rem;
-}
-
-.gap-1 {
-  gap: .25rem;
 }
 
 .space-x-3 > :not([hidden]) ~ :not([hidden]) {
@@ -845,10 +845,6 @@ img, video {
 
 .pt-6 {
   padding-top: 1.5rem;
-}
-
-.text-left {
-  text-align: left;
 }
 
 .text-center {
