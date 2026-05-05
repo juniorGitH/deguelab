@@ -35552,11 +35552,11 @@ const DegueLabHome = ()=>{
                                     className: "bg-white rounded-3xl border border-stone-200 overflow-hidden transform hover:scale-[1.02] transition-all duration-300 hover:shadow-xl min-w-0",
                                     children: [
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                            className: "h-48 sm:h-52",
+                                            className: "h-48 sm:h-52 bg-stone-100",
                                             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
                                                 src: product.image,
                                                 alt: product.name,
-                                                className: "h-full w-full object-cover",
+                                                className: "h-full w-full object-contain sm:object-cover",
                                                 loading: "lazy"
                                             }, void 0, false, {
                                                 fileName: "src/Components/DegueLabHome.jsx",
@@ -35866,6 +35866,8 @@ var _whatsAppImage20260505At113545Jpeg = require("../images/WhatsApp Image 2026-
 var _whatsAppImage20260505At113545JpegDefault = parcelHelpers.interopDefault(_whatsAppImage20260505At113545Jpeg);
 var _whatsAppImage20260505At113644Jpeg = require("../images/WhatsApp Image 2026-05-05 at 11.36.44.jpeg");
 var _whatsAppImage20260505At113644JpegDefault = parcelHelpers.interopDefault(_whatsAppImage20260505At113644Jpeg);
+var _whatsAppImage20260505At114925Jpeg = require("../images/WhatsApp Image 2026-05-05 at 11.49.25.jpeg");
+var _whatsAppImage20260505At114925JpegDefault = parcelHelpers.interopDefault(_whatsAppImage20260505At114925Jpeg);
 const degueProducts = [
     {
         id: 1,
@@ -35973,7 +35975,7 @@ const degueProducts = [
         id: 10,
         name: "Th\xe9 au lait simple",
         description: "Th\xe9 au lait onctueux et classique.",
-        price: "1500 FCFA",
+        price: "1000 FCFA",
         image: (0, _whatsAppImage20260505At111836JpegDefault.default),
         category: "the-au-lait"
     },
@@ -36005,7 +36007,7 @@ const degueProducts = [
         id: 14,
         name: "Th\xe9 au lait caf\xe9",
         description: "Th\xe9 au lait au go\xfbt caf\xe9.",
-        price: "1500 FCFA",
+        price: "1000 FCFA",
         image: (0, _whatsAppImage20260505At113545JpegDefault.default),
         category: "the-au-lait"
     },
@@ -36013,8 +36015,16 @@ const degueProducts = [
         id: 15,
         name: "Th\xe9 au lait banane",
         description: "Th\xe9 au lait au go\xfbt banane.",
-        price: "1500 FCFA",
+        price: "1000 FCFA",
         image: (0, _whatsAppImage20260505At113644JpegDefault.default),
+        category: "the-au-lait"
+    },
+    {
+        id: 16,
+        name: "Th\xe9 au lait chocolat",
+        description: "Th\xe9 au lait au go\xfbt chocolat.",
+        price: "1000 FCFA",
+        image: (0, _whatsAppImage20260505At114925JpegDefault.default),
         category: "the-au-lait"
     }
 ];
@@ -36045,7 +36055,7 @@ const degueCategories = [
     }
 ];
 
-},{"../images/CouscousBasique.jpeg":"bMPto","../images/PetitMilBasique.jpeg":"ubs84","../images/DegueFruiterGranola.jpeg":"dDZCk","../images/ShekerProteiner.jpeg":"dQ74M","../images/Deguefruit.jpeg":"hjCRV","../images/yaourtChocolate.jpeg":"9RzD7","../images/yaourProteine.jpg":"2PWGt","../images/yaourt.jpg":"3IyfS","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../images/WhatsApp Image 2026-05-05 at 11.18.36.jpeg":"i35hh","../images/WhatsApp Image 2026-05-05 at 11.34.08 (1).jpeg":"jOcvR","../images/WhatsApp Image 2026-05-05 at 11.34.29 (1).jpeg":"jvOfM","../images/WhatsApp Image 2026-05-05 at 11.34.55.jpeg":"dmz19","../images/WhatsApp Image 2026-05-05 at 11.35.45.jpeg":"h75vY","../images/WhatsApp Image 2026-05-05 at 11.36.44.jpeg":"dXA1b"}],"bMPto":[function(require,module,exports) {
+},{"../images/CouscousBasique.jpeg":"bMPto","../images/PetitMilBasique.jpeg":"ubs84","../images/DegueFruiterGranola.jpeg":"dDZCk","../images/ShekerProteiner.jpeg":"dQ74M","../images/Deguefruit.jpeg":"hjCRV","../images/yaourtChocolate.jpeg":"9RzD7","../images/yaourProteine.jpg":"2PWGt","../images/yaourt.jpg":"3IyfS","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../images/WhatsApp Image 2026-05-05 at 11.18.36.jpeg":"i35hh","../images/WhatsApp Image 2026-05-05 at 11.34.08 (1).jpeg":"jOcvR","../images/WhatsApp Image 2026-05-05 at 11.34.29 (1).jpeg":"jvOfM","../images/WhatsApp Image 2026-05-05 at 11.34.55.jpeg":"dmz19","../images/WhatsApp Image 2026-05-05 at 11.35.45.jpeg":"h75vY","../images/WhatsApp Image 2026-05-05 at 11.36.44.jpeg":"dXA1b","../images/WhatsApp Image 2026-05-05 at 11.49.25.jpeg":"lgDOW"}],"bMPto":[function(require,module,exports) {
 module.exports = require("./helpers/bundle-url").getBundleURL("bLxZJ") + "CouscousBasique.67cb5f06.jpeg" + "?" + Date.now();
 
 },{"./helpers/bundle-url":"lgJ39"}],"lgJ39":[function(require,module,exports) {
@@ -36120,6 +36130,9 @@ module.exports = require("./helpers/bundle-url").getBundleURL("bLxZJ") + "WhatsA
 
 },{"./helpers/bundle-url":"lgJ39"}],"dXA1b":[function(require,module,exports) {
 module.exports = require("./helpers/bundle-url").getBundleURL("bLxZJ") + "WhatsApp Image 2026-05-05 at 11.36.44.7d21fe53.jpeg" + "?" + Date.now();
+
+},{"./helpers/bundle-url":"lgJ39"}],"lgDOW":[function(require,module,exports) {
+module.exports = require("./helpers/bundle-url").getBundleURL("bLxZJ") + "WhatsApp Image 2026-05-05 at 11.49.25.4e2e6e4b.jpeg" + "?" + Date.now();
 
 },{"./helpers/bundle-url":"lgJ39"}],"dP4wh":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$259e = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
@@ -36771,11 +36784,11 @@ const DegueLabProducts = ()=>{
                                 className: "bg-white rounded-3xl border border-stone-200 overflow-hidden transform hover:scale-[1.02] transition-all duration-300 hover:shadow-xl min-w-0",
                                 children: [
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                        className: "h-44 sm:h-52",
+                                        className: "h-44 sm:h-52 bg-stone-100",
                                         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
                                             src: product.image,
                                             alt: product.name,
-                                            className: "h-full w-full object-cover",
+                                            className: "h-full w-full object-contain sm:object-cover",
                                             loading: "lazy"
                                         }, void 0, false, {
                                             fileName: "src/Components/DegueLabProducts.jsx",

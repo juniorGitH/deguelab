@@ -728,6 +728,10 @@ img, video {
   --tw-bg-opacity: .5;
 }
 
+.object-contain {
+  object-fit: contain;
+}
+
 .object-cover {
   object-fit: cover;
 }
@@ -1261,6 +1265,10 @@ body {
 
   .sm\:gap-8 {
     gap: 2rem;
+  }
+
+  .sm\:object-cover {
+    object-fit: cover;
   }
 
   .sm\:p-12 {
