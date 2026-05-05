@@ -35356,14 +35356,12 @@ const DegueLabHome = ()=>{
         } else {
             addToCart(product, 1);
             setAddedProductId(product.id);
-            openCart();
         }
     };
     const handleConfirmOption = async (selectedOption)=>{
         if (modalMode === "cart") {
             addToCart(selectedProductForModal, 1, selectedOption);
             setAddedProductId(selectedProductForModal.id);
-            openCart();
         } else {
             const message = `Bonjour! Je souhaite acheter: ${selectedProductForModal.name} (${selectedOption}) (${selectedProductForModal.price})`;
             await (0, _whatsappOrder.openWhatsAppWithLocation)(message);
@@ -35391,7 +35389,7 @@ const DegueLabHome = ()=>{
                             children: "DEGUE LAB"
                         }, void 0, false, {
                             fileName: "src/Components/DegueLabHome.jsx",
-                            lineNumber: 77,
+                            lineNumber: 75,
                             columnNumber: 11
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -35399,7 +35397,7 @@ const DegueLabHome = ()=>{
                             children: "L'exp\xe9rience premium du degu\xe9 et du yaourt artisanal."
                         }, void 0, false, {
                             fileName: "src/Components/DegueLabHome.jsx",
-                            lineNumber: 80,
+                            lineNumber: 78,
                             columnNumber: 11
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -35411,7 +35409,7 @@ const DegueLabHome = ()=>{
                                     children: "M\xe9langes de fruits"
                                 }, void 0, false, {
                                     fileName: "src/Components/DegueLabHome.jsx",
-                                    lineNumber: 84,
+                                    lineNumber: 82,
                                     columnNumber: 13
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
@@ -35420,24 +35418,24 @@ const DegueLabHome = ()=>{
                                     children: "Gamme prot\xe9in\xe9e"
                                 }, void 0, false, {
                                     fileName: "src/Components/DegueLabHome.jsx",
-                                    lineNumber: 90,
+                                    lineNumber: 88,
                                     columnNumber: 13
                                 }, undefined)
                             ]
                         }, void 0, true, {
                             fileName: "src/Components/DegueLabHome.jsx",
-                            lineNumber: 83,
+                            lineNumber: 81,
                             columnNumber: 11
                         }, undefined)
                     ]
                 }, void 0, true, {
                     fileName: "src/Components/DegueLabHome.jsx",
-                    lineNumber: 76,
+                    lineNumber: 74,
                     columnNumber: 9
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/Components/DegueLabHome.jsx",
-                lineNumber: 68,
+                lineNumber: 66,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("section", {
@@ -35469,7 +35467,7 @@ const DegueLabHome = ()=>{
                                             children: "CAT\xc9GORIE"
                                         }, void 0, false, {
                                             fileName: "src/Components/DegueLabHome.jsx",
-                                            lineNumber: 113,
+                                            lineNumber: 111,
                                             columnNumber: 17
                                         }, undefined),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -35477,18 +35475,18 @@ const DegueLabHome = ()=>{
                                             children: item.label
                                         }, void 0, false, {
                                             fileName: "src/Components/DegueLabHome.jsx",
-                                            lineNumber: 114,
+                                            lineNumber: 112,
                                             columnNumber: 17
                                         }, undefined)
                                     ]
                                 }, item.label, true, {
                                     fileName: "src/Components/DegueLabHome.jsx",
-                                    lineNumber: 108,
+                                    lineNumber: 106,
                                     columnNumber: 15
                                 }, undefined))
                         }, void 0, false, {
                             fileName: "src/Components/DegueLabHome.jsx",
-                            lineNumber: 102,
+                            lineNumber: 100,
                             columnNumber: 11
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
@@ -35499,7 +35497,7 @@ const DegueLabHome = ()=>{
                             children: "NOS VARI\xc9T\xc9S"
                         }, void 0, false, {
                             fileName: "src/Components/DegueLabHome.jsx",
-                            lineNumber: 119,
+                            lineNumber: 117,
                             columnNumber: 11
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -35516,12 +35514,12 @@ const DegueLabHome = ()=>{
                                                 loading: "lazy"
                                             }, void 0, false, {
                                                 fileName: "src/Components/DegueLabHome.jsx",
-                                                lineNumber: 130,
+                                                lineNumber: 128,
                                                 columnNumber: 19
                                             }, undefined)
                                         }, void 0, false, {
                                             fileName: "src/Components/DegueLabHome.jsx",
-                                            lineNumber: 129,
+                                            lineNumber: 127,
                                             columnNumber: 17
                                         }, undefined),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -35535,7 +35533,7 @@ const DegueLabHome = ()=>{
                                                     children: product.name
                                                 }, void 0, false, {
                                                     fileName: "src/Components/DegueLabHome.jsx",
-                                                    lineNumber: 133,
+                                                    lineNumber: 131,
                                                     columnNumber: 19
                                                 }, undefined),
                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -35543,7 +35541,7 @@ const DegueLabHome = ()=>{
                                                     children: product.description
                                                 }, void 0, false, {
                                                     fileName: "src/Components/DegueLabHome.jsx",
-                                                    lineNumber: 136,
+                                                    lineNumber: 134,
                                                     columnNumber: 19
                                                 }, undefined),
                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -35553,12 +35551,12 @@ const DegueLabHome = ()=>{
                                                         children: product.price
                                                     }, void 0, false, {
                                                         fileName: "src/Components/DegueLabHome.jsx",
-                                                        lineNumber: 138,
+                                                        lineNumber: 136,
                                                         columnNumber: 21
                                                     }, undefined)
                                                 }, void 0, false, {
                                                     fileName: "src/Components/DegueLabHome.jsx",
-                                                    lineNumber: 137,
+                                                    lineNumber: 135,
                                                     columnNumber: 19
                                                 }, undefined),
                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -35570,7 +35568,7 @@ const DegueLabHome = ()=>{
                                                             children: addedProductId === product.id ? "✓ Ajout\xe9" : "Panier"
                                                         }, void 0, false, {
                                                             fileName: "src/Components/DegueLabHome.jsx",
-                                                            lineNumber: 141,
+                                                            lineNumber: 139,
                                                             columnNumber: 21
                                                         }, undefined),
                                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -35579,41 +35577,41 @@ const DegueLabHome = ()=>{
                                                             children: "Acheter"
                                                         }, void 0, false, {
                                                             fileName: "src/Components/DegueLabHome.jsx",
-                                                            lineNumber: 151,
+                                                            lineNumber: 149,
                                                             columnNumber: 21
                                                         }, undefined)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "src/Components/DegueLabHome.jsx",
-                                                    lineNumber: 140,
+                                                    lineNumber: 138,
                                                     columnNumber: 19
                                                 }, undefined)
                                             ]
                                         }, void 0, true, {
                                             fileName: "src/Components/DegueLabHome.jsx",
-                                            lineNumber: 132,
+                                            lineNumber: 130,
                                             columnNumber: 17
                                         }, undefined)
                                     ]
                                 }, product.id, true, {
                                     fileName: "src/Components/DegueLabHome.jsx",
-                                    lineNumber: 125,
+                                    lineNumber: 123,
                                     columnNumber: 15
                                 }, undefined))
                         }, void 0, false, {
                             fileName: "src/Components/DegueLabHome.jsx",
-                            lineNumber: 123,
+                            lineNumber: 121,
                             columnNumber: 11
                         }, undefined)
                     ]
                 }, void 0, true, {
                     fileName: "src/Components/DegueLabHome.jsx",
-                    lineNumber: 101,
+                    lineNumber: 99,
                     columnNumber: 9
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/Components/DegueLabHome.jsx",
-                lineNumber: 100,
+                lineNumber: 98,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("section", {
@@ -35629,7 +35627,7 @@ const DegueLabHome = ()=>{
                             children: "POURQUOI DEGUE LAB ?"
                         }, void 0, false, {
                             fileName: "src/Components/DegueLabHome.jsx",
-                            lineNumber: 167,
+                            lineNumber: 165,
                             columnNumber: 11
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -35643,7 +35641,7 @@ const DegueLabHome = ()=>{
                                             children: "QUALIT\xc9"
                                         }, void 0, false, {
                                             fileName: "src/Components/DegueLabHome.jsx",
-                                            lineNumber: 172,
+                                            lineNumber: 170,
                                             columnNumber: 15
                                         }, undefined),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
@@ -35651,7 +35649,7 @@ const DegueLabHome = ()=>{
                                             children: "100% Artisanal"
                                         }, void 0, false, {
                                             fileName: "src/Components/DegueLabHome.jsx",
-                                            lineNumber: 173,
+                                            lineNumber: 171,
                                             columnNumber: 15
                                         }, undefined),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -35659,13 +35657,13 @@ const DegueLabHome = ()=>{
                                             children: "Ingr\xe9dients premium, pr\xe9paration soign\xe9e et finition \xe9l\xe9gante."
                                         }, void 0, false, {
                                             fileName: "src/Components/DegueLabHome.jsx",
-                                            lineNumber: 174,
+                                            lineNumber: 172,
                                             columnNumber: 15
                                         }, undefined)
                                     ]
                                 }, void 0, true, {
                                     fileName: "src/Components/DegueLabHome.jsx",
-                                    lineNumber: 171,
+                                    lineNumber: 169,
                                     columnNumber: 13
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -35676,7 +35674,7 @@ const DegueLabHome = ()=>{
                                             children: "SERVICE"
                                         }, void 0, false, {
                                             fileName: "src/Components/DegueLabHome.jsx",
-                                            lineNumber: 177,
+                                            lineNumber: 175,
                                             columnNumber: 15
                                         }, undefined),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
@@ -35684,7 +35682,7 @@ const DegueLabHome = ()=>{
                                             children: "Livraison Express"
                                         }, void 0, false, {
                                             fileName: "src/Components/DegueLabHome.jsx",
-                                            lineNumber: 178,
+                                            lineNumber: 176,
                                             columnNumber: 15
                                         }, undefined),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -35692,13 +35690,13 @@ const DegueLabHome = ()=>{
                                             children: "Commandez sur WhatsApp, recevez rapidement chez vous."
                                         }, void 0, false, {
                                             fileName: "src/Components/DegueLabHome.jsx",
-                                            lineNumber: 179,
+                                            lineNumber: 177,
                                             columnNumber: 15
                                         }, undefined)
                                     ]
                                 }, void 0, true, {
                                     fileName: "src/Components/DegueLabHome.jsx",
-                                    lineNumber: 176,
+                                    lineNumber: 174,
                                     columnNumber: 13
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -35709,7 +35707,7 @@ const DegueLabHome = ()=>{
                                             children: "CONFIANCE"
                                         }, void 0, false, {
                                             fileName: "src/Components/DegueLabHome.jsx",
-                                            lineNumber: 182,
+                                            lineNumber: 180,
                                             columnNumber: 15
                                         }, undefined),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
@@ -35717,7 +35715,7 @@ const DegueLabHome = ()=>{
                                             children: "Satisfaction Totale"
                                         }, void 0, false, {
                                             fileName: "src/Components/DegueLabHome.jsx",
-                                            lineNumber: 183,
+                                            lineNumber: 181,
                                             columnNumber: 15
                                         }, undefined),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -35725,35 +35723,35 @@ const DegueLabHome = ()=>{
                                             children: "Une exp\xe9rience premium pens\xe9e pour fid\xe9liser chaque client."
                                         }, void 0, false, {
                                             fileName: "src/Components/DegueLabHome.jsx",
-                                            lineNumber: 184,
+                                            lineNumber: 182,
                                             columnNumber: 15
                                         }, undefined)
                                     ]
                                 }, void 0, true, {
                                     fileName: "src/Components/DegueLabHome.jsx",
-                                    lineNumber: 181,
+                                    lineNumber: 179,
                                     columnNumber: 13
                                 }, undefined)
                             ]
                         }, void 0, true, {
                             fileName: "src/Components/DegueLabHome.jsx",
-                            lineNumber: 170,
+                            lineNumber: 168,
                             columnNumber: 11
                         }, undefined)
                     ]
                 }, void 0, true, {
                     fileName: "src/Components/DegueLabHome.jsx",
-                    lineNumber: 166,
+                    lineNumber: 164,
                     columnNumber: 9
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/Components/DegueLabHome.jsx",
-                lineNumber: 165,
+                lineNumber: 163,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _degueLabLocationDefault.default), {}, void 0, false, {
                 fileName: "src/Components/DegueLabHome.jsx",
-                lineNumber: 191,
+                lineNumber: 189,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _productOptionsModalDefault.default), {
@@ -35764,13 +35762,13 @@ const DegueLabHome = ()=>{
                 onAddToCart: handleConfirmOption
             }, void 0, false, {
                 fileName: "src/Components/DegueLabHome.jsx",
-                lineNumber: 193,
+                lineNumber: 191,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/Components/DegueLabHome.jsx",
-        lineNumber: 67,
+        lineNumber: 65,
         columnNumber: 5
     }, undefined);
 };
@@ -35869,7 +35867,17 @@ const degueProducts = [
         description: "Version prot\xe9in\xe9e pour sportifs et bodybuilders.",
         price: "1000F/1500F CFA",
         image: (0, _shekerProteinerJpegDefault.default),
-        category: "protein"
+        category: "protein",
+        options: [
+            {
+                name: "1000 FCFA",
+                label: "1000 FCFA"
+            },
+            {
+                name: "1500 FCFA",
+                label: "1500 FCFA"
+            }
+        ]
     },
     {
         id: 6,
@@ -36560,14 +36568,12 @@ const DegueLabProducts = ()=>{
         } else {
             addToCart(product, 1);
             setAddedProductId(product.id);
-            openCart();
         }
     };
     const handleConfirmOption = async (selectedOption)=>{
         if (modalMode === "cart") {
             addToCart(selectedProductForModal, 1, selectedOption);
             setAddedProductId(selectedProductForModal.id);
-            openCart();
         } else {
             const message = `Bonjour! Je souhaite acheter:\n\n${selectedProductForModal.name} (${selectedOption})\nPrix: ${selectedProductForModal.price}\n\n${selectedProductForModal.description}`;
             await (0, _whatsappOrder.openWhatsAppWithLocation)(message);
@@ -36591,7 +36597,7 @@ const DegueLabProducts = ()=>{
                                 children: "NOS VARI\xc9T\xc9S"
                             }, void 0, false, {
                                 fileName: "src/Components/DegueLabProducts.jsx",
-                                lineNumber: 78,
+                                lineNumber: 76,
                                 columnNumber: 11
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -36599,13 +36605,13 @@ const DegueLabProducts = ()=>{
                                 children: "Une s\xe9lection premium de degu\xe9 et de yaourt artisanal, avec options fruits et prot\xe9ines."
                             }, void 0, false, {
                                 fileName: "src/Components/DegueLabProducts.jsx",
-                                lineNumber: 81,
+                                lineNumber: 79,
                                 columnNumber: 11
                             }, undefined)
                         ]
                     }, void 0, true, {
                         fileName: "src/Components/DegueLabProducts.jsx",
-                        lineNumber: 77,
+                        lineNumber: 75,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -36618,17 +36624,17 @@ const DegueLabProducts = ()=>{
                                     children: cat.name
                                 }, cat.id, false, {
                                     fileName: "src/Components/DegueLabProducts.jsx",
-                                    lineNumber: 89,
+                                    lineNumber: 87,
                                     columnNumber: 15
                                 }, undefined))
                         }, void 0, false, {
                             fileName: "src/Components/DegueLabProducts.jsx",
-                            lineNumber: 87,
+                            lineNumber: 85,
                             columnNumber: 11
                         }, undefined)
                     }, void 0, false, {
                         fileName: "src/Components/DegueLabProducts.jsx",
-                        lineNumber: 86,
+                        lineNumber: 84,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -36645,12 +36651,12 @@ const DegueLabProducts = ()=>{
                                             loading: "lazy"
                                         }, void 0, false, {
                                             fileName: "src/Components/DegueLabProducts.jsx",
-                                            lineNumber: 111,
+                                            lineNumber: 109,
                                             columnNumber: 17
                                         }, undefined)
                                     }, void 0, false, {
                                         fileName: "src/Components/DegueLabProducts.jsx",
-                                        lineNumber: 110,
+                                        lineNumber: 108,
                                         columnNumber: 15
                                     }, undefined),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -36664,7 +36670,7 @@ const DegueLabProducts = ()=>{
                                                 children: product.name
                                             }, void 0, false, {
                                                 fileName: "src/Components/DegueLabProducts.jsx",
-                                                lineNumber: 114,
+                                                lineNumber: 112,
                                                 columnNumber: 17
                                             }, undefined),
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -36672,7 +36678,7 @@ const DegueLabProducts = ()=>{
                                                 children: product.description
                                             }, void 0, false, {
                                                 fileName: "src/Components/DegueLabProducts.jsx",
-                                                lineNumber: 117,
+                                                lineNumber: 115,
                                                 columnNumber: 17
                                             }, undefined),
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -36682,12 +36688,12 @@ const DegueLabProducts = ()=>{
                                                     children: product.price
                                                 }, void 0, false, {
                                                     fileName: "src/Components/DegueLabProducts.jsx",
-                                                    lineNumber: 119,
+                                                    lineNumber: 117,
                                                     columnNumber: 19
                                                 }, undefined)
                                             }, void 0, false, {
                                                 fileName: "src/Components/DegueLabProducts.jsx",
-                                                lineNumber: 118,
+                                                lineNumber: 116,
                                                 columnNumber: 17
                                             }, undefined),
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -36699,7 +36705,7 @@ const DegueLabProducts = ()=>{
                                                         children: addedProductId === product.id ? "✓ Ajout\xe9" : "Panier"
                                                     }, void 0, false, {
                                                         fileName: "src/Components/DegueLabProducts.jsx",
-                                                        lineNumber: 122,
+                                                        lineNumber: 120,
                                                         columnNumber: 19
                                                     }, undefined),
                                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -36708,36 +36714,36 @@ const DegueLabProducts = ()=>{
                                                         children: "Acheter"
                                                     }, void 0, false, {
                                                         fileName: "src/Components/DegueLabProducts.jsx",
-                                                        lineNumber: 132,
+                                                        lineNumber: 130,
                                                         columnNumber: 19
                                                     }, undefined)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "src/Components/DegueLabProducts.jsx",
-                                                lineNumber: 121,
+                                                lineNumber: 119,
                                                 columnNumber: 17
                                             }, undefined)
                                         ]
                                     }, void 0, true, {
                                         fileName: "src/Components/DegueLabProducts.jsx",
-                                        lineNumber: 113,
+                                        lineNumber: 111,
                                         columnNumber: 15
                                     }, undefined)
                                 ]
                             }, product.id, true, {
                                 fileName: "src/Components/DegueLabProducts.jsx",
-                                lineNumber: 106,
+                                lineNumber: 104,
                                 columnNumber: 13
                             }, undefined))
                     }, void 0, false, {
                         fileName: "src/Components/DegueLabProducts.jsx",
-                        lineNumber: 104,
+                        lineNumber: 102,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/Components/DegueLabProducts.jsx",
-                lineNumber: 76,
+                lineNumber: 74,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _productOptionsModalDefault.default), {
@@ -36748,13 +36754,13 @@ const DegueLabProducts = ()=>{
                 onAddToCart: handleConfirmOption
             }, void 0, false, {
                 fileName: "src/Components/DegueLabProducts.jsx",
-                lineNumber: 144,
+                lineNumber: 142,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/Components/DegueLabProducts.jsx",
-        lineNumber: 75,
+        lineNumber: 73,
         columnNumber: 5
     }, undefined);
 };
@@ -36774,7 +36780,7 @@ $RefreshReg$(_c, "DegueLabProducts");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"9xmpe","../utils/whatsappOrder":"1hJiS","../utils/degueProducts":"kNiLu","../CartContext":"8ZrOT","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./ProductOptionsModal":"dP4wh"}],"6Qjep":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"9xmpe","../utils/whatsappOrder":"1hJiS","../utils/degueProducts":"kNiLu","../CartContext":"8ZrOT","./ProductOptionsModal":"dP4wh","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"6Qjep":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$a0cc = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
