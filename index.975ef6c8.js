@@ -2919,7 +2919,7 @@ var _appDefault = parcelHelpers.interopDefault(_app);
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-dom":"j6uA9","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./App":"e9Zfo"}],"iTorj":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-dom":"j6uA9","./App":"e9Zfo","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"iTorj":[function(require,module,exports) {
 "use strict";
 module.exports = require("./cjs/react-jsx-dev-runtime.development.js");
 
@@ -27051,157 +27051,7 @@ module.exports = require("./cjs/scheduler.development.js");
     /* global __REACT_DEVTOOLS_GLOBAL_HOOK__ */ if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ !== "undefined" && typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop === "function") __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop(new Error());
 })();
 
-},{}],"gkKU3":[function(require,module,exports) {
-exports.interopDefault = function(a) {
-    return a && a.__esModule ? a : {
-        default: a
-    };
-};
-exports.defineInteropFlag = function(a) {
-    Object.defineProperty(a, "__esModule", {
-        value: true
-    });
-};
-exports.exportAll = function(source, dest) {
-    Object.keys(source).forEach(function(key) {
-        if (key === "default" || key === "__esModule" || dest.hasOwnProperty(key)) return;
-        Object.defineProperty(dest, key, {
-            enumerable: true,
-            get: function() {
-                return source[key];
-            }
-        });
-    });
-    return dest;
-};
-exports.export = function(dest, destName, get) {
-    Object.defineProperty(dest, destName, {
-        enumerable: true,
-        get: get
-    });
-};
-
-},{}],"km3Ru":[function(require,module,exports) {
-"use strict";
-var Refresh = require("react-refresh/runtime");
-function debounce(func, delay) {
-    var args;
-    var timeout = undefined;
-    return function(args) {
-        clearTimeout(timeout);
-        timeout = setTimeout(function() {
-            timeout = undefined;
-            func.call(null, args);
-        }, delay);
-    };
-}
-var enqueueUpdate = debounce(function() {
-    Refresh.performReactRefresh();
-}, 30); // Everthing below is either adapted or copied from
-// https://github.com/facebook/metro/blob/61de16bd1edd7e738dd0311c89555a644023ab2d/packages/metro/src/lib/polyfills/require.js
-// MIT License - Copyright (c) Facebook, Inc. and its affiliates.
-module.exports.prelude = function(module1) {
-    window.$RefreshReg$ = function(type, id) {
-        Refresh.register(type, module1.id + " " + id);
-    };
-    window.$RefreshSig$ = Refresh.createSignatureFunctionForTransform;
-};
-module.exports.postlude = function(module1) {
-    if (isReactRefreshBoundary(module1.exports)) {
-        registerExportsForReactRefresh(module1);
-        if (module1.hot) {
-            module1.hot.dispose(function(data) {
-                if (Refresh.hasUnrecoverableErrors()) window.location.reload();
-                data.prevExports = module1.exports;
-            });
-            module1.hot.accept(function(getParents) {
-                var prevExports = module1.hot.data.prevExports;
-                var nextExports = module1.exports; // Since we just executed the code for it, it's possible
-                // that the new exports make it ineligible for being a boundary.
-                var isNoLongerABoundary = !isReactRefreshBoundary(nextExports); // It can also become ineligible if its exports are incompatible
-                // with the previous exports.
-                // For example, if you add/remove/change exports, we'll want
-                // to re-execute the importing modules, and force those components
-                // to re-render. Similarly, if you convert a class component
-                // to a function, we want to invalidate the boundary.
-                var didInvalidate = shouldInvalidateReactRefreshBoundary(prevExports, nextExports);
-                if (isNoLongerABoundary || didInvalidate) {
-                    // We'll be conservative. The only case in which we won't do a full
-                    // reload is if all parent modules are also refresh boundaries.
-                    // In that case we'll add them to the current queue.
-                    var parents = getParents();
-                    if (parents.length === 0) {
-                        // Looks like we bubbled to the root. Can't recover from that.
-                        window.location.reload();
-                        return;
-                    }
-                    return parents;
-                }
-                enqueueUpdate();
-            });
-        }
-    }
-};
-function isReactRefreshBoundary(exports) {
-    if (Refresh.isLikelyComponentType(exports)) return true;
-    if (exports == null || typeof exports !== "object") // Exit if we can't iterate over exports.
-    return false;
-    var hasExports = false;
-    var areAllExportsComponents = true;
-    let isESM = "__esModule" in exports;
-    for(var key in exports){
-        hasExports = true;
-        if (key === "__esModule") continue;
-        var desc = Object.getOwnPropertyDescriptor(exports, key);
-        if (desc && desc.get && !isESM) // Don't invoke getters for CJS as they may have side effects.
-        return false;
-        var exportValue = exports[key];
-        if (!Refresh.isLikelyComponentType(exportValue)) areAllExportsComponents = false;
-    }
-    return hasExports && areAllExportsComponents;
-}
-function shouldInvalidateReactRefreshBoundary(prevExports, nextExports) {
-    var prevSignature = getRefreshBoundarySignature(prevExports);
-    var nextSignature = getRefreshBoundarySignature(nextExports);
-    if (prevSignature.length !== nextSignature.length) return true;
-    for(var i = 0; i < nextSignature.length; i++){
-        if (prevSignature[i] !== nextSignature[i]) return true;
-    }
-    return false;
-} // When this signature changes, it's unsafe to stop at this refresh boundary.
-function getRefreshBoundarySignature(exports) {
-    var signature = [];
-    signature.push(Refresh.getFamilyByType(exports));
-    if (exports == null || typeof exports !== "object") // Exit if we can't iterate over exports.
-    // (This is important for legacy environments.)
-    return signature;
-    let isESM = "__esModule" in exports;
-    for(var key in exports){
-        if (key === "__esModule") continue;
-        var desc = Object.getOwnPropertyDescriptor(exports, key);
-        if (desc && desc.get && !isESM) continue;
-        var exportValue = exports[key];
-        signature.push(key);
-        signature.push(Refresh.getFamilyByType(exportValue));
-    }
-    return signature;
-}
-function registerExportsForReactRefresh(module1) {
-    var exports = module1.exports, id = module1.id;
-    Refresh.register(exports, id + " %exports%");
-    if (exports == null || typeof exports !== "object") // Exit if we can't iterate over exports.
-    // (This is important for legacy environments.)
-    return;
-    let isESM = "__esModule" in exports;
-    for(var key in exports){
-        var desc = Object.getOwnPropertyDescriptor(exports, key);
-        if (desc && desc.get && !isESM) continue;
-        var exportValue = exports[key];
-        Refresh.register(exportValue, id + " %exports% " + key);
-    }
-}
-
-},{"react-refresh/runtime":"786KC"}],"e9Zfo":[function(require,module,exports) {
+},{}],"e9Zfo":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$2430 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -27228,6 +27078,9 @@ var _degueLabProducts = require("./Components/DegueLabProducts");
 var _degueLabProductsDefault = parcelHelpers.interopDefault(_degueLabProducts);
 var _degueLabAbout = require("./Components/DegueLabAbout");
 var _degueLabAboutDefault = parcelHelpers.interopDefault(_degueLabAbout);
+var _cartDrawer = require("./Components/CartDrawer");
+var _cartDrawerDefault = parcelHelpers.interopDefault(_cartDrawer);
+var _cartContext = require("./CartContext");
 // Styles
 var _indexCss = require("./index.css");
 // Layout principal avec DegueLabNav et DegueLabFooter
@@ -27237,7 +27090,7 @@ const Layout = ({ children  })=>{
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _degueLabNavDefault.default), {}, void 0, false, {
                 fileName: "src/App.jsx",
-                lineNumber: 23,
+                lineNumber: 25,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("main", {
@@ -27245,81 +27098,92 @@ const Layout = ({ children  })=>{
                 children: children
             }, void 0, false, {
                 fileName: "src/App.jsx",
-                lineNumber: 24,
+                lineNumber: 26,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _degueLabFooterDefault.default), {}, void 0, false, {
                 fileName: "src/App.jsx",
-                lineNumber: 25,
+                lineNumber: 27,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cartDrawerDefault.default), {}, void 0, false, {
+                fileName: "src/App.jsx",
+                lineNumber: 28,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/App.jsx",
-        lineNumber: 22,
+        lineNumber: 24,
         columnNumber: 5
     }, undefined);
 };
 _c = Layout;
 const App = ()=>{
     const basename = window.location.pathname.startsWith("/deguelab") ? "/deguelab" : "/";
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.BrowserRouter), {
-        basename: basename,
-        future: {
-            v7_startTransition: true,
-            v7_relativeSplatPath: true
-        },
-        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Routes), {
-            children: [
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
-                    path: "/",
-                    element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(Layout, {
-                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _degueLabHomeDefault.default), {}, void 0, false, void 0, void 0)
-                    }, void 0, false, void 0, void 0)
-                }, void 0, false, {
-                    fileName: "src/App.jsx",
-                    lineNumber: 37,
-                    columnNumber: 9
-                }, undefined),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
-                    path: "/products",
-                    element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(Layout, {
-                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _degueLabProductsDefault.default), {}, void 0, false, void 0, void 0)
-                    }, void 0, false, void 0, void 0)
-                }, void 0, false, {
-                    fileName: "src/App.jsx",
-                    lineNumber: 40,
-                    columnNumber: 9
-                }, undefined),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
-                    path: "/about",
-                    element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(Layout, {
-                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _degueLabAboutDefault.default), {}, void 0, false, void 0, void 0)
-                    }, void 0, false, void 0, void 0)
-                }, void 0, false, {
-                    fileName: "src/App.jsx",
-                    lineNumber: 43,
-                    columnNumber: 9
-                }, undefined),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
-                    path: "*",
-                    element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(Layout, {
-                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _degueLabHomeDefault.default), {}, void 0, false, void 0, void 0)
-                    }, void 0, false, void 0, void 0)
-                }, void 0, false, {
-                    fileName: "src/App.jsx",
-                    lineNumber: 46,
-                    columnNumber: 9
-                }, undefined)
-            ]
-        }, void 0, true, {
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cartContext.CartProvider), {
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.BrowserRouter), {
+            basename: basename,
+            future: {
+                v7_startTransition: true,
+                v7_relativeSplatPath: true
+            },
+            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Routes), {
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
+                        path: "/",
+                        element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(Layout, {
+                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _degueLabHomeDefault.default), {}, void 0, false, void 0, void 0)
+                        }, void 0, false, void 0, void 0)
+                    }, void 0, false, {
+                        fileName: "src/App.jsx",
+                        lineNumber: 41,
+                        columnNumber: 11
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
+                        path: "/products",
+                        element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(Layout, {
+                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _degueLabProductsDefault.default), {}, void 0, false, void 0, void 0)
+                        }, void 0, false, void 0, void 0)
+                    }, void 0, false, {
+                        fileName: "src/App.jsx",
+                        lineNumber: 44,
+                        columnNumber: 11
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
+                        path: "/about",
+                        element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(Layout, {
+                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _degueLabAboutDefault.default), {}, void 0, false, void 0, void 0)
+                        }, void 0, false, void 0, void 0)
+                    }, void 0, false, {
+                        fileName: "src/App.jsx",
+                        lineNumber: 47,
+                        columnNumber: 11
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
+                        path: "*",
+                        element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(Layout, {
+                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _degueLabHomeDefault.default), {}, void 0, false, void 0, void 0)
+                        }, void 0, false, void 0, void 0)
+                    }, void 0, false, {
+                        fileName: "src/App.jsx",
+                        lineNumber: 50,
+                        columnNumber: 11
+                    }, undefined)
+                ]
+            }, void 0, true, {
+                fileName: "src/App.jsx",
+                lineNumber: 39,
+                columnNumber: 9
+            }, undefined)
+        }, void 0, false, {
             fileName: "src/App.jsx",
-            lineNumber: 35,
+            lineNumber: 38,
             columnNumber: 7
         }, undefined)
     }, void 0, false, {
         fileName: "src/App.jsx",
-        lineNumber: 34,
+        lineNumber: 37,
         columnNumber: 5
     }, undefined);
 };
@@ -27334,7 +27198,7 @@ $RefreshReg$(_c1, "App");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"9xmpe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./index.css":"irmnC","./Components/DegueLabNav":"eu80h","./Components/DegueLabFooter":"4Jw4U","./Components/DegueLabHome":"l20c4","./Components/DegueLabProducts":"iJQrD","./Components/DegueLabAbout":"6Qjep"}],"9xmpe":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"9xmpe","./Components/DegueLabNav":"eu80h","./Components/DegueLabFooter":"4Jw4U","./Components/DegueLabHome":"l20c4","./Components/DegueLabProducts":"iJQrD","./Components/DegueLabAbout":"6Qjep","./Components/CartDrawer":"bdOBs","./CartContext":"8ZrOT","./index.css":"irmnC","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"9xmpe":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "AbortedDeferredError", ()=>(0, _reactRouter.AbortedDeferredError));
@@ -34597,7 +34461,37 @@ function persistAppliedTransitions(_window, transitions) {
     }
 }
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"irmnC":[function() {},{}],"eu80h":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {
+exports.interopDefault = function(a) {
+    return a && a.__esModule ? a : {
+        default: a
+    };
+};
+exports.defineInteropFlag = function(a) {
+    Object.defineProperty(a, "__esModule", {
+        value: true
+    });
+};
+exports.exportAll = function(source, dest) {
+    Object.keys(source).forEach(function(key) {
+        if (key === "default" || key === "__esModule" || dest.hasOwnProperty(key)) return;
+        Object.defineProperty(dest, key, {
+            enumerable: true,
+            get: function() {
+                return source[key];
+            }
+        });
+    });
+    return dest;
+};
+exports.export = function(dest, destName, get) {
+    Object.defineProperty(dest, destName, {
+        enumerable: true,
+        get: get
+    });
+};
+
+},{}],"eu80h":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$ec66 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -34613,10 +34507,12 @@ var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _reactRouterDom = require("react-router-dom");
 var _whatsappOrder = require("../utils/whatsappOrder");
+var _cartContext = require("../CartContext");
 var _s = $RefreshSig$();
 const DegueLabNav = ()=>{
     _s();
     const [isOpen, setIsOpen] = (0, _react.useState)(false);
+    const { cartCount , toggleCart  } = (0, _cartContext.useCart)();
     const handleOrderClick = async (event)=>{
         event.preventDefault();
         await (0, _whatsappOrder.openWhatsAppWithLocation)("Bonjour Degue Lab! Je veux commander.");
@@ -34641,12 +34537,12 @@ const DegueLabNav = ()=>{
                                 children: "DEGUE LAB"
                             }, void 0, false, {
                                 fileName: "src/Components/DegueLabNav.jsx",
-                                lineNumber: 22,
+                                lineNumber: 25,
                                 columnNumber: 13
                             }, undefined)
                         }, void 0, false, {
                             fileName: "src/Components/DegueLabNav.jsx",
-                            lineNumber: 21,
+                            lineNumber: 24,
                             columnNumber: 11
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -34658,7 +34554,7 @@ const DegueLabNav = ()=>{
                                     children: "Accueil"
                                 }, void 0, false, {
                                     fileName: "src/Components/DegueLabNav.jsx",
-                                    lineNumber: 28,
+                                    lineNumber: 31,
                                     columnNumber: 13
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
@@ -34667,7 +34563,7 @@ const DegueLabNav = ()=>{
                                     children: "Nos Vari\xe9t\xe9s"
                                 }, void 0, false, {
                                     fileName: "src/Components/DegueLabNav.jsx",
-                                    lineNumber: 31,
+                                    lineNumber: 34,
                                     columnNumber: 13
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
@@ -34676,7 +34572,45 @@ const DegueLabNav = ()=>{
                                     children: "\xc0 Propos"
                                 }, void 0, false, {
                                     fileName: "src/Components/DegueLabNav.jsx",
-                                    lineNumber: 34,
+                                    lineNumber: 37,
+                                    columnNumber: 13
+                                }, undefined),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                    onClick: toggleCart,
+                                    className: "relative text-stone-700 hover:text-stone-900 font-semibold transition-colors duration-300 p-2 rounded-lg hover:bg-stone-100",
+                                    children: [
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("svg", {
+                                            className: "w-6 h-6",
+                                            fill: "none",
+                                            stroke: "currentColor",
+                                            viewBox: "0 0 24 24",
+                                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("path", {
+                                                strokeLinecap: "round",
+                                                strokeLinejoin: "round",
+                                                strokeWidth: 2,
+                                                d: "M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
+                                            }, void 0, false, {
+                                                fileName: "src/Components/DegueLabNav.jsx",
+                                                lineNumber: 42,
+                                                columnNumber: 17
+                                            }, undefined)
+                                        }, void 0, false, {
+                                            fileName: "src/Components/DegueLabNav.jsx",
+                                            lineNumber: 41,
+                                            columnNumber: 15
+                                        }, undefined),
+                                        cartCount > 0 && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                                            className: "absolute -top-2 -right-2 bg-emerald-600 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center",
+                                            children: cartCount
+                                        }, void 0, false, {
+                                            fileName: "src/Components/DegueLabNav.jsx",
+                                            lineNumber: 45,
+                                            columnNumber: 17
+                                        }, undefined)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "src/Components/DegueLabNav.jsx",
+                                    lineNumber: 40,
                                     columnNumber: 13
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
@@ -34688,13 +34622,13 @@ const DegueLabNav = ()=>{
                                     children: "WhatsApp"
                                 }, void 0, false, {
                                     fileName: "src/Components/DegueLabNav.jsx",
-                                    lineNumber: 37,
+                                    lineNumber: 50,
                                     columnNumber: 13
                                 }, undefined)
                             ]
                         }, void 0, true, {
                             fileName: "src/Components/DegueLabNav.jsx",
-                            lineNumber: 27,
+                            lineNumber: 30,
                             columnNumber: 11
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -34713,7 +34647,7 @@ const DegueLabNav = ()=>{
                                     d: "M6 18L18 6M6 6l12 12"
                                 }, void 0, false, {
                                     fileName: "src/Components/DegueLabNav.jsx",
-                                    lineNumber: 51,
+                                    lineNumber: 64,
                                     columnNumber: 17
                                 }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("path", {
                                     strokeLinecap: "round",
@@ -34722,28 +34656,28 @@ const DegueLabNav = ()=>{
                                     d: "M4 6h16M4 12h16M4 18h16"
                                 }, void 0, false, {
                                     fileName: "src/Components/DegueLabNav.jsx",
-                                    lineNumber: 53,
+                                    lineNumber: 66,
                                     columnNumber: 17
                                 }, undefined)
                             }, void 0, false, {
                                 fileName: "src/Components/DegueLabNav.jsx",
-                                lineNumber: 49,
+                                lineNumber: 62,
                                 columnNumber: 13
                             }, undefined)
                         }, void 0, false, {
                             fileName: "src/Components/DegueLabNav.jsx",
-                            lineNumber: 48,
+                            lineNumber: 61,
                             columnNumber: 11
                         }, undefined)
                     ]
                 }, void 0, true, {
                     fileName: "src/Components/DegueLabNav.jsx",
-                    lineNumber: 20,
+                    lineNumber: 23,
                     columnNumber: 9
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/Components/DegueLabNav.jsx",
-                lineNumber: 19,
+                lineNumber: 22,
                 columnNumber: 7
             }, undefined),
             isOpen && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -34758,7 +34692,7 @@ const DegueLabNav = ()=>{
                             children: "Accueil"
                         }, void 0, false, {
                             fileName: "src/Components/DegueLabNav.jsx",
-                            lineNumber: 63,
+                            lineNumber: 76,
                             columnNumber: 13
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
@@ -34768,7 +34702,7 @@ const DegueLabNav = ()=>{
                             children: "Nos Vari\xe9t\xe9s"
                         }, void 0, false, {
                             fileName: "src/Components/DegueLabNav.jsx",
-                            lineNumber: 70,
+                            lineNumber: 83,
                             columnNumber: 13
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
@@ -34778,7 +34712,22 @@ const DegueLabNav = ()=>{
                             children: "\xc0 Propos"
                         }, void 0, false, {
                             fileName: "src/Components/DegueLabNav.jsx",
-                            lineNumber: 77,
+                            lineNumber: 90,
+                            columnNumber: 13
+                        }, undefined),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                            onClick: ()=>{
+                                toggleCart();
+                                setIsOpen(false);
+                            },
+                            className: "block w-full text-left py-3 px-3 text-stone-700 hover:bg-stone-100 hover:text-stone-900 rounded-lg font-semibold transition-colors duration-300",
+                            children: [
+                                "Panier ",
+                                cartCount > 0 && `(${cartCount})`
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/Components/DegueLabNav.jsx",
+                            lineNumber: 97,
                             columnNumber: 13
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
@@ -34790,28 +34739,32 @@ const DegueLabNav = ()=>{
                             children: "WhatsApp"
                         }, void 0, false, {
                             fileName: "src/Components/DegueLabNav.jsx",
-                            lineNumber: 84,
+                            lineNumber: 106,
                             columnNumber: 13
                         }, undefined)
                     ]
                 }, void 0, true, {
                     fileName: "src/Components/DegueLabNav.jsx",
-                    lineNumber: 62,
+                    lineNumber: 75,
                     columnNumber: 11
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/Components/DegueLabNav.jsx",
-                lineNumber: 61,
+                lineNumber: 74,
                 columnNumber: 9
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/Components/DegueLabNav.jsx",
-        lineNumber: 18,
+        lineNumber: 21,
         columnNumber: 5
     }, undefined);
 };
-_s(DegueLabNav, "+sus0Lb0ewKHdwiUhiTAJFoFyQ0=");
+_s(DegueLabNav, "/QkVZh/+D+6tzhN0V5VOgmeuuMY=", false, function() {
+    return [
+        (0, _cartContext.useCart)
+    ];
+});
 _c = DegueLabNav;
 exports.default = DegueLabNav;
 var _c;
@@ -34822,7 +34775,7 @@ $RefreshReg$(_c, "DegueLabNav");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"9xmpe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","../utils/whatsappOrder":"1hJiS"}],"1hJiS":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"9xmpe","../utils/whatsappOrder":"1hJiS","../CartContext":"8ZrOT","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"1hJiS":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "openWhatsAppWithLocation", ()=>openWhatsAppWithLocation);
@@ -34832,7 +34785,250 @@ const openWhatsAppWithLocation = async (baseMessage)=>{
     window.open(url, "_blank", "noopener,noreferrer");
 };
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"4Jw4U":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"8ZrOT":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$7ec9 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$7ec9.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "CartProvider", ()=>CartProvider);
+parcelHelpers.export(exports, "useCart", ()=>useCart);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+/**
+ * Degue Lab - Cart Context
+ * Gestion de l'état du panier
+ */ var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _s = $RefreshSig$(), _s1 = $RefreshSig$();
+const CartContext = /*#__PURE__*/ (0, _react.createContext)();
+const CartProvider = ({ children  })=>{
+    _s();
+    const [cartItems, setCartItems] = (0, _react.useState)([]);
+    const [isCartOpen, setIsCartOpen] = (0, _react.useState)(false);
+    const [showNotification, setShowNotification] = (0, _react.useState)(false);
+    const [notificationMessage, setNotificationMessage] = (0, _react.useState)("");
+    // Charger le panier depuis localStorage au montage
+    (0, _react.useEffect)(()=>{
+        const savedCart = localStorage.getItem("deguelab_cart");
+        if (savedCart) try {
+            setCartItems(JSON.parse(savedCart));
+        } catch (e) {
+            console.error("Erreur chargement du panier:", e);
+        }
+    }, []);
+    // Sauvegarder le panier dans localStorage à chaque changement
+    (0, _react.useEffect)(()=>{
+        localStorage.setItem("deguelab_cart", JSON.stringify(cartItems));
+    }, [
+        cartItems
+    ]);
+    const addToCart = (product, quantity = 1, selectedOption = null)=>{
+        setCartItems((prevItems)=>{
+            // Pour les produits avec options, créer une clé unique basée sur le produit + option
+            const itemKey = selectedOption ? `${product.id}-${selectedOption}` : product.id;
+            const existingItem = prevItems.find((item)=>item.cartKey === itemKey);
+            if (existingItem) return prevItems.map((item)=>item.cartKey === itemKey ? {
+                    ...item,
+                    quantity: item.quantity + quantity
+                } : item);
+            return [
+                ...prevItems,
+                {
+                    ...product,
+                    quantity,
+                    selectedOption,
+                    cartKey: itemKey
+                }
+            ];
+        });
+        const optionLabel = selectedOption ? ` (${selectedOption})` : "";
+        showSuccessNotification(`${product.name}${optionLabel} ajouté au panier!`);
+    };
+    const removeFromCart = (cartKey)=>{
+        setCartItems((prevItems)=>prevItems.filter((item)=>item.cartKey !== cartKey));
+    };
+    const updateQuantity = (cartKey, quantity)=>{
+        if (quantity <= 0) removeFromCart(cartKey);
+        else setCartItems((prevItems)=>prevItems.map((item)=>item.cartKey === cartKey ? {
+                    ...item,
+                    quantity
+                } : item));
+    };
+    const clearCart = ()=>{
+        setCartItems([]);
+    };
+    const showSuccessNotification = (message)=>{
+        setNotificationMessage(message);
+        setShowNotification(true);
+        setTimeout(()=>setShowNotification(false), 3000);
+    };
+    const cartCount = cartItems.reduce((total, item)=>total + item.quantity, 0);
+    const openCart = ()=>setIsCartOpen(true);
+    const closeCart = ()=>setIsCartOpen(false);
+    const toggleCart = ()=>setIsCartOpen(!isCartOpen);
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(CartContext.Provider, {
+        value: {
+            cartItems,
+            cartCount,
+            isCartOpen,
+            openCart,
+            closeCart,
+            toggleCart,
+            addToCart,
+            removeFromCart,
+            updateQuantity,
+            clearCart,
+            showNotification,
+            notificationMessage
+        },
+        children: children
+    }, void 0, false, {
+        fileName: "src/CartContext.jsx",
+        lineNumber: 89,
+        columnNumber: 5
+    }, undefined);
+};
+_s(CartProvider, "3cvBfJ+2RsDw1FHkGvyyUB8PreQ=");
+_c = CartProvider;
+const useCart = ()=>{
+    _s1();
+    const context = (0, _react.useContext)(CartContext);
+    if (!context) throw new Error("useCart doit \xeatre utilis\xe9 dans CartProvider");
+    return context;
+};
+_s1(useCart, "b9L3QQ+jgeyIrH0NfHrJ8nn7VMU=");
+var _c;
+$RefreshReg$(_c, "CartProvider");
+
+  $parcel$ReactRefreshHelpers$7ec9.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"km3Ru":[function(require,module,exports) {
+"use strict";
+var Refresh = require("react-refresh/runtime");
+function debounce(func, delay) {
+    var args;
+    var timeout = undefined;
+    return function(args) {
+        clearTimeout(timeout);
+        timeout = setTimeout(function() {
+            timeout = undefined;
+            func.call(null, args);
+        }, delay);
+    };
+}
+var enqueueUpdate = debounce(function() {
+    Refresh.performReactRefresh();
+}, 30); // Everthing below is either adapted or copied from
+// https://github.com/facebook/metro/blob/61de16bd1edd7e738dd0311c89555a644023ab2d/packages/metro/src/lib/polyfills/require.js
+// MIT License - Copyright (c) Facebook, Inc. and its affiliates.
+module.exports.prelude = function(module1) {
+    window.$RefreshReg$ = function(type, id) {
+        Refresh.register(type, module1.id + " " + id);
+    };
+    window.$RefreshSig$ = Refresh.createSignatureFunctionForTransform;
+};
+module.exports.postlude = function(module1) {
+    if (isReactRefreshBoundary(module1.exports)) {
+        registerExportsForReactRefresh(module1);
+        if (module1.hot) {
+            module1.hot.dispose(function(data) {
+                if (Refresh.hasUnrecoverableErrors()) window.location.reload();
+                data.prevExports = module1.exports;
+            });
+            module1.hot.accept(function(getParents) {
+                var prevExports = module1.hot.data.prevExports;
+                var nextExports = module1.exports; // Since we just executed the code for it, it's possible
+                // that the new exports make it ineligible for being a boundary.
+                var isNoLongerABoundary = !isReactRefreshBoundary(nextExports); // It can also become ineligible if its exports are incompatible
+                // with the previous exports.
+                // For example, if you add/remove/change exports, we'll want
+                // to re-execute the importing modules, and force those components
+                // to re-render. Similarly, if you convert a class component
+                // to a function, we want to invalidate the boundary.
+                var didInvalidate = shouldInvalidateReactRefreshBoundary(prevExports, nextExports);
+                if (isNoLongerABoundary || didInvalidate) {
+                    // We'll be conservative. The only case in which we won't do a full
+                    // reload is if all parent modules are also refresh boundaries.
+                    // In that case we'll add them to the current queue.
+                    var parents = getParents();
+                    if (parents.length === 0) {
+                        // Looks like we bubbled to the root. Can't recover from that.
+                        window.location.reload();
+                        return;
+                    }
+                    return parents;
+                }
+                enqueueUpdate();
+            });
+        }
+    }
+};
+function isReactRefreshBoundary(exports) {
+    if (Refresh.isLikelyComponentType(exports)) return true;
+    if (exports == null || typeof exports !== "object") // Exit if we can't iterate over exports.
+    return false;
+    var hasExports = false;
+    var areAllExportsComponents = true;
+    let isESM = "__esModule" in exports;
+    for(var key in exports){
+        hasExports = true;
+        if (key === "__esModule") continue;
+        var desc = Object.getOwnPropertyDescriptor(exports, key);
+        if (desc && desc.get && !isESM) // Don't invoke getters for CJS as they may have side effects.
+        return false;
+        var exportValue = exports[key];
+        if (!Refresh.isLikelyComponentType(exportValue)) areAllExportsComponents = false;
+    }
+    return hasExports && areAllExportsComponents;
+}
+function shouldInvalidateReactRefreshBoundary(prevExports, nextExports) {
+    var prevSignature = getRefreshBoundarySignature(prevExports);
+    var nextSignature = getRefreshBoundarySignature(nextExports);
+    if (prevSignature.length !== nextSignature.length) return true;
+    for(var i = 0; i < nextSignature.length; i++){
+        if (prevSignature[i] !== nextSignature[i]) return true;
+    }
+    return false;
+} // When this signature changes, it's unsafe to stop at this refresh boundary.
+function getRefreshBoundarySignature(exports) {
+    var signature = [];
+    signature.push(Refresh.getFamilyByType(exports));
+    if (exports == null || typeof exports !== "object") // Exit if we can't iterate over exports.
+    // (This is important for legacy environments.)
+    return signature;
+    let isESM = "__esModule" in exports;
+    for(var key in exports){
+        if (key === "__esModule") continue;
+        var desc = Object.getOwnPropertyDescriptor(exports, key);
+        if (desc && desc.get && !isESM) continue;
+        var exportValue = exports[key];
+        signature.push(key);
+        signature.push(Refresh.getFamilyByType(exportValue));
+    }
+    return signature;
+}
+function registerExportsForReactRefresh(module1) {
+    var exports = module1.exports, id = module1.id;
+    Refresh.register(exports, id + " %exports%");
+    if (exports == null || typeof exports !== "object") // Exit if we can't iterate over exports.
+    // (This is important for legacy environments.)
+    return;
+    let isESM = "__esModule" in exports;
+    for(var key in exports){
+        var desc = Object.getOwnPropertyDescriptor(exports, key);
+        if (desc && desc.get && !isESM) continue;
+        var exportValue = exports[key];
+        Refresh.register(exportValue, id + " %exports% " + key);
+    }
+}
+
+},{"react-refresh/runtime":"786KC"}],"4Jw4U":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$add1 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -35102,7 +35298,7 @@ $RefreshReg$(_c, "DegueLabFooter");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","../utils/whatsappOrder":"1hJiS","react-router-dom":"9xmpe"}],"l20c4":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"9xmpe","../utils/whatsappOrder":"1hJiS","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"l20c4":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$b749 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -35114,17 +35310,65 @@ parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 /**
  * Degue Lab - Page d'accueil
- */ var _reactRouterDom = require("react-router-dom");
+ */ var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _reactRouterDom = require("react-router-dom");
 var _whatsappOrder = require("../utils/whatsappOrder");
 var _degueProducts = require("../utils/degueProducts");
+var _cartContext = require("../CartContext");
+var _productOptionsModal = require("./ProductOptionsModal");
+var _productOptionsModalDefault = parcelHelpers.interopDefault(_productOptionsModal);
 var _degueLabLocation = require("./DegueLabLocation");
 var _degueLabLocationDefault = parcelHelpers.interopDefault(_degueLabLocation);
+var _s = $RefreshSig$();
 const DegueLabHome = ()=>{
+    _s();
+    const [addedProductId, setAddedProductId] = (0, _react.useState)(null);
+    const [selectedProductForModal, setSelectedProductForModal] = (0, _react.useState)(null);
+    const [isModalOpen, setIsModalOpen] = (0, _react.useState)(false);
+    const [modalMode, setModalMode] = (0, _react.useState)("cart");
+    const { addToCart , openCart  } = (0, _cartContext.useCart)();
     const heroImage = "https://images.unsplash.com/photo-1483918793747-5adbf82956c4?auto=format&fit=crop&w=1800&q=80";
     const products = (0, _degueProducts.degueProducts);
+    (0, _react.useEffect)(()=>{
+        if (addedProductId) {
+            const timer = setTimeout(()=>setAddedProductId(null), 2000);
+            return ()=>clearTimeout(timer);
+        }
+    }, [
+        addedProductId
+    ]);
     const handleBuy = async (product)=>{
-        const message = `Bonjour! Je souhaite acheter: ${product.name} (${product.price})`;
-        await (0, _whatsappOrder.openWhatsAppWithLocation)(message);
+        if (product.options && product.options.length > 0) {
+            setSelectedProductForModal(product);
+            setModalMode("buy");
+            setIsModalOpen(true);
+        } else {
+            const message = `Bonjour! Je souhaite acheter: ${product.name} (${product.price})`;
+            await (0, _whatsappOrder.openWhatsAppWithLocation)(message);
+        }
+    };
+    const handleAddToCart = (product)=>{
+        if (product.options && product.options.length > 0) {
+            setSelectedProductForModal(product);
+            setModalMode("cart");
+            setIsModalOpen(true);
+        } else {
+            addToCart(product, 1);
+            setAddedProductId(product.id);
+            openCart();
+        }
+    };
+    const handleConfirmOption = async (selectedOption)=>{
+        if (modalMode === "cart") {
+            addToCart(selectedProductForModal, 1, selectedOption);
+            setAddedProductId(selectedProductForModal.id);
+            openCart();
+        } else {
+            const message = `Bonjour! Je souhaite acheter: ${selectedProductForModal.name} (${selectedOption}) (${selectedProductForModal.price})`;
+            await (0, _whatsappOrder.openWhatsAppWithLocation)(message);
+        }
+        setIsModalOpen(false);
     };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "min-h-screen bg-stone-50",
@@ -35147,7 +35391,7 @@ const DegueLabHome = ()=>{
                             children: "DEGUE LAB"
                         }, void 0, false, {
                             fileName: "src/Components/DegueLabHome.jsx",
-                            lineNumber: 32,
+                            lineNumber: 77,
                             columnNumber: 11
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -35155,7 +35399,7 @@ const DegueLabHome = ()=>{
                             children: "L'exp\xe9rience premium du degu\xe9 et du yaourt artisanal."
                         }, void 0, false, {
                             fileName: "src/Components/DegueLabHome.jsx",
-                            lineNumber: 35,
+                            lineNumber: 80,
                             columnNumber: 11
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -35167,7 +35411,7 @@ const DegueLabHome = ()=>{
                                     children: "M\xe9langes de fruits"
                                 }, void 0, false, {
                                     fileName: "src/Components/DegueLabHome.jsx",
-                                    lineNumber: 39,
+                                    lineNumber: 84,
                                     columnNumber: 13
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
@@ -35176,24 +35420,24 @@ const DegueLabHome = ()=>{
                                     children: "Gamme prot\xe9in\xe9e"
                                 }, void 0, false, {
                                     fileName: "src/Components/DegueLabHome.jsx",
-                                    lineNumber: 45,
+                                    lineNumber: 90,
                                     columnNumber: 13
                                 }, undefined)
                             ]
                         }, void 0, true, {
                             fileName: "src/Components/DegueLabHome.jsx",
-                            lineNumber: 38,
+                            lineNumber: 83,
                             columnNumber: 11
                         }, undefined)
                     ]
                 }, void 0, true, {
                     fileName: "src/Components/DegueLabHome.jsx",
-                    lineNumber: 31,
+                    lineNumber: 76,
                     columnNumber: 9
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/Components/DegueLabHome.jsx",
-                lineNumber: 23,
+                lineNumber: 68,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("section", {
@@ -35225,7 +35469,7 @@ const DegueLabHome = ()=>{
                                             children: "CAT\xc9GORIE"
                                         }, void 0, false, {
                                             fileName: "src/Components/DegueLabHome.jsx",
-                                            lineNumber: 68,
+                                            lineNumber: 113,
                                             columnNumber: 17
                                         }, undefined),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -35233,18 +35477,18 @@ const DegueLabHome = ()=>{
                                             children: item.label
                                         }, void 0, false, {
                                             fileName: "src/Components/DegueLabHome.jsx",
-                                            lineNumber: 69,
+                                            lineNumber: 114,
                                             columnNumber: 17
                                         }, undefined)
                                     ]
                                 }, item.label, true, {
                                     fileName: "src/Components/DegueLabHome.jsx",
-                                    lineNumber: 63,
+                                    lineNumber: 108,
                                     columnNumber: 15
                                 }, undefined))
                         }, void 0, false, {
                             fileName: "src/Components/DegueLabHome.jsx",
-                            lineNumber: 57,
+                            lineNumber: 102,
                             columnNumber: 11
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
@@ -35255,7 +35499,7 @@ const DegueLabHome = ()=>{
                             children: "NOS VARI\xc9T\xc9S"
                         }, void 0, false, {
                             fileName: "src/Components/DegueLabHome.jsx",
-                            lineNumber: 74,
+                            lineNumber: 119,
                             columnNumber: 11
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -35272,12 +35516,12 @@ const DegueLabHome = ()=>{
                                                 loading: "lazy"
                                             }, void 0, false, {
                                                 fileName: "src/Components/DegueLabHome.jsx",
-                                                lineNumber: 85,
+                                                lineNumber: 130,
                                                 columnNumber: 19
                                             }, undefined)
                                         }, void 0, false, {
                                             fileName: "src/Components/DegueLabHome.jsx",
-                                            lineNumber: 84,
+                                            lineNumber: 129,
                                             columnNumber: 17
                                         }, undefined),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -35291,7 +35535,7 @@ const DegueLabHome = ()=>{
                                                     children: product.name
                                                 }, void 0, false, {
                                                     fileName: "src/Components/DegueLabHome.jsx",
-                                                    lineNumber: 88,
+                                                    lineNumber: 133,
                                                     columnNumber: 19
                                                 }, undefined),
                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -35299,59 +35543,77 @@ const DegueLabHome = ()=>{
                                                     children: product.description
                                                 }, void 0, false, {
                                                     fileName: "src/Components/DegueLabHome.jsx",
-                                                    lineNumber: 91,
+                                                    lineNumber: 136,
                                                     columnNumber: 19
                                                 }, undefined),
                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                    className: "flex items-center justify-between",
+                                                    className: "flex items-center justify-between mb-4",
                                                     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
                                                         className: "text-xl sm:text-2xl font-black text-stone-900 break-words",
                                                         children: product.price
                                                     }, void 0, false, {
                                                         fileName: "src/Components/DegueLabHome.jsx",
-                                                        lineNumber: 93,
+                                                        lineNumber: 138,
                                                         columnNumber: 21
                                                     }, undefined)
                                                 }, void 0, false, {
                                                     fileName: "src/Components/DegueLabHome.jsx",
-                                                    lineNumber: 92,
+                                                    lineNumber: 137,
                                                     columnNumber: 19
                                                 }, undefined),
-                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                                                    onClick: ()=>handleBuy(product),
-                                                    className: "w-full mt-4 bg-stone-900 text-white font-semibold py-3 px-4 sm:px-6 rounded-full hover:bg-stone-800 transform hover:scale-[1.02] transition-all duration-300 shadow-md text-sm sm:text-base",
-                                                    children: "Acheter via WhatsApp"
-                                                }, void 0, false, {
+                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                    className: "flex gap-3",
+                                                    children: [
+                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                                            onClick: ()=>handleAddToCart(product),
+                                                            className: `flex-1 font-semibold py-3 px-4 sm:px-6 rounded-full transform hover:scale-[1.02] transition-all duration-300 shadow-md text-sm sm:text-base ${addedProductId === product.id ? "bg-emerald-600 text-white" : "bg-white text-stone-900 border border-stone-900 hover:bg-stone-900 hover:text-white"}`,
+                                                            children: addedProductId === product.id ? "✓ Ajout\xe9" : "Panier"
+                                                        }, void 0, false, {
+                                                            fileName: "src/Components/DegueLabHome.jsx",
+                                                            lineNumber: 141,
+                                                            columnNumber: 21
+                                                        }, undefined),
+                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                                            onClick: ()=>handleBuy(product),
+                                                            className: "flex-1 bg-stone-900 text-white font-semibold py-3 px-4 sm:px-6 rounded-full hover:bg-stone-800 transform hover:scale-[1.02] transition-all duration-300 shadow-md text-sm sm:text-base",
+                                                            children: "Acheter"
+                                                        }, void 0, false, {
+                                                            fileName: "src/Components/DegueLabHome.jsx",
+                                                            lineNumber: 151,
+                                                            columnNumber: 21
+                                                        }, undefined)
+                                                    ]
+                                                }, void 0, true, {
                                                     fileName: "src/Components/DegueLabHome.jsx",
-                                                    lineNumber: 95,
+                                                    lineNumber: 140,
                                                     columnNumber: 19
                                                 }, undefined)
                                             ]
                                         }, void 0, true, {
                                             fileName: "src/Components/DegueLabHome.jsx",
-                                            lineNumber: 87,
+                                            lineNumber: 132,
                                             columnNumber: 17
                                         }, undefined)
                                     ]
                                 }, product.id, true, {
                                     fileName: "src/Components/DegueLabHome.jsx",
-                                    lineNumber: 80,
+                                    lineNumber: 125,
                                     columnNumber: 15
                                 }, undefined))
                         }, void 0, false, {
                             fileName: "src/Components/DegueLabHome.jsx",
-                            lineNumber: 78,
+                            lineNumber: 123,
                             columnNumber: 11
                         }, undefined)
                     ]
                 }, void 0, true, {
                     fileName: "src/Components/DegueLabHome.jsx",
-                    lineNumber: 56,
+                    lineNumber: 101,
                     columnNumber: 9
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/Components/DegueLabHome.jsx",
-                lineNumber: 55,
+                lineNumber: 100,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("section", {
@@ -35367,7 +35629,7 @@ const DegueLabHome = ()=>{
                             children: "POURQUOI DEGUE LAB ?"
                         }, void 0, false, {
                             fileName: "src/Components/DegueLabHome.jsx",
-                            lineNumber: 110,
+                            lineNumber: 167,
                             columnNumber: 11
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -35381,7 +35643,7 @@ const DegueLabHome = ()=>{
                                             children: "QUALIT\xc9"
                                         }, void 0, false, {
                                             fileName: "src/Components/DegueLabHome.jsx",
-                                            lineNumber: 115,
+                                            lineNumber: 172,
                                             columnNumber: 15
                                         }, undefined),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
@@ -35389,7 +35651,7 @@ const DegueLabHome = ()=>{
                                             children: "100% Artisanal"
                                         }, void 0, false, {
                                             fileName: "src/Components/DegueLabHome.jsx",
-                                            lineNumber: 116,
+                                            lineNumber: 173,
                                             columnNumber: 15
                                         }, undefined),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -35397,13 +35659,13 @@ const DegueLabHome = ()=>{
                                             children: "Ingr\xe9dients premium, pr\xe9paration soign\xe9e et finition \xe9l\xe9gante."
                                         }, void 0, false, {
                                             fileName: "src/Components/DegueLabHome.jsx",
-                                            lineNumber: 117,
+                                            lineNumber: 174,
                                             columnNumber: 15
                                         }, undefined)
                                     ]
                                 }, void 0, true, {
                                     fileName: "src/Components/DegueLabHome.jsx",
-                                    lineNumber: 114,
+                                    lineNumber: 171,
                                     columnNumber: 13
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -35414,7 +35676,7 @@ const DegueLabHome = ()=>{
                                             children: "SERVICE"
                                         }, void 0, false, {
                                             fileName: "src/Components/DegueLabHome.jsx",
-                                            lineNumber: 120,
+                                            lineNumber: 177,
                                             columnNumber: 15
                                         }, undefined),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
@@ -35422,7 +35684,7 @@ const DegueLabHome = ()=>{
                                             children: "Livraison Express"
                                         }, void 0, false, {
                                             fileName: "src/Components/DegueLabHome.jsx",
-                                            lineNumber: 121,
+                                            lineNumber: 178,
                                             columnNumber: 15
                                         }, undefined),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -35430,13 +35692,13 @@ const DegueLabHome = ()=>{
                                             children: "Commandez sur WhatsApp, recevez rapidement chez vous."
                                         }, void 0, false, {
                                             fileName: "src/Components/DegueLabHome.jsx",
-                                            lineNumber: 122,
+                                            lineNumber: 179,
                                             columnNumber: 15
                                         }, undefined)
                                     ]
                                 }, void 0, true, {
                                     fileName: "src/Components/DegueLabHome.jsx",
-                                    lineNumber: 119,
+                                    lineNumber: 176,
                                     columnNumber: 13
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -35447,7 +35709,7 @@ const DegueLabHome = ()=>{
                                             children: "CONFIANCE"
                                         }, void 0, false, {
                                             fileName: "src/Components/DegueLabHome.jsx",
-                                            lineNumber: 125,
+                                            lineNumber: 182,
                                             columnNumber: 15
                                         }, undefined),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
@@ -35455,7 +35717,7 @@ const DegueLabHome = ()=>{
                                             children: "Satisfaction Totale"
                                         }, void 0, false, {
                                             fileName: "src/Components/DegueLabHome.jsx",
-                                            lineNumber: 126,
+                                            lineNumber: 183,
                                             columnNumber: 15
                                         }, undefined),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -35463,44 +35725,60 @@ const DegueLabHome = ()=>{
                                             children: "Une exp\xe9rience premium pens\xe9e pour fid\xe9liser chaque client."
                                         }, void 0, false, {
                                             fileName: "src/Components/DegueLabHome.jsx",
-                                            lineNumber: 127,
+                                            lineNumber: 184,
                                             columnNumber: 15
                                         }, undefined)
                                     ]
                                 }, void 0, true, {
                                     fileName: "src/Components/DegueLabHome.jsx",
-                                    lineNumber: 124,
+                                    lineNumber: 181,
                                     columnNumber: 13
                                 }, undefined)
                             ]
                         }, void 0, true, {
                             fileName: "src/Components/DegueLabHome.jsx",
-                            lineNumber: 113,
+                            lineNumber: 170,
                             columnNumber: 11
                         }, undefined)
                     ]
                 }, void 0, true, {
                     fileName: "src/Components/DegueLabHome.jsx",
-                    lineNumber: 109,
+                    lineNumber: 166,
                     columnNumber: 9
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/Components/DegueLabHome.jsx",
-                lineNumber: 108,
+                lineNumber: 165,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _degueLabLocationDefault.default), {}, void 0, false, {
                 fileName: "src/Components/DegueLabHome.jsx",
-                lineNumber: 134,
+                lineNumber: 191,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _productOptionsModalDefault.default), {
+                product: selectedProductForModal,
+                isOpen: isModalOpen,
+                mode: modalMode,
+                onClose: ()=>setIsModalOpen(false),
+                onAddToCart: handleConfirmOption
+            }, void 0, false, {
+                fileName: "src/Components/DegueLabHome.jsx",
+                lineNumber: 193,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/Components/DegueLabHome.jsx",
-        lineNumber: 22,
+        lineNumber: 67,
         columnNumber: 5
     }, undefined);
 };
+_s(DegueLabHome, "wNG33JRCiBL1bGGm0gi3cxd47P8=", false, function() {
+    return [
+        (0, _cartContext.useCart)
+    ];
+});
 _c = DegueLabHome;
 exports.default = DegueLabHome;
 var _c;
@@ -35511,7 +35789,7 @@ $RefreshReg$(_c, "DegueLabHome");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","../utils/whatsappOrder":"1hJiS","react-router-dom":"9xmpe","../utils/degueProducts":"kNiLu","./DegueLabLocation":"bF3pj"}],"kNiLu":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"9xmpe","../utils/whatsappOrder":"1hJiS","../utils/degueProducts":"kNiLu","../CartContext":"8ZrOT","./ProductOptionsModal":"dP4wh","./DegueLabLocation":"bF3pj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"kNiLu":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "degueProducts", ()=>degueProducts);
@@ -35555,7 +35833,17 @@ const degueProducts = [
         description: "Degue fruit\xe9 avec granola croustillant.",
         price: "2000 FCFA",
         image: (0, _degueFruiterGranolaJpegDefault.default),
-        category: "fruits"
+        category: "fruits",
+        options: [
+            {
+                name: "mil",
+                label: "Mil"
+            },
+            {
+                name: "couscous",
+                label: "Couscous"
+            }
+        ]
     },
     {
         id: 4,
@@ -35563,7 +35851,17 @@ const degueProducts = [
         description: "M\xe9lange fruit\xe9 frais.",
         price: "1500 FCFA",
         image: (0, _deguefruitJpegDefault.default),
-        category: "fruits"
+        category: "fruits",
+        options: [
+            {
+                name: "mil",
+                label: "Mil"
+            },
+            {
+                name: "couscous",
+                label: "Couscous"
+            }
+        ]
     },
     {
         id: 5,
@@ -35629,7 +35927,7 @@ const degueCategories = [
     }
 ];
 
-},{"../images/CouscousBasique.jpeg":"bMPto","../images/PetitMilBasique.jpeg":"ubs84","../images/DegueFruiterGranola.jpeg":"dDZCk","../images/Deguefruit.jpeg":"hjCRV","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../images/ShekerProteiner.jpeg":"dQ74M","../images/yaourtChocolate.jpeg":"9RzD7","../images/yaourProteine.jpg":"2PWGt","../images/yaourt.jpg":"3IyfS"}],"bMPto":[function(require,module,exports) {
+},{"../images/CouscousBasique.jpeg":"bMPto","../images/PetitMilBasique.jpeg":"ubs84","../images/DegueFruiterGranola.jpeg":"dDZCk","../images/ShekerProteiner.jpeg":"dQ74M","../images/Deguefruit.jpeg":"hjCRV","../images/yaourtChocolate.jpeg":"9RzD7","../images/yaourProteine.jpg":"2PWGt","../images/yaourt.jpg":"3IyfS","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"bMPto":[function(require,module,exports) {
 module.exports = require("./helpers/bundle-url").getBundleURL("bLxZJ") + "CouscousBasique.67cb5f06.jpeg" + "?" + Date.now();
 
 },{"./helpers/bundle-url":"lgJ39"}],"lgJ39":[function(require,module,exports) {
@@ -35672,11 +35970,11 @@ module.exports = require("./helpers/bundle-url").getBundleURL("bLxZJ") + "PetitM
 },{"./helpers/bundle-url":"lgJ39"}],"dDZCk":[function(require,module,exports) {
 module.exports = require("./helpers/bundle-url").getBundleURL("bLxZJ") + "DegueFruiterGranola.6afd3b28.jpeg" + "?" + Date.now();
 
-},{"./helpers/bundle-url":"lgJ39"}],"hjCRV":[function(require,module,exports) {
-module.exports = require("./helpers/bundle-url").getBundleURL("bLxZJ") + "Deguefruit.5a4b8ee3.jpeg" + "?" + Date.now();
-
 },{"./helpers/bundle-url":"lgJ39"}],"dQ74M":[function(require,module,exports) {
 module.exports = require("./helpers/bundle-url").getBundleURL("bLxZJ") + "ShekerProteiner.abababa3.jpeg" + "?" + Date.now();
+
+},{"./helpers/bundle-url":"lgJ39"}],"hjCRV":[function(require,module,exports) {
+module.exports = require("./helpers/bundle-url").getBundleURL("bLxZJ") + "Deguefruit.5a4b8ee3.jpeg" + "?" + Date.now();
 
 },{"./helpers/bundle-url":"lgJ39"}],"9RzD7":[function(require,module,exports) {
 module.exports = require("./helpers/bundle-url").getBundleURL("bLxZJ") + "yaourtChocolate.59c18b17.jpeg" + "?" + Date.now();
@@ -35687,7 +35985,224 @@ module.exports = require("./helpers/bundle-url").getBundleURL("bLxZJ") + "yaourP
 },{"./helpers/bundle-url":"lgJ39"}],"3IyfS":[function(require,module,exports) {
 module.exports = require("./helpers/bundle-url").getBundleURL("bLxZJ") + "yaourt.77104c0d.jpg" + "?" + Date.now();
 
-},{"./helpers/bundle-url":"lgJ39"}],"bF3pj":[function(require,module,exports) {
+},{"./helpers/bundle-url":"lgJ39"}],"dP4wh":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$259e = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$259e.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+/**
+ * Degue Lab - Product Options Modal
+ * Modal pour sélectionner les options d'un produit
+ */ var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _s = $RefreshSig$();
+const ProductOptionsModal = ({ product , isOpen , onClose , onAddToCart , mode ="cart"  })=>{
+    _s();
+    const [selectedOption, setSelectedOption] = (0, _react.useState)(null);
+    if (!isOpen || !product) return null;
+    const handleConfirm = ()=>{
+        if (!selectedOption) return;
+        onAddToCart(selectedOption);
+        setSelectedOption(null);
+        onClose();
+    };
+    const buttonLabel = mode === "cart" ? "Ajouter au panier" : "Commander sur WhatsApp";
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "fixed inset-0 bg-black bg-opacity-50 z-40 transition-opacity duration-300",
+                onClick: onClose
+            }, void 0, false, {
+                fileName: "src/Components/ProductOptionsModal.jsx",
+                lineNumber: 25,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "fixed inset-0 z-50 flex items-center justify-center p-4",
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                    className: "bg-white rounded-3xl shadow-2xl max-w-sm w-full max-h-[90vh] overflow-y-auto",
+                    children: [
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "flex items-center justify-between p-6 border-b border-stone-200 sticky top-0 bg-white",
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
+                                    className: "text-xl font-black text-stone-900",
+                                    style: {
+                                        fontFamily: "Poppins, sans-serif"
+                                    },
+                                    children: product.name
+                                }, void 0, false, {
+                                    fileName: "src/Components/ProductOptionsModal.jsx",
+                                    lineNumber: 35,
+                                    columnNumber: 13
+                                }, undefined),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                    onClick: onClose,
+                                    className: "text-stone-600 hover:text-stone-900 p-2 rounded-lg hover:bg-stone-100 transition-colors",
+                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("svg", {
+                                        className: "w-6 h-6",
+                                        fill: "none",
+                                        stroke: "currentColor",
+                                        viewBox: "0 0 24 24",
+                                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("path", {
+                                            strokeLinecap: "round",
+                                            strokeLinejoin: "round",
+                                            strokeWidth: 2,
+                                            d: "M6 18L18 6M6 6l12 12"
+                                        }, void 0, false, {
+                                            fileName: "src/Components/ProductOptionsModal.jsx",
+                                            lineNumber: 43,
+                                            columnNumber: 17
+                                        }, undefined)
+                                    }, void 0, false, {
+                                        fileName: "src/Components/ProductOptionsModal.jsx",
+                                        lineNumber: 42,
+                                        columnNumber: 15
+                                    }, undefined)
+                                }, void 0, false, {
+                                    fileName: "src/Components/ProductOptionsModal.jsx",
+                                    lineNumber: 38,
+                                    columnNumber: 13
+                                }, undefined)
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/Components/ProductOptionsModal.jsx",
+                            lineNumber: 34,
+                            columnNumber: 11
+                        }, undefined),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "p-6",
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                    className: "text-stone-600 mb-6",
+                                    children: product.description
+                                }, void 0, false, {
+                                    fileName: "src/Components/ProductOptionsModal.jsx",
+                                    lineNumber: 50,
+                                    columnNumber: 13
+                                }, undefined),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                    className: "mb-6",
+                                    children: [
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
+                                            className: "font-bold text-stone-900 mb-4 text-lg",
+                                            children: "Choisir le type de base :"
+                                        }, void 0, false, {
+                                            fileName: "src/Components/ProductOptionsModal.jsx",
+                                            lineNumber: 53,
+                                            columnNumber: 15
+                                        }, undefined),
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                            className: "space-y-3",
+                                            children: product.options?.map((option)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                                    className: "flex items-center p-4 border-2 rounded-2xl cursor-pointer transition-all duration-200",
+                                                    style: {
+                                                        borderColor: selectedOption === option.name ? "#000" : "#e7e5e4",
+                                                        backgroundColor: selectedOption === option.name ? "#f5f5f0" : "white"
+                                                    },
+                                                    children: [
+                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                                            type: "radio",
+                                                            name: "type",
+                                                            value: option.name,
+                                                            checked: selectedOption === option.name,
+                                                            onChange: ()=>setSelectedOption(option.name),
+                                                            className: "w-5 h-5 accent-stone-900"
+                                                        }, void 0, false, {
+                                                            fileName: "src/Components/ProductOptionsModal.jsx",
+                                                            lineNumber: 64,
+                                                            columnNumber: 21
+                                                        }, undefined),
+                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                                                            className: "ml-4 font-semibold text-stone-900 capitalize",
+                                                            children: option.label
+                                                        }, void 0, false, {
+                                                            fileName: "src/Components/ProductOptionsModal.jsx",
+                                                            lineNumber: 72,
+                                                            columnNumber: 21
+                                                        }, undefined)
+                                                    ]
+                                                }, option.name, true, {
+                                                    fileName: "src/Components/ProductOptionsModal.jsx",
+                                                    lineNumber: 56,
+                                                    columnNumber: 19
+                                                }, undefined))
+                                        }, void 0, false, {
+                                            fileName: "src/Components/ProductOptionsModal.jsx",
+                                            lineNumber: 54,
+                                            columnNumber: 15
+                                        }, undefined)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "src/Components/ProductOptionsModal.jsx",
+                                    lineNumber: 52,
+                                    columnNumber: 13
+                                }, undefined),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                    className: "space-y-3",
+                                    children: [
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                            onClick: handleConfirm,
+                                            disabled: !selectedOption,
+                                            className: `w-full font-semibold py-3 px-4 rounded-full transform hover:scale-[1.02] transition-all duration-300 shadow-md disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 ${mode === "cart" ? "bg-stone-900 text-white hover:bg-stone-800" : "bg-stone-900 text-white hover:bg-stone-800"}`,
+                                            children: buttonLabel
+                                        }, void 0, false, {
+                                            fileName: "src/Components/ProductOptionsModal.jsx",
+                                            lineNumber: 79,
+                                            columnNumber: 15
+                                        }, undefined),
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                            onClick: onClose,
+                                            className: "w-full bg-stone-100 text-stone-900 font-semibold py-3 px-4 rounded-full hover:bg-stone-200 transition-all duration-300",
+                                            children: "Annuler"
+                                        }, void 0, false, {
+                                            fileName: "src/Components/ProductOptionsModal.jsx",
+                                            lineNumber: 90,
+                                            columnNumber: 15
+                                        }, undefined)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "src/Components/ProductOptionsModal.jsx",
+                                    lineNumber: 78,
+                                    columnNumber: 13
+                                }, undefined)
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/Components/ProductOptionsModal.jsx",
+                            lineNumber: 49,
+                            columnNumber: 11
+                        }, undefined)
+                    ]
+                }, void 0, true, {
+                    fileName: "src/Components/ProductOptionsModal.jsx",
+                    lineNumber: 32,
+                    columnNumber: 9
+                }, undefined)
+            }, void 0, false, {
+                fileName: "src/Components/ProductOptionsModal.jsx",
+                lineNumber: 31,
+                columnNumber: 7
+            }, undefined)
+        ]
+    }, void 0, true);
+};
+_s(ProductOptionsModal, "JA8CxE9ZrczvRffCFoauEAbBIYg=");
+_c = ProductOptionsModal;
+exports.default = ProductOptionsModal;
+var _c;
+$RefreshReg$(_c, "ProductOptionsModal");
+
+  $parcel$ReactRefreshHelpers$259e.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"bF3pj":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$e056 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -35996,12 +36511,20 @@ var _reactDefault = parcelHelpers.interopDefault(_react);
 var _reactRouterDom = require("react-router-dom");
 var _whatsappOrder = require("../utils/whatsappOrder");
 var _degueProducts = require("../utils/degueProducts");
+var _cartContext = require("../CartContext");
+var _productOptionsModal = require("./ProductOptionsModal");
+var _productOptionsModalDefault = parcelHelpers.interopDefault(_productOptionsModal);
 var _s = $RefreshSig$();
 const DegueLabProducts = ()=>{
     _s();
     const [searchParams] = (0, _reactRouterDom.useSearchParams)();
+    const [addedProductId, setAddedProductId] = (0, _react.useState)(null);
+    const [selectedProductForModal, setSelectedProductForModal] = (0, _react.useState)(null);
+    const [isModalOpen, setIsModalOpen] = (0, _react.useState)(false);
+    const [modalMode, setModalMode] = (0, _react.useState)("cart");
     const initialCategory = searchParams.get("category") || "all";
     const [activeCategory, setActiveCategory] = (0, _react.useState)("all");
+    const { addToCart , openCart  } = (0, _cartContext.useCart)();
     const products = (0, _degueProducts.degueProducts);
     const categories = (0, _degueProducts.degueCategories);
     (0, _reactDefault.default).useEffect(()=>{
@@ -36010,167 +36533,235 @@ const DegueLabProducts = ()=>{
     }, [
         initialCategory
     ]);
+    (0, _react.useEffect)(()=>{
+        if (addedProductId) {
+            const timer = setTimeout(()=>setAddedProductId(null), 2000);
+            return ()=>clearTimeout(timer);
+        }
+    }, [
+        addedProductId
+    ]);
     const filteredProducts = activeCategory === "all" ? products : products.filter((p)=>p.category === activeCategory);
     const handleBuy = async (product)=>{
-        const message = `Bonjour! Je souhaite acheter:\n\n${product.name}\nPrix: ${product.price}\n\n${product.description}`;
-        await (0, _whatsappOrder.openWhatsAppWithLocation)(message);
+        if (product.options && product.options.length > 0) {
+            setSelectedProductForModal(product);
+            setModalMode("buy");
+            setIsModalOpen(true);
+        } else {
+            const message = `Bonjour! Je souhaite acheter:\n\n${product.name}\nPrix: ${product.price}\n\n${product.description}`;
+            await (0, _whatsappOrder.openWhatsAppWithLocation)(message);
+        }
+    };
+    const handleAddToCart = (product)=>{
+        if (product.options && product.options.length > 0) {
+            setSelectedProductForModal(product);
+            setModalMode("cart");
+            setIsModalOpen(true);
+        } else {
+            addToCart(product, 1);
+            setAddedProductId(product.id);
+            openCart();
+        }
+    };
+    const handleConfirmOption = async (selectedOption)=>{
+        if (modalMode === "cart") {
+            addToCart(selectedProductForModal, 1, selectedOption);
+            setAddedProductId(selectedProductForModal.id);
+            openCart();
+        } else {
+            const message = `Bonjour! Je souhaite acheter:\n\n${selectedProductForModal.name} (${selectedOption})\nPrix: ${selectedProductForModal.price}\n\n${selectedProductForModal.description}`;
+            await (0, _whatsappOrder.openWhatsAppWithLocation)(message);
+        }
+        setIsModalOpen(false);
     };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "min-h-screen bg-stone-50 py-10 sm:py-12 px-3 sm:px-4",
-        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-            className: "max-w-7xl mx-auto",
-            children: [
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                    className: "text-center mb-8 sm:mb-12",
-                    children: [
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
-                            className: "text-3xl sm:text-5xl md:text-6xl font-black mb-4 text-stone-900 leading-tight",
-                            style: {
-                                fontFamily: "Poppins, sans-serif"
-                            },
-                            children: "NOS VARI\xc9T\xc9S"
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "max-w-7xl mx-auto",
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        className: "text-center mb-8 sm:mb-12",
+                        children: [
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+                                className: "text-3xl sm:text-5xl md:text-6xl font-black mb-4 text-stone-900 leading-tight",
+                                style: {
+                                    fontFamily: "Poppins, sans-serif"
+                                },
+                                children: "NOS VARI\xc9T\xc9S"
+                            }, void 0, false, {
+                                fileName: "src/Components/DegueLabProducts.jsx",
+                                lineNumber: 78,
+                                columnNumber: 11
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                className: "text-base sm:text-xl text-stone-600 max-w-3xl mx-auto",
+                                children: "Une s\xe9lection premium de degu\xe9 et de yaourt artisanal, avec options fruits et prot\xe9ines."
+                            }, void 0, false, {
+                                fileName: "src/Components/DegueLabProducts.jsx",
+                                lineNumber: 81,
+                                columnNumber: 11
+                            }, undefined)
+                        ]
+                    }, void 0, true, {
+                        fileName: "src/Components/DegueLabProducts.jsx",
+                        lineNumber: 77,
+                        columnNumber: 9
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        className: "mb-8 sm:mb-12",
+                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "flex flex-wrap justify-center gap-2 sm:gap-4",
+                            children: categories.map((cat)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                    onClick: ()=>setActiveCategory(cat.id),
+                                    className: `px-4 sm:px-6 py-2.5 sm:py-3 rounded-full text-sm sm:text-base font-semibold transition-all duration-300 transform hover:scale-[1.02] max-w-full ${activeCategory === cat.id ? "bg-stone-900 text-white shadow-md" : "bg-white text-stone-700 border border-stone-200 hover:bg-stone-100 shadow-sm"}`,
+                                    children: cat.name
+                                }, cat.id, false, {
+                                    fileName: "src/Components/DegueLabProducts.jsx",
+                                    lineNumber: 89,
+                                    columnNumber: 15
+                                }, undefined))
                         }, void 0, false, {
                             fileName: "src/Components/DegueLabProducts.jsx",
-                            lineNumber: 34,
-                            columnNumber: 11
-                        }, undefined),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                            className: "text-base sm:text-xl text-stone-600 max-w-3xl mx-auto",
-                            children: "Une s\xe9lection premium de degu\xe9 et de yaourt artisanal, avec options fruits et prot\xe9ines."
-                        }, void 0, false, {
-                            fileName: "src/Components/DegueLabProducts.jsx",
-                            lineNumber: 37,
+                            lineNumber: 87,
                             columnNumber: 11
                         }, undefined)
-                    ]
-                }, void 0, true, {
-                    fileName: "src/Components/DegueLabProducts.jsx",
-                    lineNumber: 33,
-                    columnNumber: 9
-                }, undefined),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                    className: "mb-8 sm:mb-12",
-                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                        className: "flex flex-wrap justify-center gap-2 sm:gap-4",
-                        children: categories.map((cat)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                                onClick: ()=>setActiveCategory(cat.id),
-                                className: `px-4 sm:px-6 py-2.5 sm:py-3 rounded-full text-sm sm:text-base font-semibold transition-all duration-300 transform hover:scale-[1.02] max-w-full ${activeCategory === cat.id ? "bg-stone-900 text-white shadow-md" : "bg-white text-stone-700 border border-stone-200 hover:bg-stone-100 shadow-sm"}`,
-                                children: cat.name
-                            }, cat.id, false, {
+                    }, void 0, false, {
+                        fileName: "src/Components/DegueLabProducts.jsx",
+                        lineNumber: 86,
+                        columnNumber: 9
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        className: "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6",
+                        children: filteredProducts.map((product)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                className: "bg-white rounded-3xl border border-stone-200 overflow-hidden transform hover:scale-[1.02] transition-all duration-300 hover:shadow-xl min-w-0",
+                                children: [
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                        className: "h-44 sm:h-52",
+                                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                                            src: product.image,
+                                            alt: product.name,
+                                            className: "h-full w-full object-cover",
+                                            loading: "lazy"
+                                        }, void 0, false, {
+                                            fileName: "src/Components/DegueLabProducts.jsx",
+                                            lineNumber: 111,
+                                            columnNumber: 17
+                                        }, undefined)
+                                    }, void 0, false, {
+                                        fileName: "src/Components/DegueLabProducts.jsx",
+                                        lineNumber: 110,
+                                        columnNumber: 15
+                                    }, undefined),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                        className: "p-4 sm:p-6 min-w-0",
+                                        children: [
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
+                                                className: "text-lg sm:text-xl font-bold mb-2 text-stone-900 break-words",
+                                                style: {
+                                                    fontFamily: "Poppins, sans-serif"
+                                                },
+                                                children: product.name
+                                            }, void 0, false, {
+                                                fileName: "src/Components/DegueLabProducts.jsx",
+                                                lineNumber: 114,
+                                                columnNumber: 17
+                                            }, undefined),
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                                className: "text-stone-600 text-sm mb-4 min-h-16 sm:h-16 break-words",
+                                                children: product.description
+                                            }, void 0, false, {
+                                                fileName: "src/Components/DegueLabProducts.jsx",
+                                                lineNumber: 117,
+                                                columnNumber: 17
+                                            }, undefined),
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                className: "flex items-center justify-between mb-4",
+                                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                                                    className: "text-xl sm:text-2xl font-black text-stone-900 break-words",
+                                                    children: product.price
+                                                }, void 0, false, {
+                                                    fileName: "src/Components/DegueLabProducts.jsx",
+                                                    lineNumber: 119,
+                                                    columnNumber: 19
+                                                }, undefined)
+                                            }, void 0, false, {
+                                                fileName: "src/Components/DegueLabProducts.jsx",
+                                                lineNumber: 118,
+                                                columnNumber: 17
+                                            }, undefined),
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                className: "flex gap-3",
+                                                children: [
+                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                                        onClick: ()=>handleAddToCart(product),
+                                                        className: `flex-1 font-semibold py-3 px-4 sm:px-6 rounded-full transform hover:scale-[1.02] transition-all duration-300 shadow-md text-sm sm:text-base ${addedProductId === product.id ? "bg-emerald-600 text-white" : "bg-white text-stone-900 border border-stone-900 hover:bg-stone-900 hover:text-white"}`,
+                                                        children: addedProductId === product.id ? "✓ Ajout\xe9" : "Panier"
+                                                    }, void 0, false, {
+                                                        fileName: "src/Components/DegueLabProducts.jsx",
+                                                        lineNumber: 122,
+                                                        columnNumber: 19
+                                                    }, undefined),
+                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                                        onClick: ()=>handleBuy(product),
+                                                        className: "flex-1 bg-stone-900 text-white font-semibold py-3 px-4 sm:px-6 rounded-full hover:bg-stone-800 transform hover:scale-[1.02] transition-all duration-300 shadow-md text-sm sm:text-base",
+                                                        children: "Acheter"
+                                                    }, void 0, false, {
+                                                        fileName: "src/Components/DegueLabProducts.jsx",
+                                                        lineNumber: 132,
+                                                        columnNumber: 19
+                                                    }, undefined)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "src/Components/DegueLabProducts.jsx",
+                                                lineNumber: 121,
+                                                columnNumber: 17
+                                            }, undefined)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "src/Components/DegueLabProducts.jsx",
+                                        lineNumber: 113,
+                                        columnNumber: 15
+                                    }, undefined)
+                                ]
+                            }, product.id, true, {
                                 fileName: "src/Components/DegueLabProducts.jsx",
-                                lineNumber: 45,
-                                columnNumber: 15
+                                lineNumber: 106,
+                                columnNumber: 13
                             }, undefined))
                     }, void 0, false, {
                         fileName: "src/Components/DegueLabProducts.jsx",
-                        lineNumber: 43,
-                        columnNumber: 11
+                        lineNumber: 104,
+                        columnNumber: 9
                     }, undefined)
-                }, void 0, false, {
-                    fileName: "src/Components/DegueLabProducts.jsx",
-                    lineNumber: 42,
-                    columnNumber: 9
-                }, undefined),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                    className: "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6",
-                    children: filteredProducts.map((product)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                            className: "bg-white rounded-3xl border border-stone-200 overflow-hidden transform hover:scale-[1.02] transition-all duration-300 hover:shadow-xl min-w-0",
-                            children: [
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                    className: "h-44 sm:h-52",
-                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                                        src: product.image,
-                                        alt: product.name,
-                                        className: "h-full w-full object-cover",
-                                        loading: "lazy"
-                                    }, void 0, false, {
-                                        fileName: "src/Components/DegueLabProducts.jsx",
-                                        lineNumber: 67,
-                                        columnNumber: 17
-                                    }, undefined)
-                                }, void 0, false, {
-                                    fileName: "src/Components/DegueLabProducts.jsx",
-                                    lineNumber: 66,
-                                    columnNumber: 15
-                                }, undefined),
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                    className: "p-4 sm:p-6 min-w-0",
-                                    children: [
-                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
-                                            className: "text-lg sm:text-xl font-bold mb-2 text-stone-900 break-words",
-                                            style: {
-                                                fontFamily: "Poppins, sans-serif"
-                                            },
-                                            children: product.name
-                                        }, void 0, false, {
-                                            fileName: "src/Components/DegueLabProducts.jsx",
-                                            lineNumber: 70,
-                                            columnNumber: 17
-                                        }, undefined),
-                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                                            className: "text-stone-600 text-sm mb-4 min-h-16 sm:h-16 break-words",
-                                            children: product.description
-                                        }, void 0, false, {
-                                            fileName: "src/Components/DegueLabProducts.jsx",
-                                            lineNumber: 73,
-                                            columnNumber: 17
-                                        }, undefined),
-                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                            className: "flex items-center justify-between mb-4",
-                                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-                                                className: "text-xl sm:text-2xl font-black text-stone-900 break-words",
-                                                children: product.price
-                                            }, void 0, false, {
-                                                fileName: "src/Components/DegueLabProducts.jsx",
-                                                lineNumber: 75,
-                                                columnNumber: 19
-                                            }, undefined)
-                                        }, void 0, false, {
-                                            fileName: "src/Components/DegueLabProducts.jsx",
-                                            lineNumber: 74,
-                                            columnNumber: 17
-                                        }, undefined),
-                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                                            onClick: ()=>handleBuy(product),
-                                            className: "w-full bg-stone-900 text-white font-semibold py-3 px-4 sm:px-6 rounded-full hover:bg-stone-800 transform hover:scale-[1.02] transition-all duration-300 shadow-md text-sm sm:text-base",
-                                            children: "Acheter"
-                                        }, void 0, false, {
-                                            fileName: "src/Components/DegueLabProducts.jsx",
-                                            lineNumber: 77,
-                                            columnNumber: 17
-                                        }, undefined)
-                                    ]
-                                }, void 0, true, {
-                                    fileName: "src/Components/DegueLabProducts.jsx",
-                                    lineNumber: 69,
-                                    columnNumber: 15
-                                }, undefined)
-                            ]
-                        }, product.id, true, {
-                            fileName: "src/Components/DegueLabProducts.jsx",
-                            lineNumber: 62,
-                            columnNumber: 13
-                        }, undefined))
-                }, void 0, false, {
-                    fileName: "src/Components/DegueLabProducts.jsx",
-                    lineNumber: 60,
-                    columnNumber: 9
-                }, undefined)
-            ]
-        }, void 0, true, {
-            fileName: "src/Components/DegueLabProducts.jsx",
-            lineNumber: 32,
-            columnNumber: 7
-        }, undefined)
-    }, void 0, false, {
+                ]
+            }, void 0, true, {
+                fileName: "src/Components/DegueLabProducts.jsx",
+                lineNumber: 76,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _productOptionsModalDefault.default), {
+                product: selectedProductForModal,
+                isOpen: isModalOpen,
+                mode: modalMode,
+                onClose: ()=>setIsModalOpen(false),
+                onAddToCart: handleConfirmOption
+            }, void 0, false, {
+                fileName: "src/Components/DegueLabProducts.jsx",
+                lineNumber: 144,
+                columnNumber: 7
+            }, undefined)
+        ]
+    }, void 0, true, {
         fileName: "src/Components/DegueLabProducts.jsx",
-        lineNumber: 31,
+        lineNumber: 75,
         columnNumber: 5
     }, undefined);
 };
-_s(DegueLabProducts, "MyB0t2bxtn+m0z+YiZvImsEbBuU=", false, function() {
+_s(DegueLabProducts, "Gdk2EbleerxvAcIuorGvfggsLzw=", false, function() {
     return [
-        (0, _reactRouterDom.useSearchParams)
+        (0, _reactRouterDom.useSearchParams),
+        (0, _cartContext.useCart)
     ];
 });
 _c = DegueLabProducts;
@@ -36183,7 +36774,7 @@ $RefreshReg$(_c, "DegueLabProducts");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","../utils/whatsappOrder":"1hJiS","react-router-dom":"9xmpe","../utils/degueProducts":"kNiLu"}],"6Qjep":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"9xmpe","../utils/whatsappOrder":"1hJiS","../utils/degueProducts":"kNiLu","../CartContext":"8ZrOT","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./ProductOptionsModal":"dP4wh"}],"6Qjep":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$a0cc = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -36445,6 +37036,424 @@ $RefreshReg$(_c, "DegueLabAbout");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","../utils/whatsappOrder":"1hJiS"}]},["1xC6H","ShInH","8lqZg"], "8lqZg", "parcelRequire2aef")
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../utils/whatsappOrder":"1hJiS","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"bdOBs":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$da68 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$da68.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+/**
+ * Degue Lab - Cart Drawer
+ * Panier qui s'ouvre sur le côté
+ */ var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _cartContext = require("../CartContext");
+var _whatsappOrder = require("../utils/whatsappOrder");
+var _s = $RefreshSig$();
+const CartDrawer = ()=>{
+    _s();
+    const { cartItems , isCartOpen , closeCart , removeFromCart , updateQuantity , clearCart  } = (0, _cartContext.useCart)();
+    const calculateTotal = ()=>{
+        return cartItems.reduce((total, item)=>{
+            const price = parseFloat(item.price.replace(/[^\d.]/g, ""));
+            return total + price * item.quantity;
+        }, 0);
+    };
+    const handleOrderFromCart = async ()=>{
+        if (cartItems.length === 0) return;
+        const items = cartItems.map((item)=>`${item.name} (x${item.quantity}) - ${item.price}`).join("\n");
+        const total = calculateTotal().toFixed(2);
+        const message = `Bonjour! Je souhaite commander:\n\n${items}\n\nTotal: ${total} XOF`;
+        await (0, _whatsappOrder.openWhatsAppWithLocation)(message);
+        clearCart();
+        closeCart();
+    };
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
+        children: [
+            isCartOpen && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "fixed inset-0 bg-black bg-opacity-50 z-40 transition-opacity duration-300",
+                onClick: closeCart
+            }, void 0, false, {
+                fileName: "src/Components/CartDrawer.jsx",
+                lineNumber: 39,
+                columnNumber: 9
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: `fixed top-0 right-0 h-full w-full sm:w-96 bg-white shadow-2xl z-50 transform transition-transform duration-300 overflow-y-auto ${isCartOpen ? "translate-x-0" : "translate-x-full"}`,
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                    className: "flex flex-col h-full",
+                    children: [
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "flex items-center justify-between p-4 sm:p-6 border-b border-stone-200 sticky top-0 bg-white",
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+                                    className: "text-2xl font-black text-stone-900",
+                                    style: {
+                                        fontFamily: "Poppins, sans-serif"
+                                    },
+                                    children: "PANIER"
+                                }, void 0, false, {
+                                    fileName: "src/Components/CartDrawer.jsx",
+                                    lineNumber: 54,
+                                    columnNumber: 13
+                                }, undefined),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                    onClick: closeCart,
+                                    className: "text-stone-600 hover:text-stone-900 p-2 rounded-lg hover:bg-stone-100 transition-colors",
+                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("svg", {
+                                        className: "w-6 h-6",
+                                        fill: "none",
+                                        stroke: "currentColor",
+                                        viewBox: "0 0 24 24",
+                                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("path", {
+                                            strokeLinecap: "round",
+                                            strokeLinejoin: "round",
+                                            strokeWidth: 2,
+                                            d: "M6 18L18 6M6 6l12 12"
+                                        }, void 0, false, {
+                                            fileName: "src/Components/CartDrawer.jsx",
+                                            lineNumber: 62,
+                                            columnNumber: 17
+                                        }, undefined)
+                                    }, void 0, false, {
+                                        fileName: "src/Components/CartDrawer.jsx",
+                                        lineNumber: 61,
+                                        columnNumber: 15
+                                    }, undefined)
+                                }, void 0, false, {
+                                    fileName: "src/Components/CartDrawer.jsx",
+                                    lineNumber: 57,
+                                    columnNumber: 13
+                                }, undefined)
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/Components/CartDrawer.jsx",
+                            lineNumber: 53,
+                            columnNumber: 11
+                        }, undefined),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "flex-1 overflow-y-auto p-4 sm:p-6",
+                            children: cartItems.length === 0 ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                className: "text-center py-12",
+                                children: [
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("svg", {
+                                        className: "w-16 h-16 mx-auto mb-4 text-stone-300",
+                                        fill: "none",
+                                        stroke: "currentColor",
+                                        viewBox: "0 0 24 24",
+                                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("path", {
+                                            strokeLinecap: "round",
+                                            strokeLinejoin: "round",
+                                            strokeWidth: 1.5,
+                                            d: "M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
+                                        }, void 0, false, {
+                                            fileName: "src/Components/CartDrawer.jsx",
+                                            lineNumber: 77,
+                                            columnNumber: 19
+                                        }, undefined)
+                                    }, void 0, false, {
+                                        fileName: "src/Components/CartDrawer.jsx",
+                                        lineNumber: 71,
+                                        columnNumber: 17
+                                    }, undefined),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                        className: "text-lg text-stone-600",
+                                        children: "Votre panier est vide"
+                                    }, void 0, false, {
+                                        fileName: "src/Components/CartDrawer.jsx",
+                                        lineNumber: 84,
+                                        columnNumber: 17
+                                    }, undefined)
+                                ]
+                            }, void 0, true, {
+                                fileName: "src/Components/CartDrawer.jsx",
+                                lineNumber: 70,
+                                columnNumber: 15
+                            }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                className: "space-y-4",
+                                children: cartItems.map((item)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                        className: "bg-stone-50 rounded-2xl p-4 border border-stone-200 hover:border-stone-300 transition-colors",
+                                        children: [
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                className: "flex gap-3 mb-3",
+                                                children: [
+                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                                                        src: item.image,
+                                                        alt: item.name,
+                                                        className: "w-16 h-16 object-cover rounded-lg flex-shrink-0"
+                                                    }, void 0, false, {
+                                                        fileName: "src/Components/CartDrawer.jsx",
+                                                        lineNumber: 94,
+                                                        columnNumber: 23
+                                                    }, undefined),
+                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                        className: "flex-1 min-w-0",
+                                                        children: [
+                                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
+                                                                className: "font-bold text-stone-900 break-words text-sm",
+                                                                children: [
+                                                                    item.name,
+                                                                    item.selectedOption && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                                                                        className: "text-emerald-600 font-semibold",
+                                                                        children: [
+                                                                            " (",
+                                                                            item.selectedOption,
+                                                                            ")"
+                                                                        ]
+                                                                    }, void 0, true, {
+                                                                        fileName: "src/Components/CartDrawer.jsx",
+                                                                        lineNumber: 102,
+                                                                        columnNumber: 51
+                                                                    }, undefined)
+                                                                ]
+                                                            }, void 0, true, {
+                                                                fileName: "src/Components/CartDrawer.jsx",
+                                                                lineNumber: 100,
+                                                                columnNumber: 25
+                                                            }, undefined),
+                                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                                                className: "text-stone-500 text-xs break-words",
+                                                                children: item.description
+                                                            }, void 0, false, {
+                                                                fileName: "src/Components/CartDrawer.jsx",
+                                                                lineNumber: 104,
+                                                                columnNumber: 25
+                                                            }, undefined),
+                                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                                                className: "font-bold text-stone-900 mt-1",
+                                                                children: item.price
+                                                            }, void 0, false, {
+                                                                fileName: "src/Components/CartDrawer.jsx",
+                                                                lineNumber: 105,
+                                                                columnNumber: 25
+                                                            }, undefined)
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "src/Components/CartDrawer.jsx",
+                                                        lineNumber: 99,
+                                                        columnNumber: 23
+                                                    }, undefined)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "src/Components/CartDrawer.jsx",
+                                                lineNumber: 93,
+                                                columnNumber: 21
+                                            }, undefined),
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                className: "flex items-center justify-between",
+                                                children: [
+                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                        className: "flex items-center border border-stone-200 rounded-full",
+                                                        children: [
+                                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                                                onClick: ()=>updateQuantity(item.cartKey, item.quantity - 1),
+                                                                className: "px-2 py-1 text-stone-600 hover:text-stone-900 text-sm",
+                                                                children: "−"
+                                                            }, void 0, false, {
+                                                                fileName: "src/Components/CartDrawer.jsx",
+                                                                lineNumber: 111,
+                                                                columnNumber: 25
+                                                            }, undefined),
+                                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                                                                className: "px-2 py-1 font-semibold text-sm",
+                                                                children: item.quantity
+                                                            }, void 0, false, {
+                                                                fileName: "src/Components/CartDrawer.jsx",
+                                                                lineNumber: 117,
+                                                                columnNumber: 25
+                                                            }, undefined),
+                                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                                                onClick: ()=>updateQuantity(item.cartKey, item.quantity + 1),
+                                                                className: "px-2 py-1 text-stone-600 hover:text-stone-900 text-sm",
+                                                                children: "+"
+                                                            }, void 0, false, {
+                                                                fileName: "src/Components/CartDrawer.jsx",
+                                                                lineNumber: 118,
+                                                                columnNumber: 25
+                                                            }, undefined)
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "src/Components/CartDrawer.jsx",
+                                                        lineNumber: 110,
+                                                        columnNumber: 23
+                                                    }, undefined),
+                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                                        onClick: ()=>removeFromCart(item.cartKey),
+                                                        className: "text-red-600 hover:text-red-700 font-semibold text-xs",
+                                                        children: "Supprimer"
+                                                    }, void 0, false, {
+                                                        fileName: "src/Components/CartDrawer.jsx",
+                                                        lineNumber: 126,
+                                                        columnNumber: 23
+                                                    }, undefined)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "src/Components/CartDrawer.jsx",
+                                                lineNumber: 109,
+                                                columnNumber: 21
+                                            }, undefined)
+                                        ]
+                                    }, item.cartKey, true, {
+                                        fileName: "src/Components/CartDrawer.jsx",
+                                        lineNumber: 89,
+                                        columnNumber: 19
+                                    }, undefined))
+                            }, void 0, false, {
+                                fileName: "src/Components/CartDrawer.jsx",
+                                lineNumber: 87,
+                                columnNumber: 15
+                            }, undefined)
+                        }, void 0, false, {
+                            fileName: "src/Components/CartDrawer.jsx",
+                            lineNumber: 68,
+                            columnNumber: 11
+                        }, undefined),
+                        cartItems.length > 0 && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "border-t border-stone-200 p-4 sm:p-6 bg-white sticky bottom-0",
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                    className: "space-y-3 mb-4",
+                                    children: [
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                            className: "flex justify-between text-sm text-stone-600",
+                                            children: [
+                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                                                    children: "Sous-total"
+                                                }, void 0, false, {
+                                                    fileName: "src/Components/CartDrawer.jsx",
+                                                    lineNumber: 144,
+                                                    columnNumber: 19
+                                                }, undefined),
+                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                                                    className: "font-semibold",
+                                                    children: [
+                                                        calculateTotal().toFixed(2),
+                                                        " XOF"
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "src/Components/CartDrawer.jsx",
+                                                    lineNumber: 145,
+                                                    columnNumber: 19
+                                                }, undefined)
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "src/Components/CartDrawer.jsx",
+                                            lineNumber: 143,
+                                            columnNumber: 17
+                                        }, undefined),
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                            className: "flex justify-between text-sm text-stone-600 pb-3 border-b border-stone-200",
+                                            children: [
+                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                                                    children: "Livraison"
+                                                }, void 0, false, {
+                                                    fileName: "src/Components/CartDrawer.jsx",
+                                                    lineNumber: 148,
+                                                    columnNumber: 19
+                                                }, undefined),
+                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                                                    className: "font-semibold",
+                                                    children: "Gratuite"
+                                                }, void 0, false, {
+                                                    fileName: "src/Components/CartDrawer.jsx",
+                                                    lineNumber: 149,
+                                                    columnNumber: 19
+                                                }, undefined)
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "src/Components/CartDrawer.jsx",
+                                            lineNumber: 147,
+                                            columnNumber: 17
+                                        }, undefined),
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                            className: "flex justify-between text-lg font-bold text-stone-900",
+                                            children: [
+                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                                                    children: "Total"
+                                                }, void 0, false, {
+                                                    fileName: "src/Components/CartDrawer.jsx",
+                                                    lineNumber: 152,
+                                                    columnNumber: 19
+                                                }, undefined),
+                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                                                    children: [
+                                                        calculateTotal().toFixed(2),
+                                                        " XOF"
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "src/Components/CartDrawer.jsx",
+                                                    lineNumber: 153,
+                                                    columnNumber: 19
+                                                }, undefined)
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "src/Components/CartDrawer.jsx",
+                                            lineNumber: 151,
+                                            columnNumber: 17
+                                        }, undefined)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "src/Components/CartDrawer.jsx",
+                                    lineNumber: 142,
+                                    columnNumber: 15
+                                }, undefined),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                    onClick: handleOrderFromCart,
+                                    className: "w-full bg-stone-900 text-white font-semibold py-3 px-4 rounded-full hover:bg-stone-800 transform hover:scale-[1.02] transition-all duration-300 shadow-md mb-2 text-sm",
+                                    children: "Commander sur WhatsApp"
+                                }, void 0, false, {
+                                    fileName: "src/Components/CartDrawer.jsx",
+                                    lineNumber: 157,
+                                    columnNumber: 15
+                                }, undefined),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                    onClick: clearCart,
+                                    className: "w-full bg-red-100 text-red-600 font-semibold py-2 px-4 rounded-full hover:bg-red-200 transition-all duration-300 text-sm",
+                                    children: "Vider le panier"
+                                }, void 0, false, {
+                                    fileName: "src/Components/CartDrawer.jsx",
+                                    lineNumber: 164,
+                                    columnNumber: 15
+                                }, undefined)
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/Components/CartDrawer.jsx",
+                            lineNumber: 141,
+                            columnNumber: 13
+                        }, undefined)
+                    ]
+                }, void 0, true, {
+                    fileName: "src/Components/CartDrawer.jsx",
+                    lineNumber: 51,
+                    columnNumber: 9
+                }, undefined)
+            }, void 0, false, {
+                fileName: "src/Components/CartDrawer.jsx",
+                lineNumber: 46,
+                columnNumber: 7
+            }, undefined)
+        ]
+    }, void 0, true);
+};
+_s(CartDrawer, "tpcSTaIVlJo/UBlirBAgJRkqF0c=", false, function() {
+    return [
+        (0, _cartContext.useCart)
+    ];
+});
+_c = CartDrawer;
+exports.default = CartDrawer;
+var _c;
+$RefreshReg$(_c, "CartDrawer");
+
+  $parcel$ReactRefreshHelpers$da68.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../CartContext":"8ZrOT","../utils/whatsappOrder":"1hJiS","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"irmnC":[function() {},{}]},["1xC6H","ShInH","8lqZg"], "8lqZg", "parcelRequire2aef")
 
 //# sourceMappingURL=index.975ef6c8.js.map
