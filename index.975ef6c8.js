@@ -34631,40 +34631,88 @@ const DegueLabNav = ()=>{
                             lineNumber: 30,
                             columnNumber: 11
                         }, undefined),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                            onClick: ()=>setIsOpen(!isOpen),
-                            className: "md:hidden text-stone-700 focus:outline-none p-1",
-                            "aria-label": "Ouvrir le menu",
-                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("svg", {
-                                className: "w-7 h-7 sm:w-8 sm:h-8",
-                                fill: "none",
-                                stroke: "currentColor",
-                                viewBox: "0 0 24 24",
-                                children: isOpen ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("path", {
-                                    strokeLinecap: "round",
-                                    strokeLinejoin: "round",
-                                    strokeWidth: 2,
-                                    d: "M6 18L18 6M6 6l12 12"
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "md:hidden flex items-center gap-1",
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                    onClick: toggleCart,
+                                    className: "relative text-stone-700 hover:text-stone-900 transition-colors duration-300 p-2 rounded-lg hover:bg-stone-100",
+                                    "aria-label": "Ouvrir le panier",
+                                    children: [
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("svg", {
+                                            className: "w-6 h-6",
+                                            fill: "none",
+                                            stroke: "currentColor",
+                                            viewBox: "0 0 24 24",
+                                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("path", {
+                                                strokeLinecap: "round",
+                                                strokeLinejoin: "round",
+                                                strokeWidth: 2,
+                                                d: "M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
+                                            }, void 0, false, {
+                                                fileName: "src/Components/DegueLabNav.jsx",
+                                                lineNumber: 68,
+                                                columnNumber: 17
+                                            }, undefined)
+                                        }, void 0, false, {
+                                            fileName: "src/Components/DegueLabNav.jsx",
+                                            lineNumber: 67,
+                                            columnNumber: 15
+                                        }, undefined),
+                                        cartCount > 0 && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                                            className: "absolute -top-1 -right-1 bg-emerald-600 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center",
+                                            children: cartCount
+                                        }, void 0, false, {
+                                            fileName: "src/Components/DegueLabNav.jsx",
+                                            lineNumber: 71,
+                                            columnNumber: 17
+                                        }, undefined)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "src/Components/DegueLabNav.jsx",
+                                    lineNumber: 62,
+                                    columnNumber: 13
+                                }, undefined),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                    onClick: ()=>setIsOpen(!isOpen),
+                                    className: "text-stone-700 focus:outline-none p-1",
+                                    "aria-label": isOpen ? "Fermer le menu" : "Ouvrir le menu",
+                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("svg", {
+                                        className: "w-7 h-7 sm:w-8 sm:h-8",
+                                        fill: "none",
+                                        stroke: "currentColor",
+                                        viewBox: "0 0 24 24",
+                                        children: isOpen ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("path", {
+                                            strokeLinecap: "round",
+                                            strokeLinejoin: "round",
+                                            strokeWidth: 2,
+                                            d: "M6 18L18 6M6 6l12 12"
+                                        }, void 0, false, {
+                                            fileName: "src/Components/DegueLabNav.jsx",
+                                            lineNumber: 83,
+                                            columnNumber: 19
+                                        }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("path", {
+                                            strokeLinecap: "round",
+                                            strokeLinejoin: "round",
+                                            strokeWidth: 2,
+                                            d: "M4 6h16M4 12h16M4 18h16"
+                                        }, void 0, false, {
+                                            fileName: "src/Components/DegueLabNav.jsx",
+                                            lineNumber: 85,
+                                            columnNumber: 19
+                                        }, undefined)
+                                    }, void 0, false, {
+                                        fileName: "src/Components/DegueLabNav.jsx",
+                                        lineNumber: 81,
+                                        columnNumber: 15
+                                    }, undefined)
                                 }, void 0, false, {
                                     fileName: "src/Components/DegueLabNav.jsx",
-                                    lineNumber: 64,
-                                    columnNumber: 17
-                                }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("path", {
-                                    strokeLinecap: "round",
-                                    strokeLinejoin: "round",
-                                    strokeWidth: 2,
-                                    d: "M4 6h16M4 12h16M4 18h16"
-                                }, void 0, false, {
-                                    fileName: "src/Components/DegueLabNav.jsx",
-                                    lineNumber: 66,
-                                    columnNumber: 17
+                                    lineNumber: 76,
+                                    columnNumber: 13
                                 }, undefined)
-                            }, void 0, false, {
-                                fileName: "src/Components/DegueLabNav.jsx",
-                                lineNumber: 62,
-                                columnNumber: 13
-                            }, undefined)
-                        }, void 0, false, {
+                            ]
+                        }, void 0, true, {
                             fileName: "src/Components/DegueLabNav.jsx",
                             lineNumber: 61,
                             columnNumber: 11
@@ -34692,7 +34740,7 @@ const DegueLabNav = ()=>{
                             children: "Accueil"
                         }, void 0, false, {
                             fileName: "src/Components/DegueLabNav.jsx",
-                            lineNumber: 76,
+                            lineNumber: 96,
                             columnNumber: 13
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
@@ -34702,7 +34750,7 @@ const DegueLabNav = ()=>{
                             children: "Nos Vari\xe9t\xe9s"
                         }, void 0, false, {
                             fileName: "src/Components/DegueLabNav.jsx",
-                            lineNumber: 83,
+                            lineNumber: 103,
                             columnNumber: 13
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
@@ -34712,22 +34760,7 @@ const DegueLabNav = ()=>{
                             children: "\xc0 Propos"
                         }, void 0, false, {
                             fileName: "src/Components/DegueLabNav.jsx",
-                            lineNumber: 90,
-                            columnNumber: 13
-                        }, undefined),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                            onClick: ()=>{
-                                toggleCart();
-                                setIsOpen(false);
-                            },
-                            className: "block w-full text-left py-3 px-3 text-stone-700 hover:bg-stone-100 hover:text-stone-900 rounded-lg font-semibold transition-colors duration-300",
-                            children: [
-                                "Panier ",
-                                cartCount > 0 && `(${cartCount})`
-                            ]
-                        }, void 0, true, {
-                            fileName: "src/Components/DegueLabNav.jsx",
-                            lineNumber: 97,
+                            lineNumber: 110,
                             columnNumber: 13
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
@@ -34739,18 +34772,18 @@ const DegueLabNav = ()=>{
                             children: "WhatsApp"
                         }, void 0, false, {
                             fileName: "src/Components/DegueLabNav.jsx",
-                            lineNumber: 106,
+                            lineNumber: 117,
                             columnNumber: 13
                         }, undefined)
                     ]
                 }, void 0, true, {
                     fileName: "src/Components/DegueLabNav.jsx",
-                    lineNumber: 75,
+                    lineNumber: 95,
                     columnNumber: 11
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/Components/DegueLabNav.jsx",
-                lineNumber: 74,
+                lineNumber: 94,
                 columnNumber: 9
             }, undefined)
         ]
