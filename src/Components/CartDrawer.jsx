@@ -21,7 +21,10 @@ const CartDrawer = () => {
     if (cartItems.length === 0) return;
 
     const items = cartItems
-      .map((item) => `${item.name} (x${item.quantity}) - ${item.price}`)
+      .map((item) => {
+        const optionText = item.selectedOption ? ` (${item.selectedOption})` : "";
+        return `${item.name}${optionText} (x${item.quantity}) - ${item.price}`;
+      })
       .join("\n");
 
     const total = calculateTotal().toFixed(2);
