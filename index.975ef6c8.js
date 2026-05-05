@@ -35552,11 +35552,11 @@ const DegueLabHome = ()=>{
                                     className: "bg-white rounded-3xl border border-stone-200 overflow-hidden transform hover:scale-[1.02] transition-all duration-300 hover:shadow-xl min-w-0",
                                     children: [
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                            className: "h-48 sm:h-52 bg-stone-100",
+                                            className: "h-48 sm:h-52",
                                             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
                                                 src: product.image,
                                                 alt: product.name,
-                                                className: "h-full w-full object-contain sm:object-cover",
+                                                className: "h-full w-full object-cover object-center",
                                                 loading: "lazy"
                                             }, void 0, false, {
                                                 fileName: "src/Components/DegueLabHome.jsx",
@@ -36784,11 +36784,11 @@ const DegueLabProducts = ()=>{
                                 className: "bg-white rounded-3xl border border-stone-200 overflow-hidden transform hover:scale-[1.02] transition-all duration-300 hover:shadow-xl min-w-0",
                                 children: [
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                        className: "h-44 sm:h-52 bg-stone-100",
+                                        className: "h-44 sm:h-52",
                                         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
                                             src: product.image,
                                             alt: product.name,
-                                            className: "h-full w-full object-contain sm:object-cover",
+                                            className: "h-full w-full object-cover object-center",
                                             loading: "lazy"
                                         }, void 0, false, {
                                             fileName: "src/Components/DegueLabProducts.jsx",

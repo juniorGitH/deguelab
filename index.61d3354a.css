@@ -736,6 +736,10 @@ img, video {
   object-fit: cover;
 }
 
+.object-center {
+  object-position: center;
+}
+
 .p-1 {
   padding: .25rem;
 }
