@@ -5,9 +5,12 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { openWhatsAppWithLocation } from "../utils/whatsappOrder";
+import { useCart } from "../CartContext";
 
 const DegueLabNav = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { cartCount, toggleCart } = useCart();
+  
   const handleOrderClick = async (event) => {
     event.preventDefault();
     await openWhatsAppWithLocation("Bonjour Degue Lab! Je veux commander.");
@@ -34,6 +37,16 @@ const DegueLabNav = () => {
             <Link to="/about" className="text-stone-700 hover:text-stone-900 font-semibold transition-colors duration-300">
               À Propos
             </Link>
+            <button onClick={toggleCart} className="relative text-stone-700 hover:text-stone-900 font-semibold transition-colors duration-300 p-2 rounded-lg hover:bg-stone-100">
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+              </svg>
+              {cartCount > 0 && (
+                <span className="absolute -top-2 -right-2 bg-emerald-600 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
+                  {cartCount}
+                </span>
+              )}
+            </button>
             <a
               href="https://wa.me/22893733150?text=Bonjour%20Degue%20Lab!"
               onClick={handleOrderClick}
@@ -81,6 +94,15 @@ const DegueLabNav = () => {
             >
               À Propos
             </Link>
+            <button
+              onClick={() => {
+                toggleCart();
+                setIsOpen(false);
+              }}
+              className="block w-full text-left py-3 px-3 text-stone-700 hover:bg-stone-100 hover:text-stone-900 rounded-lg font-semibold transition-colors duration-300"
+            >
+              Panier {cartCount > 0 && `(${cartCount})`}
+            </button>
             <a
               href="https://wa.me/22893733150?text=Bonjour%20Degue%20Lab!"
               onClick={handleOrderClick}

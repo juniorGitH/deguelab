@@ -2,20 +2,65 @@
  * Degue Lab - Page d'accueil
  */
 
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { openWhatsAppWithLocation } from "../utils/whatsappOrder";
 import { degueProducts } from "../utils/degueProducts";
+import { useCart } from "../CartContext";
+import ProductOptionsModal from "./ProductOptionsModal";
 import DegueLabLocation from "./DegueLabLocation";
 
 const DegueLabHome = () => {
+  const [addedProductId, setAddedProductId] = useState(null);
+  const [selectedProductForModal, setSelectedProductForModal] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalMode, setModalMode] = useState("cart");
+  const { addToCart, openCart } = useCart();
   const heroImage =
     "https://images.unsplash.com/photo-1483918793747-5adbf82956c4?auto=format&fit=crop&w=1800&q=80";
 
   const products = degueProducts;
 
+  useEffect(() => {
+    if (addedProductId) {
+      const timer = setTimeout(() => setAddedProductId(null), 2000);
+      return () => clearTimeout(timer);
+    }
+  }, [addedProductId]);
+
   const handleBuy = async (product) => {
-    const message = `Bonjour! Je souhaite acheter: ${product.name} (${product.price})`;
-    await openWhatsAppWithLocation(message);
+    if (product.options && product.options.length > 0) {
+      setSelectedProductForModal(product);
+      setModalMode("buy");
+      setIsModalOpen(true);
+    } else {
+      const message = `Bonjour! Je souhaite acheter: ${product.name} (${product.price})`;
+      await openWhatsAppWithLocation(message);
+    }
+  };
+
+  const handleAddToCart = (product) => {
+    if (product.options && product.options.length > 0) {
+      setSelectedProductForModal(product);
+      setModalMode("cart");
+      setIsModalOpen(true);
+    } else {
+      addToCart(product, 1);
+      setAddedProductId(product.id);
+      openCart();
+    }
+  };
+
+  const handleConfirmOption = async (selectedOption) => {
+    if (modalMode === "cart") {
+      addToCart(selectedProductForModal, 1, selectedOption);
+      setAddedProductId(selectedProductForModal.id);
+      openCart();
+    } else {
+      const message = `Bonjour! Je souhaite acheter: ${selectedProductForModal.name} (${selectedOption}) (${selectedProductForModal.price})`;
+      await openWhatsAppWithLocation(message);
+    }
+    setIsModalOpen(false);
   };
 
   return (
@@ -89,15 +134,27 @@ const DegueLabHome = () => {
                     {product.name}
                   </h3>
                   <p className="text-stone-600 text-sm mb-4 min-h-12 sm:h-12 break-words">{product.description}</p>
-                  <div className="flex items-center justify-between">
+                  <div className="flex items-center justify-between mb-4">
                     <span className="text-xl sm:text-2xl font-black text-stone-900 break-words">{product.price}</span>
                   </div>
-                  <button
-                    onClick={() => handleBuy(product)}
-                    className="w-full mt-4 bg-stone-900 text-white font-semibold py-3 px-4 sm:px-6 rounded-full hover:bg-stone-800 transform hover:scale-[1.02] transition-all duration-300 shadow-md text-sm sm:text-base"
-                  >
-                    Acheter via WhatsApp
-                  </button>
+                  <div className="flex gap-3">
+                    <button
+                      onClick={() => handleAddToCart(product)}
+                      className={`flex-1 font-semibold py-3 px-4 sm:px-6 rounded-full transform hover:scale-[1.02] transition-all duration-300 shadow-md text-sm sm:text-base ${
+                        addedProductId === product.id
+                          ? "bg-emerald-600 text-white"
+                          : "bg-white text-stone-900 border border-stone-900 hover:bg-stone-900 hover:text-white"
+                      }`}
+                    >
+                      {addedProductId === product.id ? "✓ Ajouté" : "Panier"}
+                    </button>
+                    <button
+                      onClick={() => handleBuy(product)}
+                      className="flex-1 bg-stone-900 text-white font-semibold py-3 px-4 sm:px-6 rounded-full hover:bg-stone-800 transform hover:scale-[1.02] transition-all duration-300 shadow-md text-sm sm:text-base"
+                    >
+                      Acheter
+                    </button>
+                  </div>
                 </div>
               </div>
             ))}
@@ -132,6 +189,14 @@ const DegueLabHome = () => {
 
       {/* Section Localisation */}
       <DegueLabLocation />
+      
+      <ProductOptionsModal
+        product={selectedProductForModal}
+        isOpen={isModalOpen}
+        mode={modalMode}
+        onClose={() => setIsModalOpen(false)}
+        onAddToCart={handleConfirmOption}
+      />
     </div>
   );
 };

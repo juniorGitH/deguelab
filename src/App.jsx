@@ -12,6 +12,8 @@ import DegueLabFooter from "./Components/DegueLabFooter";
 import DegueLabHome from "./Components/DegueLabHome";
 import DegueLabProducts from "./Components/DegueLabProducts";
 import DegueLabAbout from "./Components/DegueLabAbout";
+import CartDrawer from "./Components/CartDrawer";
+import { CartProvider } from "./CartContext";
 
 // Styles
 import "./index.css";
@@ -23,6 +25,7 @@ const Layout = ({ children }) => {
       <DegueLabNav />
       <main className="flex-grow">{children}</main>
       <DegueLabFooter />
+      <CartDrawer />
     </div>
   );
 };
@@ -31,21 +34,23 @@ const App = () => {
   const basename = window.location.pathname.startsWith("/deguelab") ? "/deguelab" : "/";
 
   return (
-    <Router basename={basename} future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
-      <Routes>
-        {/* Page d'accueil */}
-        <Route path="/" element={<Layout><DegueLabHome /></Layout>} />
-        
-        {/* Page Produits */}
-        <Route path="/products" element={<Layout><DegueLabProducts /></Layout>} />
-        
-        {/* Page À Propos */}
-        <Route path="/about" element={<Layout><DegueLabAbout /></Layout>} />
-        
-        {/* Route de fallback */}
-        <Route path="*" element={<Layout><DegueLabHome /></Layout>} />
-      </Routes>
-    </Router>
+    <CartProvider>
+      <Router basename={basename} future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+        <Routes>
+          {/* Page d'accueil */}
+          <Route path="/" element={<Layout><DegueLabHome /></Layout>} />
+          
+          {/* Page Produits */}
+          <Route path="/products" element={<Layout><DegueLabProducts /></Layout>} />
+          
+          {/* Page À Propos */}
+          <Route path="/about" element={<Layout><DegueLabAbout /></Layout>} />
+          
+          {/* Route de fallback */}
+          <Route path="*" element={<Layout><DegueLabHome /></Layout>} />
+        </Routes>
+      </Router>
+    </CartProvider>
   );
 };
 

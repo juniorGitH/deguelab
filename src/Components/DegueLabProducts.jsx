@@ -2,15 +2,22 @@
  * Degue Lab - Page Produits
  */
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import { openWhatsAppWithLocation } from "../utils/whatsappOrder";
 import { degueCategories, degueProducts } from "../utils/degueProducts";
+import { useCart } from "../CartContext";
+import ProductOptionsModal from "./ProductOptionsModal";
 
 const DegueLabProducts = () => {
   const [searchParams] = useSearchParams();
+  const [addedProductId, setAddedProductId] = useState(null);
+  const [selectedProductForModal, setSelectedProductForModal] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalMode, setModalMode] = useState("cart");
   const initialCategory = searchParams.get("category") || "all";
   const [activeCategory, setActiveCategory] = useState("all");
+  const { addToCart, openCart } = useCart();
 
   const products = degueProducts;
   const categories = degueCategories;
@@ -20,11 +27,48 @@ const DegueLabProducts = () => {
     setActiveCategory(isValidCategory ? initialCategory : "all");
   }, [initialCategory]);
 
+  useEffect(() => {
+    if (addedProductId) {
+      const timer = setTimeout(() => setAddedProductId(null), 2000);
+      return () => clearTimeout(timer);
+    }
+  }, [addedProductId]);
+
   const filteredProducts = activeCategory === "all" ? products : products.filter((p) => p.category === activeCategory);
 
   const handleBuy = async (product) => {
-    const message = `Bonjour! Je souhaite acheter:\n\n${product.name}\nPrix: ${product.price}\n\n${product.description}`;
-    await openWhatsAppWithLocation(message);
+    if (product.options && product.options.length > 0) {
+      setSelectedProductForModal(product);
+      setModalMode("buy");
+      setIsModalOpen(true);
+    } else {
+      const message = `Bonjour! Je souhaite acheter:\n\n${product.name}\nPrix: ${product.price}\n\n${product.description}`;
+      await openWhatsAppWithLocation(message);
+    }
+  };
+
+  const handleAddToCart = (product) => {
+    if (product.options && product.options.length > 0) {
+      setSelectedProductForModal(product);
+      setModalMode("cart");
+      setIsModalOpen(true);
+    } else {
+      addToCart(product, 1);
+      setAddedProductId(product.id);
+      openCart();
+    }
+  };
+
+  const handleConfirmOption = async (selectedOption) => {
+    if (modalMode === "cart") {
+      addToCart(selectedProductForModal, 1, selectedOption);
+      setAddedProductId(selectedProductForModal.id);
+      openCart();
+    } else {
+      const message = `Bonjour! Je souhaite acheter:\n\n${selectedProductForModal.name} (${selectedOption})\nPrix: ${selectedProductForModal.price}\n\n${selectedProductForModal.description}`;
+      await openWhatsAppWithLocation(message);
+    }
+    setIsModalOpen(false);
   };
 
   return (
@@ -74,17 +118,36 @@ const DegueLabProducts = () => {
                 <div className="flex items-center justify-between mb-4">
                   <span className="text-xl sm:text-2xl font-black text-stone-900 break-words">{product.price}</span>
                 </div>
-                <button
-                  onClick={() => handleBuy(product)}
-                  className="w-full bg-stone-900 text-white font-semibold py-3 px-4 sm:px-6 rounded-full hover:bg-stone-800 transform hover:scale-[1.02] transition-all duration-300 shadow-md text-sm sm:text-base"
-                >
-                  Acheter
-                </button>
+                <div className="flex gap-3">
+                  <button
+                    onClick={() => handleAddToCart(product)}
+                    className={`flex-1 font-semibold py-3 px-4 sm:px-6 rounded-full transform hover:scale-[1.02] transition-all duration-300 shadow-md text-sm sm:text-base ${
+                      addedProductId === product.id
+                        ? "bg-emerald-600 text-white"
+                        : "bg-white text-stone-900 border border-stone-900 hover:bg-stone-900 hover:text-white"
+                    }`}
+                  >
+                    {addedProductId === product.id ? "✓ Ajouté" : "Panier"}
+                  </button>
+                  <button
+                    onClick={() => handleBuy(product)}
+                    className="flex-1 bg-stone-900 text-white font-semibold py-3 px-4 sm:px-6 rounded-full hover:bg-stone-800 transform hover:scale-[1.02] transition-all duration-300 shadow-md text-sm sm:text-base"
+                  >
+                    Acheter
+                  </button>
+                </div>
               </div>
             </div>
           ))}
         </div>
       </div>
+      <ProductOptionsModal
+        product={selectedProductForModal}
+        isOpen={isModalOpen}
+        mode={modalMode}
+        onClose={() => setIsModalOpen(false)}
+        onAddToCart={handleConfirmOption}
+      />
     </div>
   );
 };

@@ -30,7 +30,11 @@ export const degueProducts = [
     description: "Degue fruité avec granola croustillant.",
     price: "2000 FCFA",
     image: degueFruiterGranolaImage,
-    category: "fruits"
+    category: "fruits",
+    options: [
+      { name: "mil", label: "Mil" },
+      { name: "couscous", label: "Couscous" }
+    ]
   },
   {
     id: 4,
@@ -38,7 +42,11 @@ export const degueProducts = [
     description: "Mélange fruité frais.",
     price: "1500 FCFA",
     image: Deguefruit,
-    category: "fruits"
+    category: "fruits",
+    options: [
+      { name: "mil", label: "Mil" },
+      { name: "couscous", label: "Couscous" }
+    ]
   },
   {
     id: 5,
