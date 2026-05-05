@@ -37065,7 +37065,10 @@ const CartDrawer = ()=>{
     };
     const handleOrderFromCart = async ()=>{
         if (cartItems.length === 0) return;
-        const items = cartItems.map((item)=>`${item.name} (x${item.quantity}) - ${item.price}`).join("\n");
+        const items = cartItems.map((item)=>{
+            const optionText = item.selectedOption ? ` (${item.selectedOption})` : "";
+            return `${item.name}${optionText} (x${item.quantity}) - ${item.price}`;
+        }).join("\n");
         const total = calculateTotal().toFixed(2);
         const message = `Bonjour! Je souhaite commander:\n\n${items}\n\nTotal: ${total} XOF`;
         await (0, _whatsappOrder.openWhatsAppWithLocation)(message);
@@ -37079,7 +37082,7 @@ const CartDrawer = ()=>{
                 onClick: closeCart
             }, void 0, false, {
                 fileName: "src/Components/CartDrawer.jsx",
-                lineNumber: 39,
+                lineNumber: 42,
                 columnNumber: 9
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -37098,7 +37101,7 @@ const CartDrawer = ()=>{
                                     children: "PANIER"
                                 }, void 0, false, {
                                     fileName: "src/Components/CartDrawer.jsx",
-                                    lineNumber: 54,
+                                    lineNumber: 57,
                                     columnNumber: 13
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -37116,23 +37119,23 @@ const CartDrawer = ()=>{
                                             d: "M6 18L18 6M6 6l12 12"
                                         }, void 0, false, {
                                             fileName: "src/Components/CartDrawer.jsx",
-                                            lineNumber: 62,
+                                            lineNumber: 65,
                                             columnNumber: 17
                                         }, undefined)
                                     }, void 0, false, {
                                         fileName: "src/Components/CartDrawer.jsx",
-                                        lineNumber: 61,
+                                        lineNumber: 64,
                                         columnNumber: 15
                                     }, undefined)
                                 }, void 0, false, {
                                     fileName: "src/Components/CartDrawer.jsx",
-                                    lineNumber: 57,
+                                    lineNumber: 60,
                                     columnNumber: 13
                                 }, undefined)
                             ]
                         }, void 0, true, {
                             fileName: "src/Components/CartDrawer.jsx",
-                            lineNumber: 53,
+                            lineNumber: 56,
                             columnNumber: 11
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -37152,12 +37155,12 @@ const CartDrawer = ()=>{
                                             d: "M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
                                         }, void 0, false, {
                                             fileName: "src/Components/CartDrawer.jsx",
-                                            lineNumber: 77,
+                                            lineNumber: 80,
                                             columnNumber: 19
                                         }, undefined)
                                     }, void 0, false, {
                                         fileName: "src/Components/CartDrawer.jsx",
-                                        lineNumber: 71,
+                                        lineNumber: 74,
                                         columnNumber: 17
                                     }, undefined),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -37165,13 +37168,13 @@ const CartDrawer = ()=>{
                                         children: "Votre panier est vide"
                                     }, void 0, false, {
                                         fileName: "src/Components/CartDrawer.jsx",
-                                        lineNumber: 84,
+                                        lineNumber: 87,
                                         columnNumber: 17
                                     }, undefined)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/Components/CartDrawer.jsx",
-                                lineNumber: 70,
+                                lineNumber: 73,
                                 columnNumber: 15
                             }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                                 className: "space-y-4",
@@ -37187,7 +37190,7 @@ const CartDrawer = ()=>{
                                                         className: "w-16 h-16 object-cover rounded-lg flex-shrink-0"
                                                     }, void 0, false, {
                                                         fileName: "src/Components/CartDrawer.jsx",
-                                                        lineNumber: 94,
+                                                        lineNumber: 97,
                                                         columnNumber: 23
                                                     }, undefined),
                                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -37206,13 +37209,13 @@ const CartDrawer = ()=>{
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "src/Components/CartDrawer.jsx",
-                                                                        lineNumber: 102,
+                                                                        lineNumber: 105,
                                                                         columnNumber: 51
                                                                     }, undefined)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "src/Components/CartDrawer.jsx",
-                                                                lineNumber: 100,
+                                                                lineNumber: 103,
                                                                 columnNumber: 25
                                                             }, undefined),
                                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -37220,7 +37223,7 @@ const CartDrawer = ()=>{
                                                                 children: item.description
                                                             }, void 0, false, {
                                                                 fileName: "src/Components/CartDrawer.jsx",
-                                                                lineNumber: 104,
+                                                                lineNumber: 107,
                                                                 columnNumber: 25
                                                             }, undefined),
                                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -37228,19 +37231,19 @@ const CartDrawer = ()=>{
                                                                 children: item.price
                                                             }, void 0, false, {
                                                                 fileName: "src/Components/CartDrawer.jsx",
-                                                                lineNumber: 105,
+                                                                lineNumber: 108,
                                                                 columnNumber: 25
                                                             }, undefined)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "src/Components/CartDrawer.jsx",
-                                                        lineNumber: 99,
+                                                        lineNumber: 102,
                                                         columnNumber: 23
                                                     }, undefined)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "src/Components/CartDrawer.jsx",
-                                                lineNumber: 93,
+                                                lineNumber: 96,
                                                 columnNumber: 21
                                             }, undefined),
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -37255,7 +37258,7 @@ const CartDrawer = ()=>{
                                                                 children: "−"
                                                             }, void 0, false, {
                                                                 fileName: "src/Components/CartDrawer.jsx",
-                                                                lineNumber: 111,
+                                                                lineNumber: 114,
                                                                 columnNumber: 25
                                                             }, undefined),
                                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
@@ -37263,7 +37266,7 @@ const CartDrawer = ()=>{
                                                                 children: item.quantity
                                                             }, void 0, false, {
                                                                 fileName: "src/Components/CartDrawer.jsx",
-                                                                lineNumber: 117,
+                                                                lineNumber: 120,
                                                                 columnNumber: 25
                                                             }, undefined),
                                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -37272,13 +37275,13 @@ const CartDrawer = ()=>{
                                                                 children: "+"
                                                             }, void 0, false, {
                                                                 fileName: "src/Components/CartDrawer.jsx",
-                                                                lineNumber: 118,
+                                                                lineNumber: 121,
                                                                 columnNumber: 25
                                                             }, undefined)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "src/Components/CartDrawer.jsx",
-                                                        lineNumber: 110,
+                                                        lineNumber: 113,
                                                         columnNumber: 23
                                                     }, undefined),
                                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -37287,29 +37290,29 @@ const CartDrawer = ()=>{
                                                         children: "Supprimer"
                                                     }, void 0, false, {
                                                         fileName: "src/Components/CartDrawer.jsx",
-                                                        lineNumber: 126,
+                                                        lineNumber: 129,
                                                         columnNumber: 23
                                                     }, undefined)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "src/Components/CartDrawer.jsx",
-                                                lineNumber: 109,
+                                                lineNumber: 112,
                                                 columnNumber: 21
                                             }, undefined)
                                         ]
                                     }, item.cartKey, true, {
                                         fileName: "src/Components/CartDrawer.jsx",
-                                        lineNumber: 89,
+                                        lineNumber: 92,
                                         columnNumber: 19
                                     }, undefined))
                             }, void 0, false, {
                                 fileName: "src/Components/CartDrawer.jsx",
-                                lineNumber: 87,
+                                lineNumber: 90,
                                 columnNumber: 15
                             }, undefined)
                         }, void 0, false, {
                             fileName: "src/Components/CartDrawer.jsx",
-                            lineNumber: 68,
+                            lineNumber: 71,
                             columnNumber: 11
                         }, undefined),
                         cartItems.length > 0 && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -37324,7 +37327,7 @@ const CartDrawer = ()=>{
                                                 children: "Total"
                                             }, void 0, false, {
                                                 fileName: "src/Components/CartDrawer.jsx",
-                                                lineNumber: 144,
+                                                lineNumber: 147,
                                                 columnNumber: 19
                                             }, undefined),
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
@@ -37334,18 +37337,18 @@ const CartDrawer = ()=>{
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "src/Components/CartDrawer.jsx",
-                                                lineNumber: 145,
+                                                lineNumber: 148,
                                                 columnNumber: 19
                                             }, undefined)
                                         ]
                                     }, void 0, true, {
                                         fileName: "src/Components/CartDrawer.jsx",
-                                        lineNumber: 143,
+                                        lineNumber: 146,
                                         columnNumber: 17
                                     }, undefined)
                                 }, void 0, false, {
                                     fileName: "src/Components/CartDrawer.jsx",
-                                    lineNumber: 142,
+                                    lineNumber: 145,
                                     columnNumber: 15
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -37354,24 +37357,24 @@ const CartDrawer = ()=>{
                                     children: "Valider panier"
                                 }, void 0, false, {
                                     fileName: "src/Components/CartDrawer.jsx",
-                                    lineNumber: 149,
+                                    lineNumber: 152,
                                     columnNumber: 15
                                 }, undefined)
                             ]
                         }, void 0, true, {
                             fileName: "src/Components/CartDrawer.jsx",
-                            lineNumber: 141,
+                            lineNumber: 144,
                             columnNumber: 13
                         }, undefined)
                     ]
                 }, void 0, true, {
                     fileName: "src/Components/CartDrawer.jsx",
-                    lineNumber: 51,
+                    lineNumber: 54,
                     columnNumber: 9
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/Components/CartDrawer.jsx",
-                lineNumber: 46,
+                lineNumber: 49,
                 columnNumber: 7
             }, undefined)
         ]
