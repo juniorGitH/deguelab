@@ -140,15 +140,7 @@ const CartDrawer = () => {
           {cartItems.length > 0 && (
             <div className="border-t border-stone-200 p-4 sm:p-6 bg-white sticky bottom-0">
               <div className="space-y-3 mb-4">
-                <div className="flex justify-between text-sm text-stone-600">
-                  <span>Sous-total</span>
-                  <span className="font-semibold">{calculateTotal().toFixed(2)} XOF</span>
-                </div>
-                <div className="flex justify-between text-sm text-stone-600 pb-3 border-b border-stone-200">
-                  <span>Livraison</span>
-                  <span className="font-semibold">Gratuite</span>
-                </div>
-                <div className="flex justify-between text-lg font-bold text-stone-900">
+                <div className="flex justify-between text-lg font-bold text-stone-900 pb-3 border-b border-stone-200">
                   <span>Total</span>
                   <span>{calculateTotal().toFixed(2)} XOF</span>
                 </div>
@@ -156,16 +148,9 @@ const CartDrawer = () => {
 
               <button
                 onClick={handleOrderFromCart}
-                className="w-full bg-stone-900 text-white font-semibold py-3 px-4 rounded-full hover:bg-stone-800 transform hover:scale-[1.02] transition-all duration-300 shadow-md mb-2 text-sm"
+                className="w-full bg-stone-900 text-white font-semibold py-3 px-4 rounded-full hover:bg-stone-800 transform hover:scale-[1.02] transition-all duration-300 shadow-md text-sm"
               >
-                Commander sur WhatsApp
-              </button>
-
-              <button
-                onClick={clearCart}
-                className="w-full bg-red-100 text-red-600 font-semibold py-2 px-4 rounded-full hover:bg-red-200 transition-all duration-300 text-sm"
-              >
-                Vider le panier
+                Valider panier
               </button>
             </div>
           )}
