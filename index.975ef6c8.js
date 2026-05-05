@@ -37317,106 +37317,44 @@ const CartDrawer = ()=>{
                             children: [
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                                     className: "space-y-3 mb-4",
-                                    children: [
-                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                            className: "flex justify-between text-sm text-stone-600",
-                                            children: [
-                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-                                                    children: "Sous-total"
-                                                }, void 0, false, {
-                                                    fileName: "src/Components/CartDrawer.jsx",
-                                                    lineNumber: 144,
-                                                    columnNumber: 19
-                                                }, undefined),
-                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-                                                    className: "font-semibold",
-                                                    children: [
-                                                        calculateTotal().toFixed(2),
-                                                        " XOF"
-                                                    ]
-                                                }, void 0, true, {
-                                                    fileName: "src/Components/CartDrawer.jsx",
-                                                    lineNumber: 145,
-                                                    columnNumber: 19
-                                                }, undefined)
-                                            ]
-                                        }, void 0, true, {
-                                            fileName: "src/Components/CartDrawer.jsx",
-                                            lineNumber: 143,
-                                            columnNumber: 17
-                                        }, undefined),
-                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                            className: "flex justify-between text-sm text-stone-600 pb-3 border-b border-stone-200",
-                                            children: [
-                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-                                                    children: "Livraison"
-                                                }, void 0, false, {
-                                                    fileName: "src/Components/CartDrawer.jsx",
-                                                    lineNumber: 148,
-                                                    columnNumber: 19
-                                                }, undefined),
-                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-                                                    className: "font-semibold",
-                                                    children: "Gratuite"
-                                                }, void 0, false, {
-                                                    fileName: "src/Components/CartDrawer.jsx",
-                                                    lineNumber: 149,
-                                                    columnNumber: 19
-                                                }, undefined)
-                                            ]
-                                        }, void 0, true, {
-                                            fileName: "src/Components/CartDrawer.jsx",
-                                            lineNumber: 147,
-                                            columnNumber: 17
-                                        }, undefined),
-                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                            className: "flex justify-between text-lg font-bold text-stone-900",
-                                            children: [
-                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-                                                    children: "Total"
-                                                }, void 0, false, {
-                                                    fileName: "src/Components/CartDrawer.jsx",
-                                                    lineNumber: 152,
-                                                    columnNumber: 19
-                                                }, undefined),
-                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-                                                    children: [
-                                                        calculateTotal().toFixed(2),
-                                                        " XOF"
-                                                    ]
-                                                }, void 0, true, {
-                                                    fileName: "src/Components/CartDrawer.jsx",
-                                                    lineNumber: 153,
-                                                    columnNumber: 19
-                                                }, undefined)
-                                            ]
-                                        }, void 0, true, {
-                                            fileName: "src/Components/CartDrawer.jsx",
-                                            lineNumber: 151,
-                                            columnNumber: 17
-                                        }, undefined)
-                                    ]
-                                }, void 0, true, {
+                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                        className: "flex justify-between text-lg font-bold text-stone-900 pb-3 border-b border-stone-200",
+                                        children: [
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                                                children: "Total"
+                                            }, void 0, false, {
+                                                fileName: "src/Components/CartDrawer.jsx",
+                                                lineNumber: 144,
+                                                columnNumber: 19
+                                            }, undefined),
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                                                children: [
+                                                    calculateTotal().toFixed(2),
+                                                    " XOF"
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "src/Components/CartDrawer.jsx",
+                                                lineNumber: 145,
+                                                columnNumber: 19
+                                            }, undefined)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "src/Components/CartDrawer.jsx",
+                                        lineNumber: 143,
+                                        columnNumber: 17
+                                    }, undefined)
+                                }, void 0, false, {
                                     fileName: "src/Components/CartDrawer.jsx",
                                     lineNumber: 142,
                                     columnNumber: 15
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                                     onClick: handleOrderFromCart,
-                                    className: "w-full bg-stone-900 text-white font-semibold py-3 px-4 rounded-full hover:bg-stone-800 transform hover:scale-[1.02] transition-all duration-300 shadow-md mb-2 text-sm",
-                                    children: "Commander sur WhatsApp"
+                                    className: "w-full bg-stone-900 text-white font-semibold py-3 px-4 rounded-full hover:bg-stone-800 transform hover:scale-[1.02] transition-all duration-300 shadow-md text-sm",
+                                    children: "Valider panier"
                                 }, void 0, false, {
                                     fileName: "src/Components/CartDrawer.jsx",
-                                    lineNumber: 157,
-                                    columnNumber: 15
-                                }, undefined),
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                                    onClick: clearCart,
-                                    className: "w-full bg-red-100 text-red-600 font-semibold py-2 px-4 rounded-full hover:bg-red-200 transition-all duration-300 text-sm",
-                                    children: "Vider le panier"
-                                }, void 0, false, {
-                                    fileName: "src/Components/CartDrawer.jsx",
-                                    lineNumber: 164,
+                                    lineNumber: 149,
                                     columnNumber: 15
                                 }, undefined)
                             ]
