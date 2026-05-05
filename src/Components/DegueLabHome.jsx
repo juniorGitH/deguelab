@@ -131,8 +131,8 @@ const DegueLabHome = () => {
                 key={product.id}
                 className="bg-white rounded-3xl border border-stone-200 overflow-hidden transform hover:scale-[1.02] transition-all duration-300 hover:shadow-xl min-w-0"
               >
-                <div className="h-48 sm:h-52 bg-stone-100">
-                  <img src={product.image} alt={product.name} className="h-full w-full object-contain sm:object-cover" loading="lazy" />
+                <div className="h-48 sm:h-52">
+                  <img src={product.image} alt={product.name} className="h-full w-full object-cover object-center" loading="lazy" />
                 </div>
                 <div className="p-4 sm:p-6 min-w-0">
                   <h3 className="text-lg sm:text-xl font-bold mb-2 text-stone-900 break-words" style={{ fontFamily: "Poppins, sans-serif" }}>
