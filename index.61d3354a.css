@@ -263,6 +263,11 @@ img, video {
   inset: 0;
 }
 
+.inset-x-0 {
+  left: 0;
+  right: 0;
+}
+
 .-right-1 {
   right: -.25rem;
 }
@@ -530,6 +535,10 @@ img, video {
   cursor: pointer;
 }
 
+.resize {
+  resize: both;
+}
+
 .grid-cols-1 {
   grid-template-columns: repeat(1, minmax(0, 1fr));
 }
@@ -728,10 +737,6 @@ img, video {
   --tw-bg-opacity: .5;
 }
 
-.object-contain {
-  object-fit: contain;
-}
-
 .object-cover {
   object-fit: cover;
 }
@@ -853,6 +858,10 @@ img, video {
 
 .pt-6 {
   padding-top: 1.5rem;
+}
+
+.pt-16 {
+  padding-top: 4rem;
 }
 
 .text-center {
@@ -1271,10 +1280,6 @@ body {
     gap: 2rem;
   }
 
-  .sm\:object-cover {
-    object-fit: cover;
-  }
-
   .sm\:p-12 {
     padding: 3rem;
   }
@@ -1329,6 +1334,10 @@ body {
 
   .sm\:pt-8 {
     padding-top: 2rem;
+  }
+
+  .sm\:pt-20 {
+    padding-top: 5rem;
   }
 
   .sm\:text-2xl {

@@ -27094,7 +27094,7 @@ const Layout = ({ children  })=>{
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("main", {
-                className: "flex-grow",
+                className: "flex-grow pt-16 sm:pt-20",
                 children: children
             }, void 0, false, {
                 fileName: "src/App.jsx",
@@ -34512,14 +34512,59 @@ var _s = $RefreshSig$();
 const DegueLabNav = ()=>{
     _s();
     const [isOpen, setIsOpen] = (0, _react.useState)(false);
+    const location = (0, _reactRouterDom.useLocation)();
     const { cartCount , toggleCart  } = (0, _cartContext.useCart)();
+    const navRef = (0, _react.useRef)(null);
+    (0, _react.useEffect)(()=>{
+        setIsOpen(false);
+    }, [
+        location.pathname
+    ]);
+    (0, _react.useEffect)(()=>{
+        const handleResize = ()=>{
+            if (window.innerWidth >= 768) setIsOpen(false);
+        };
+        window.addEventListener("resize", handleResize);
+        return ()=>{
+            window.removeEventListener("resize", handleResize);
+        };
+    }, []);
+    (0, _react.useEffect)(()=>{
+        if (!isOpen) {
+            document.body.style.overflow = "";
+            return;
+        }
+        document.body.style.overflow = "hidden";
+        const handleKeyDown = (event)=>{
+            if (event.key === "Escape") setIsOpen(false);
+        };
+        const handleOutsideClick = (event)=>{
+            if (navRef.current && !navRef.current.contains(event.target)) setIsOpen(false);
+        };
+        document.addEventListener("keydown", handleKeyDown);
+        document.addEventListener("mousedown", handleOutsideClick);
+        document.addEventListener("touchstart", handleOutsideClick);
+        return ()=>{
+            document.body.style.overflow = "";
+            document.removeEventListener("keydown", handleKeyDown);
+            document.removeEventListener("mousedown", handleOutsideClick);
+            document.removeEventListener("touchstart", handleOutsideClick);
+        };
+    }, [
+        isOpen
+    ]);
+    const handleCartClick = ()=>{
+        setIsOpen(false);
+        toggleCart();
+    };
     const handleOrderClick = async (event)=>{
         event.preventDefault();
         await (0, _whatsappOrder.openWhatsAppWithLocation)("Bonjour Degue Lab! Je veux commander.");
         setIsOpen(false);
     };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("nav", {
-        className: "bg-white border-b border-stone-200 sticky top-0 z-50",
+        ref: navRef,
+        className: "fixed top-0 inset-x-0 bg-white border-b border-stone-200 z-50",
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 className: "max-w-7xl mx-auto px-3 sm:px-6 lg:px-8",
@@ -34529,6 +34574,7 @@ const DegueLabNav = ()=>{
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
                             to: "/",
                             className: "flex items-center space-x-3",
+                            onClick: ()=>setIsOpen(false),
                             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
                                 className: "text-xl sm:text-2xl md:text-3xl font-black text-stone-900 tracking-tight",
                                 style: {
@@ -34537,12 +34583,12 @@ const DegueLabNav = ()=>{
                                 children: "DEGUE LAB"
                             }, void 0, false, {
                                 fileName: "src/Components/DegueLabNav.jsx",
-                                lineNumber: 25,
+                                lineNumber: 82,
                                 columnNumber: 13
                             }, undefined)
                         }, void 0, false, {
                             fileName: "src/Components/DegueLabNav.jsx",
-                            lineNumber: 24,
+                            lineNumber: 81,
                             columnNumber: 11
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -34554,7 +34600,7 @@ const DegueLabNav = ()=>{
                                     children: "Accueil"
                                 }, void 0, false, {
                                     fileName: "src/Components/DegueLabNav.jsx",
-                                    lineNumber: 31,
+                                    lineNumber: 88,
                                     columnNumber: 13
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
@@ -34563,7 +34609,7 @@ const DegueLabNav = ()=>{
                                     children: "Nos Vari\xe9t\xe9s"
                                 }, void 0, false, {
                                     fileName: "src/Components/DegueLabNav.jsx",
-                                    lineNumber: 34,
+                                    lineNumber: 91,
                                     columnNumber: 13
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
@@ -34572,11 +34618,12 @@ const DegueLabNav = ()=>{
                                     children: "\xc0 Propos"
                                 }, void 0, false, {
                                     fileName: "src/Components/DegueLabNav.jsx",
-                                    lineNumber: 37,
+                                    lineNumber: 94,
                                     columnNumber: 13
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                                    onClick: toggleCart,
+                                    type: "button",
+                                    onClick: handleCartClick,
                                     className: "relative text-stone-700 hover:text-stone-900 font-semibold transition-colors duration-300 p-2 rounded-lg hover:bg-stone-100",
                                     children: [
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("svg", {
@@ -34591,12 +34638,12 @@ const DegueLabNav = ()=>{
                                                 d: "M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
                                             }, void 0, false, {
                                                 fileName: "src/Components/DegueLabNav.jsx",
-                                                lineNumber: 42,
+                                                lineNumber: 99,
                                                 columnNumber: 17
                                             }, undefined)
                                         }, void 0, false, {
                                             fileName: "src/Components/DegueLabNav.jsx",
-                                            lineNumber: 41,
+                                            lineNumber: 98,
                                             columnNumber: 15
                                         }, undefined),
                                         cartCount > 0 && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
@@ -34604,13 +34651,13 @@ const DegueLabNav = ()=>{
                                             children: cartCount
                                         }, void 0, false, {
                                             fileName: "src/Components/DegueLabNav.jsx",
-                                            lineNumber: 45,
+                                            lineNumber: 102,
                                             columnNumber: 17
                                         }, undefined)
                                     ]
                                 }, void 0, true, {
                                     fileName: "src/Components/DegueLabNav.jsx",
-                                    lineNumber: 40,
+                                    lineNumber: 97,
                                     columnNumber: 13
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
@@ -34622,20 +34669,21 @@ const DegueLabNav = ()=>{
                                     children: "WhatsApp"
                                 }, void 0, false, {
                                     fileName: "src/Components/DegueLabNav.jsx",
-                                    lineNumber: 50,
+                                    lineNumber: 107,
                                     columnNumber: 13
                                 }, undefined)
                             ]
                         }, void 0, true, {
                             fileName: "src/Components/DegueLabNav.jsx",
-                            lineNumber: 30,
+                            lineNumber: 87,
                             columnNumber: 11
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                             className: "md:hidden flex items-center gap-1",
                             children: [
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                                    onClick: toggleCart,
+                                    type: "button",
+                                    onClick: handleCartClick,
                                     className: "relative text-stone-700 hover:text-stone-900 transition-colors duration-300 p-2 rounded-lg hover:bg-stone-100",
                                     "aria-label": "Ouvrir le panier",
                                     children: [
@@ -34651,12 +34699,12 @@ const DegueLabNav = ()=>{
                                                 d: "M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
                                             }, void 0, false, {
                                                 fileName: "src/Components/DegueLabNav.jsx",
-                                                lineNumber: 68,
+                                                lineNumber: 126,
                                                 columnNumber: 17
                                             }, undefined)
                                         }, void 0, false, {
                                             fileName: "src/Components/DegueLabNav.jsx",
-                                            lineNumber: 67,
+                                            lineNumber: 125,
                                             columnNumber: 15
                                         }, undefined),
                                         cartCount > 0 && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
@@ -34664,19 +34712,22 @@ const DegueLabNav = ()=>{
                                             children: cartCount
                                         }, void 0, false, {
                                             fileName: "src/Components/DegueLabNav.jsx",
-                                            lineNumber: 71,
+                                            lineNumber: 129,
                                             columnNumber: 17
                                         }, undefined)
                                     ]
                                 }, void 0, true, {
                                     fileName: "src/Components/DegueLabNav.jsx",
-                                    lineNumber: 62,
+                                    lineNumber: 119,
                                     columnNumber: 13
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                                    onClick: ()=>setIsOpen(!isOpen),
+                                    type: "button",
+                                    onClick: ()=>setIsOpen((prevOpen)=>!prevOpen),
                                     className: "text-stone-700 focus:outline-none p-1",
                                     "aria-label": isOpen ? "Fermer le menu" : "Ouvrir le menu",
+                                    "aria-expanded": isOpen,
+                                    "aria-controls": "mobile-nav-menu",
                                     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("svg", {
                                         className: "w-7 h-7 sm:w-8 sm:h-8",
                                         fill: "none",
@@ -34689,7 +34740,7 @@ const DegueLabNav = ()=>{
                                             d: "M6 18L18 6M6 6l12 12"
                                         }, void 0, false, {
                                             fileName: "src/Components/DegueLabNav.jsx",
-                                            lineNumber: 83,
+                                            lineNumber: 144,
                                             columnNumber: 19
                                         }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("path", {
                                             strokeLinecap: "round",
@@ -34698,37 +34749,38 @@ const DegueLabNav = ()=>{
                                             d: "M4 6h16M4 12h16M4 18h16"
                                         }, void 0, false, {
                                             fileName: "src/Components/DegueLabNav.jsx",
-                                            lineNumber: 85,
+                                            lineNumber: 146,
                                             columnNumber: 19
                                         }, undefined)
                                     }, void 0, false, {
                                         fileName: "src/Components/DegueLabNav.jsx",
-                                        lineNumber: 81,
+                                        lineNumber: 142,
                                         columnNumber: 15
                                     }, undefined)
                                 }, void 0, false, {
                                     fileName: "src/Components/DegueLabNav.jsx",
-                                    lineNumber: 76,
+                                    lineNumber: 134,
                                     columnNumber: 13
                                 }, undefined)
                             ]
                         }, void 0, true, {
                             fileName: "src/Components/DegueLabNav.jsx",
-                            lineNumber: 61,
+                            lineNumber: 118,
                             columnNumber: 11
                         }, undefined)
                     ]
                 }, void 0, true, {
                     fileName: "src/Components/DegueLabNav.jsx",
-                    lineNumber: 23,
+                    lineNumber: 80,
                     columnNumber: 9
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/Components/DegueLabNav.jsx",
-                lineNumber: 22,
+                lineNumber: 79,
                 columnNumber: 7
             }, undefined),
             isOpen && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                id: "mobile-nav-menu",
                 className: "md:hidden bg-white border-t border-stone-200",
                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                     className: "px-3 pt-2 pb-4 space-y-2",
@@ -34740,7 +34792,7 @@ const DegueLabNav = ()=>{
                             children: "Accueil"
                         }, void 0, false, {
                             fileName: "src/Components/DegueLabNav.jsx",
-                            lineNumber: 96,
+                            lineNumber: 157,
                             columnNumber: 13
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
@@ -34750,7 +34802,7 @@ const DegueLabNav = ()=>{
                             children: "Nos Vari\xe9t\xe9s"
                         }, void 0, false, {
                             fileName: "src/Components/DegueLabNav.jsx",
-                            lineNumber: 103,
+                            lineNumber: 164,
                             columnNumber: 13
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
@@ -34760,7 +34812,7 @@ const DegueLabNav = ()=>{
                             children: "\xc0 Propos"
                         }, void 0, false, {
                             fileName: "src/Components/DegueLabNav.jsx",
-                            lineNumber: 110,
+                            lineNumber: 171,
                             columnNumber: 13
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
@@ -34772,29 +34824,30 @@ const DegueLabNav = ()=>{
                             children: "WhatsApp"
                         }, void 0, false, {
                             fileName: "src/Components/DegueLabNav.jsx",
-                            lineNumber: 117,
+                            lineNumber: 178,
                             columnNumber: 13
                         }, undefined)
                     ]
                 }, void 0, true, {
                     fileName: "src/Components/DegueLabNav.jsx",
-                    lineNumber: 95,
+                    lineNumber: 156,
                     columnNumber: 11
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/Components/DegueLabNav.jsx",
-                lineNumber: 94,
+                lineNumber: 155,
                 columnNumber: 9
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/Components/DegueLabNav.jsx",
-        lineNumber: 21,
+        lineNumber: 78,
         columnNumber: 5
     }, undefined);
 };
-_s(DegueLabNav, "/QkVZh/+D+6tzhN0V5VOgmeuuMY=", false, function() {
+_s(DegueLabNav, "JDpcJMZFxis7ifnVb//12eMr8AU=", false, function() {
     return [
+        (0, _reactRouterDom.useLocation),
         (0, _cartContext.useCart)
     ];
 });
