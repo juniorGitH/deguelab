@@ -34661,7 +34661,7 @@ const DegueLabNav = ()=>{
                                     columnNumber: 13
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
-                                    href: "https://wa.me/22893733150?text=Bonjour%20Degue%20Lab!",
+                                    href: "https://api.whatsapp.com/send?phone=22893733150&text=Bonjour%20Degue%20Lab!",
                                     onClick: handleOrderClick,
                                     target: "_blank",
                                     rel: "noopener noreferrer",
@@ -34816,7 +34816,7 @@ const DegueLabNav = ()=>{
                             columnNumber: 13
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
-                            href: "https://wa.me/22893733150?text=Bonjour%20Degue%20Lab!",
+                            href: "https://api.whatsapp.com/send?phone=22893733150&text=Bonjour%20Degue%20Lab!",
                             onClick: handleOrderClick,
                             target: "_blank",
                             rel: "noopener noreferrer",
@@ -34867,7 +34867,7 @@ parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "openWhatsAppWithLocation", ()=>openWhatsAppWithLocation);
 const WHATSAPP_NUMBER = "22893733150";
 const openWhatsAppWithLocation = async (baseMessage)=>{
-    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(baseMessage)}`;
+    const url = `https://api.whatsapp.com/send?phone=${WHATSAPP_NUMBER}&text=${encodeURIComponent(baseMessage)}`;
     window.open(url, "_blank", "noopener,noreferrer");
 };
 
@@ -35165,7 +35165,7 @@ const DegueLabFooter = ()=>{
                                     columnNumber: 13
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
-                                    href: "https://wa.me/22893733150",
+                                    href: "https://api.whatsapp.com/send?phone=22893733150",
                                     onClick: handleOrderClick,
                                     target: "_blank",
                                     rel: "noopener noreferrer",
@@ -35245,7 +35245,7 @@ const DegueLabFooter = ()=>{
                                         }, undefined),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
                                             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
-                                                href: "https://wa.me/22893733150",
+                                                href: "https://api.whatsapp.com/send?phone=22893733150",
                                                 onClick: handleOrderClick,
                                                 target: "_blank",
                                                 rel: "noopener noreferrer",
@@ -35291,7 +35291,7 @@ const DegueLabFooter = ()=>{
                                     children: [
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
                                             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
-                                                href: "https://wa.me/22893733150",
+                                                href: "https://api.whatsapp.com/send?phone=22893733150",
                                                 onClick: handleOrderClick,
                                                 className: "hover:text-white transition-colors duration-300",
                                                 children: "+228 93 73 31 50"
@@ -37197,7 +37197,7 @@ const DegueLabAbout = ()=>{
                             columnNumber: 11
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
-                            href: "https://wa.me/22893733150?text=Bonjour%20Degue%20Lab!%20Je%20veux%20en%20savoir%20plus",
+                            href: "https://api.whatsapp.com/send?phone=22893733150&text=Bonjour%20Degue%20Lab!%20Je%20veux%20en%20savoir%20plus",
                             onClick: handleContactClick,
                             target: "_blank",
                             rel: "noopener noreferrer",
