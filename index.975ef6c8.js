@@ -34866,18 +34866,34 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "openWhatsAppWithLocation", ()=>openWhatsAppWithLocation);
 const WHATSAPP_NUMBER = "22893733150";
+const MOBILE_USER_AGENT_REGEX = /Android|iPhone|iPad|iPod/i;
+const tryOpenWhatsAppApp = (appUrl)=>{
+    const iframe = document.createElement("iframe");
+    iframe.style.display = "none";
+    iframe.src = appUrl;
+    document.body.appendChild(iframe);
+    window.setTimeout(()=>{
+        if (iframe.parentNode) iframe.parentNode.removeChild(iframe);
+    }, 1000);
+};
 const openWhatsAppWithLocation = (baseMessage)=>{
-    const message = encodeURIComponent(baseMessage);
+    const message = encodeURIComponent(baseMessage || "");
     const appUrl = `whatsapp://send?phone=${WHATSAPP_NUMBER}&text=${message}`;
     const webUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`;
-    if (/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-        window.location.href = appUrl;
-        setTimeout(()=>{
-            window.location.href = webUrl;
-        }, 1500);
+    if (!MOBILE_USER_AGENT_REGEX.test(navigator.userAgent)) {
+        window.open(webUrl, "_blank", "noopener,noreferrer");
         return;
     }
-    window.open(webUrl, "_blank", "noopener,noreferrer");
+    let appOpened = false;
+    const handleVisibilityChange = ()=>{
+        if (document.visibilityState === "hidden") appOpened = true;
+    };
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+    tryOpenWhatsAppApp(appUrl);
+    window.setTimeout(()=>{
+        document.removeEventListener("visibilitychange", handleVisibilityChange);
+        if (!appOpened) window.location.href = webUrl;
+    }, 1200);
 };
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"8ZrOT":[function(require,module,exports) {
