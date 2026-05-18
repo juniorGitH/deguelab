@@ -105,7 +105,7 @@ const DegueLabNav = () => {
               )}
             </button>
             <a
-              href="https://wa.me/22893733150?text=Bonjour%20Degue%20Lab!"
+              href="https://api.whatsapp.com/send?phone=22893733150&text=Bonjour%20Degue%20Lab!"
               onClick={handleOrderClick}
               target="_blank"
               rel="noopener noreferrer"
@@ -176,7 +176,7 @@ const DegueLabNav = () => {
               À Propos
             </Link>
             <a
-              href="https://wa.me/22893733150?text=Bonjour%20Degue%20Lab!"
+              href="https://api.whatsapp.com/send?phone=22893733150&text=Bonjour%20Degue%20Lab!"
               onClick={handleOrderClick}
               target="_blank"
               rel="noopener noreferrer"

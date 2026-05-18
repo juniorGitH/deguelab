@@ -64,7 +64,7 @@ const DegueLabAbout = () => {
           </h2>
           <p className="text-base sm:text-xl mb-6 sm:mb-8">Commandez maintenant via WhatsApp.</p>
           <a
-            href="https://wa.me/22893733150?text=Bonjour%20Degue%20Lab!%20Je%20veux%20en%20savoir%20plus"
+            href="https://api.whatsapp.com/send?phone=22893733150&text=Bonjour%20Degue%20Lab!%20Je%20veux%20en%20savoir%20plus"
             onClick={handleContactClick}
             target="_blank"
             rel="noopener noreferrer"

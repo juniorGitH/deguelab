@@ -24,7 +24,7 @@ const DegueLabFooter = () => {
               L&apos;excellence du degué, du yaourt et des recettes artisanales premium.
             </p>
             <a
-              href="https://wa.me/22893733150"
+              href="https://api.whatsapp.com/send?phone=22893733150"
               onClick={handleOrderClick}
               target="_blank"
               rel="noopener noreferrer"
@@ -56,7 +56,7 @@ const DegueLabFooter = () => {
               </li>
               <li>
                 <a
-                  href="https://wa.me/22893733150"
+                  href="https://api.whatsapp.com/send?phone=22893733150"
                   onClick={handleOrderClick}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -74,7 +74,7 @@ const DegueLabFooter = () => {
             </h3>
             <ul className="space-y-3 text-stone-300 text-sm sm:text-base">
               <li>
-                <a href="https://wa.me/22893733150" onClick={handleOrderClick} className="hover:text-white transition-colors duration-300">
+                <a href="https://api.whatsapp.com/send?phone=22893733150" onClick={handleOrderClick} className="hover:text-white transition-colors duration-300">
                   +228 93 73 31 50
                 </a>
               </li>
